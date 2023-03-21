@@ -10,24 +10,33 @@ using Random = UnityEngine.Random;
 namespace Runtime.Networking.Discovery
 {
     [DisallowMultipleComponent]
-    public abstract class NetworkDiscovery<TBroadCast, TResponse> : MonoBehaviour
-        where TBroadCast : INetworkSerializable, new()
-        where TResponse : INetworkSerializable, new()
+    public abstract class NetworkDiscovery<TBroadCast, TResponse> : MonoBehaviour where TBroadCast : INetworkSerializable, new() where TResponse : INetworkSerializable, new()
     {
+        /// <summary>
+        /// used the differentiate between the client and server messages.
+        /// </summary>
         private enum MessageType : byte
         {
             BroadCast = 0,
             Response = 1,
         }
-
-        UdpClient _client;
-
-        [SerializeField] ushort port = 47777;
+        
+        /// <summary>
+        /// The discovery server's port, the client will broadcast to this port.
+        /// </summary>
+        [SerializeField] private ushort port = 47777;
 
         // This is long because unity inspector does not like ulong.
         [SerializeField, Tooltip("This is the uniqueID of our app, and ensures we don't get mixed up with other apps")]
-        long uniqueApplicationId;
+        private long uniqueApplicationId;
 
+        
+        /// <summary>
+        /// The UdpClient reference, can be null when it's the discovery has not started yet.
+        /// </summary>
+        private UdpClient _client;
+
+        
         /// <summary>
         /// Gets a value indicating whether the discovery is running.
         /// </summary>
@@ -51,6 +60,10 @@ namespace Runtime.Networking.Discovery
             StopDiscovery();
         }
 
+        /// <summary>
+        /// Editor only function that handles changes to the script and makes sure this network discovery has a unique ID.
+        /// This is so we don't listen to invalid or other broadcasting services.
+        /// </summary>
         void OnValidate()
         {
             if (uniqueApplicationId == 0)
@@ -172,6 +185,11 @@ namespace Runtime.Networking.Discovery
             _ = ListenAsync(isServer ? ReceiveBroadcastAsync : new Func<Task>(ReceiveResponseAsync));
         }
 
+        /// <summary>
+        /// The async loop, this is used to call the Listeners for both the server and client and once we receive a
+        /// message it will simply re-run so we get get all messages.
+        /// </summary>
+        /// <param name="onReceiveTask"></param>
         async Task ListenAsync(Func<Task> onReceiveTask)
         {
             while (IsRunning)
@@ -191,6 +209,10 @@ namespace Runtime.Networking.Discovery
             }
         }
 
+        /// <summary>
+        /// is the listener for messages from the server. once we receive a broadcast message it will check if it's from the server.
+        /// and if so it will call the {ResponseReceived} methode.
+        /// </summary>
         async Task ReceiveResponseAsync()
         {
             UdpReceiveResult udpReceiveResult = await _client.ReceiveAsync();
@@ -216,6 +238,10 @@ namespace Runtime.Networking.Discovery
             }
         }
 
+        /// <summary>
+        /// The listener on the server. will listen for broadcast messages from the client and if it receives
+        /// a message it will send it's own data back so the client knows this is a valid server which it can join.
+        /// </summary>
         async Task ReceiveBroadcastAsync()
         {
             Debug.Log("[NetCodeDiscovery] Starting to listen for clients");
@@ -254,6 +280,11 @@ namespace Runtime.Networking.Discovery
             }
         }
     
+        /// <summary>
+        /// Writes the default header that both the client and server messages require.
+        /// </summary>
+        /// <param name="writer">The writer to which we write the data</param>
+        /// <param name="messageType">The type of message we are sending.</param>
         private void WriteHeader(FastBufferWriter writer, MessageType messageType)
         {
             // Serialize unique application id to make sure packet received is from same application.
@@ -263,6 +294,12 @@ namespace Runtime.Networking.Discovery
             writer.WriteByteSafe((byte) messageType);
         }
 
+        /// <summary>
+        /// Check if the packet is send by our application and makes sure it's the type we expect it to be.
+        /// </summary>
+        /// <param name="reader">The buffer from which we read the packet data</param>
+        /// <param name="expectedType">The type we expect this packet to be.</param>
+        /// <returns></returns>
         private bool ReadAndCheckHeader(FastBufferReader reader, MessageType expectedType)
         {
             reader.ReadValueSafe(out long receivedApplicationId);
