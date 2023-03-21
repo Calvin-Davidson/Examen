@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Runtime.Networking.Discovery
 {
+    /// <summary>
+    /// used to render the NetworkDiscovery data, and handles UI input to start our own server or update's the list.
+    /// </summary>
     public class NetworkDiscoveryRenderer : MonoBehaviour
     {
         [SerializeField] private GameObject serverListContainer;

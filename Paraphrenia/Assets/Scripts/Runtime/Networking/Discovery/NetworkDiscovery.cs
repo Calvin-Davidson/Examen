@@ -9,6 +9,11 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.Networking.Discovery
 {
+    /// <summary>
+    /// The abstract class from network discovery, handles all the default logic such as sending and receiving packages.
+    /// </summary>
+    /// <typeparam name="TBroadCast"></typeparam>
+    /// <typeparam name="TResponse"></typeparam>
     [DisallowMultipleComponent]
     public abstract class NetworkDiscovery<TBroadCast, TResponse> : MonoBehaviour where TBroadCast : INetworkSerializable, new() where TResponse : INetworkSerializable, new()
     {

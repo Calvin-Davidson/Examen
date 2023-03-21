@@ -7,6 +7,10 @@ using UnityEngine.Events;
 
 namespace Runtime.Networking.Discovery
 {
+    /// <summary>
+    /// Our custom implementation of the NetworkDiscovery component
+    /// overrides the receive methodes which our custom implementation.
+    /// </summary>
     [RequireComponent(typeof(NetworkManager))]
     public class NetworkDiscoveryHandler : NetworkDiscovery<DiscoveryBroadcastData, DiscoveryResponseData>
     {

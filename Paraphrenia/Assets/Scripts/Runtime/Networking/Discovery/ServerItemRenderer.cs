@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Runtime.Networking.Discovery
 {
+    /// <summary>
+    /// A small rendering component used to display the server information.
+    /// </summary>
     public class ServerItemRenderer : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI serverNameText;
