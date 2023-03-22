@@ -46,6 +46,7 @@ namespace Runtime.Misc
                     transform.parent = null;
                     _isGrabbed = false;
                     onRelease?.Invoke();
+                    return;
                 }
                 // if we are not holding it, we cannot release it.
                 if (_isGrabbed || _playerCollider == null) return;
