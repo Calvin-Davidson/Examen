@@ -7,7 +7,6 @@ namespace Runtime
     {
         [SerializeField] private float walkingSpeed = 7.5f;
         [SerializeField] private float runningSpeed = 11.5f;
-        [SerializeField] private float jumpSpeed = 8.0f;
         [SerializeField] private float gravity = 20.0f;
         [SerializeField] private float lookSpeed = 2.0f;
         [SerializeField] private float lookXLimit = 45.0f;
@@ -34,17 +33,10 @@ namespace Runtime
             bool isRunning = Input.GetKey(KeyCode.LeftShift);
             float curSpeedX = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical");
             float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
-            float movementDirectionY = _moveDirection.y;
             _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
-            if (Input.GetButton("Jump") && IsGrounded())
-            {
-                _moveDirection.y = jumpSpeed;
-            }
-            else
-            {
-                _moveDirection.y = 0;
-            }
+            
+            _moveDirection.y = 0;
+            
             
             if (!IsGrounded())
             {
@@ -56,16 +48,15 @@ namespace Runtime
             _rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             _rotationX = Mathf.Clamp(_rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
+
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
 
         private bool IsGrounded()
         {
-            Ray ray = new Ray(transform.position, Vector3.down);
-
+            Ray ray = new Ray(transform.position, Vector3.down * groundCheckDistance);
             bool didHit = Physics.Raycast(ray, out var hit, groundCheckDistance);
-            Debug.DrawRay(transform.position, Vector3.down * groundCheckDistance);
-            
+
             if (!didHit) return false;
             return true;
             
