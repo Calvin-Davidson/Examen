@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.Misc
 {
@@ -9,6 +10,9 @@ namespace Runtime.Misc
         
         private Collider _playerCollider;
         private bool _isGrabbed = false;
+
+        public UnityEvent onGrab = new();
+        public UnityEvent onRelease = new();
         
         public void OnTriggerEnter(Collider other)
         {
@@ -23,20 +27,22 @@ namespace Runtime.Misc
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _playerCollider != null)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (_isGrabbed)
                 {
                     transform.parent = null;
                     _isGrabbed = false;
+                    onRelease?.Invoke();
                 }
-                else
-                {
-                    if (Vector3.Dot(transform.forward, _playerCollider.transform.forward) < 1 - lookAtTolerance) return;
+                // if we are not holding it, we cannot release it.
+                if (_isGrabbed || _playerCollider == null) return;
+                
+                if (Vector3.Dot(transform.forward, _playerCollider.transform.forward) < 1 - lookAtTolerance) return;
                     
-                    transform.parent = _playerCollider.gameObject.transform;
-                    _isGrabbed = true;
-                }
+                transform.parent = _playerCollider.gameObject.transform;
+                _isGrabbed = true;
+                onGrab?.Invoke();
             }
         }
     }
