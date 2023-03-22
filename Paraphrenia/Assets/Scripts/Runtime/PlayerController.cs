@@ -35,15 +35,7 @@ namespace Runtime
             float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
             _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
             
-            _moveDirection.y = 0;
-            
-            
-            if (!IsGrounded())
-            {
-                _moveDirection.y -= gravity * Time.deltaTime;
-            }
-
-            _characterController.velocity = _moveDirection;
+            _characterController.velocity = new Vector3(_moveDirection.x, _characterController.velocity.y, _moveDirection.z);
 
             _rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             _rotationX = Mathf.Clamp(_rotationX, -lookXLimit, lookXLimit);
