@@ -1,22 +1,25 @@
 using UnityEngine;
 
-namespace Runtime
+namespace Runtime.Player
 {
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float walkingSpeed = 7.5f;
         [SerializeField] private float runningSpeed = 11.5f;
-        [SerializeField] private float gravity = 20.0f;
+
         [SerializeField] private float lookSpeed = 2.0f;
         [SerializeField] private float lookXLimit = 45.0f;
+        
         [SerializeField] private Camera playerCamera;
-        [SerializeField] private float groundCheckDistance = 0.1f;
 
         private Rigidbody _characterController;
         private Vector3 _moveDirection = Vector3.zero;
         private float _rotationX;
 
+        /// <summary>
+        /// Fetches to rigidbody and disables the cursor.
+        /// </summary>
         private void Start()
         {
             _characterController = GetComponent<Rigidbody>();
@@ -25,6 +28,9 @@ namespace Runtime
             Cursor.visible = false;
         }
 
+        /// <summary>
+        /// Simple camera control logic and movement logic.
+        /// </summary>
         private void Update()
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -42,16 +48,6 @@ namespace Runtime
             playerCamera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
 
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        }
-
-        private bool IsGrounded()
-        {
-            Ray ray = new Ray(transform.position, Vector3.down * groundCheckDistance);
-            bool didHit = Physics.Raycast(ray, out var hit, groundCheckDistance);
-
-            if (!didHit) return false;
-            return true;
-            
         }
     }
 }
