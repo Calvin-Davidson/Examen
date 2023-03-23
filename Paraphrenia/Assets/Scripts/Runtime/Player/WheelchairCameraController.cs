@@ -9,16 +9,11 @@ namespace Runtime.Player
         [SerializeField] private float lookYLimit = 45.0f;
 
         [SerializeField] private Camera playerCamera;
-
-        private Rigidbody _characterController;
-
+        
         void Update()
         {
-            float rotationX = 0;
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            
-            float rotationY = 0;
-            rotationY += Input.GetAxis("Mouse X") * lookSpeed;
+            float rotationX = -Input.GetAxis("Mouse Y") * lookSpeed;
+            float rotationY = Input.GetAxis("Mouse X") * lookSpeed; 
 
             Vector3 newRotation = playerCamera.transform.localRotation.eulerAngles + new Vector3(rotationX, rotationY, 0);
 
