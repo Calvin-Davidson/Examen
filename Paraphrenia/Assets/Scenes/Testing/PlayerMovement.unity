@@ -608,6 +608,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1941312062267454404, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: m_Name
+      value: NurseCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6f88f278f166f469a6be6497de22e3, type: 3}
 --- !u!1 &1941312061320415970 stripped
@@ -687,6 +692,21 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   onOwnershipLost:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1941312061320415974}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSpawnWithoutOwnership:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1941312061320415974}
@@ -834,6 +854,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7043913541232358664, guid: 09370d2fffd04494fa267283fc448549,
+        type: 3}
+      propertyPath: m_Name
+      value: WheelchairCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09370d2fffd04494fa267283fc448549, type: 3}
 --- !u!1 &3975677017033500788 stripped
@@ -913,6 +938,21 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   onOwnershipLost:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3975677017033500792}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSpawnWithoutOwnership:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3975677017033500792}

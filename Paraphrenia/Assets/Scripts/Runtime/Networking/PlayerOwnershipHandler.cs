@@ -8,11 +8,23 @@ namespace Runtime.Networking
     {
         [SerializeField] private ulong playerID;
 
-        public UnityEvent onOwnershipGained = new UnityEvent();
-        public UnityEvent onOwnershipLost = new UnityEvent();
+        public UnityEvent onOwnershipGained = new();
+        public UnityEvent onOwnershipLost = new();
 
+        public UnityEvent onSpawnWithoutOwnership = new();
+        public UnityEvent onSpawnWithOwnership = new();
         public override void OnNetworkSpawn()
         {
+            Debug.Log($"{gameObject.name} : Spawned with ownership? {IsOwner}");
+            if (!IsOwner)
+            {
+                onSpawnWithoutOwnership?.Invoke();
+            }
+            else
+            {
+                onSpawnWithOwnership?.Invoke();
+            }
+            
             if (!IsServer) return;
             NetworkObject.ChangeOwnership(playerID);
         }
@@ -20,12 +32,14 @@ namespace Runtime.Networking
         public override void OnGainedOwnership()
         {
             base.OnGainedOwnership();
+            if (!IsOwner) return;
             onOwnershipGained?.Invoke();
         }
 
         public override void OnLostOwnership()
         {
             base.OnLostOwnership();
+            if (IsOwner) return;
             onOwnershipLost?.Invoke();
         }
     }
