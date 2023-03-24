@@ -75,9 +75,8 @@ namespace Runtime.Networking.Discovery
             _transport.RoomName = serverIDInputField.text;
 
             // Checks if the input roomName is of a valid length and does not contain any special characters.
-            if (serverIDInputField.text.Length != 5 || !Regex.IsMatch(serverIDInputField.text, "/^[A-Za-z0-9]*$/"))
-            {
-                Debug.Log($"Invalid key: {serverIDInputField.text}, length: {serverIDInputField.text.Length}");
+            if (serverIDInputField.text.Length != 5 || Regex.IsMatch(serverIDInputField.text, "[^A-Za-z0-9]+")) 
+            { 
                 onInvalidKey?.Invoke();
                 return;
             }
