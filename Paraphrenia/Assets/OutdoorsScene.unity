@@ -479,7 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NickName: someName
   m_RoomName: jdfhjsfsdf
-  m_MaxPlayers: 16
+  m_MaxPlayers: 2
   m_NetworkDeliveryEventCodesStartRange: 0
   m_AttachSupportLogger: 1
   m_BatchMode: 1
