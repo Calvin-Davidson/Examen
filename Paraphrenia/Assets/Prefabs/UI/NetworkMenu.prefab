@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 5474195432875610840}
   - component: {fileID: 6292217441057488140}
   m_Layer: 5
-  m_Name: NetworkDiscovery
+  m_Name: NetworkMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

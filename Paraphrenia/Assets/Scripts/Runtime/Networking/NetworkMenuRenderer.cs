@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Netcode.Transports.PhotonRealtime;
@@ -7,14 +6,13 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
-namespace Runtime.Networking.Discovery
+namespace Runtime.Networking
 {
     /// <summary>
     /// used to render the NetworkDiscovery data, and handles UI input to start our own server or update's the list.
     /// </summary>
-    public class NetworkDiscoveryRenderer : MonoBehaviour
+    public class NetworkMenuRenderer : MonoBehaviour
     {
         [SerializeField] private Button startServerButton;
         [SerializeField] private Button joinServerButton;
