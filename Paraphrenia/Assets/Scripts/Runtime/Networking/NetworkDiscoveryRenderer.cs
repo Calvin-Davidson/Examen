@@ -58,14 +58,14 @@ namespace Runtime.Networking.Discovery
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             string newID = new string(Enumerable.Repeat(chars, 5).Select(s => s[r.Next(s.Length)]).ToArray());
 
-            displayText.text = serverStartingDisplayText;
-            NetworkManager.Singleton.StartHost();
-
             NetworkManager.Singleton.OnServerStarted += () =>
             {
                 displayText.text = waitingForOtherPlayerDisplayText.Replace("%roomName%", newID);
                 onServerStarted?.Invoke();
             };
+            
+            displayText.text = serverStartingDisplayText;
+            NetworkManager.Singleton.StartHost();
         }
 
         private void HandleJoinServer()
