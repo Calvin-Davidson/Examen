@@ -57,10 +57,11 @@ namespace Runtime.Networking.Discovery
             System.Random r = new System.Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             string newID = new string(Enumerable.Repeat(chars, 5).Select(s => s[r.Next(s.Length)]).ToArray());
-
+            _transport.RoomName = newID;
+            
             NetworkManager.Singleton.OnServerStarted += () =>
             {
-                displayText.text = waitingForOtherPlayerDisplayText.Replace("%roomName%", newID);
+                displayText.text = waitingForOtherPlayerDisplayText.Replace("%roomName%", _transport.RoomName);
                 onServerStarted?.Invoke();
             };
             
@@ -74,12 +75,14 @@ namespace Runtime.Networking.Discovery
             _transport.RoomName = serverIDInputField.text;
 
             // Checks if the input roomName is of a valid length and does not contain any special characters.
-            if (serverIDInputField.text.Length != 5 || !Regex.IsMatch(displayText.text, "/^[A-Za-z0-9]*$/"))
+            if (serverIDInputField.text.Length != 5 || !Regex.IsMatch(serverIDInputField.text, "/^[A-Za-z0-9]*$/"))
             {
+                Debug.Log($"Invalid key: {serverIDInputField.text}, length: {serverIDInputField.text.Length}");
                 onInvalidKey?.Invoke();
                 return;
             }
 
+            NetworkManager.Singleton.StartClient();
             onServerJoined?.Invoke();
             displayText.text = joiningServerDisplayText.Replace("%roomName%", _transport.RoomName);
         }
