@@ -23,7 +23,7 @@ public class EmissionController : MonoBehaviour
     {
         renderer = GetComponent<Renderer>();
 
-        if (!overrideColor)
+        if (!overrideColor && renderer != null)
         {// We must account for default intensity of the Emissive Color if we are not overriding the color.
             float intensity = renderer.material.GetFloat("_EmissiveIntensity");
             color = renderer.material.GetColor("_EmissiveColor");
@@ -33,11 +33,11 @@ public class EmissionController : MonoBehaviour
 
     public void TurnLightOn()
     {// We must use Pow 2^intensity instead of intensity so our input values matches the result Unity would give when configuring intensity in editor.
-        renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2,onIntensity));
+        if (renderer != null) renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2,onIntensity));
     }
 
     public void TurnLightOff()
     {
-        renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2, offIntensity));
+        if (renderer != null) renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2, offIntensity));
     }
 }

@@ -10,8 +10,8 @@ using UnityEngine.Events;
 
 public class RandomFlicker : MonoBehaviour
 {
-    public UnityEvent OnFlickerOn;
-    public UnityEvent OnFlickerOff;
+    public UnityEvent onFlickerOn;
+    public UnityEvent onFlickerOff;
 
     [SerializeField] private bool active = true;
     [SerializeField] private float minOffDelay = 0.1f;
@@ -52,12 +52,12 @@ public class RandomFlicker : MonoBehaviour
             float delay = Random.Range(minOffDelay, maxOffDelay);
             yield return new WaitForSeconds(delay);
 
-            OnFlickerOn?.Invoke();
+            onFlickerOn?.Invoke();
 
             delay = Random.Range(minOnDelay, maxOnDelay);
             yield return new WaitForSeconds(delay);
 
-            OnFlickerOff?.Invoke();
+            onFlickerOff?.Invoke();
         }
     }
 }

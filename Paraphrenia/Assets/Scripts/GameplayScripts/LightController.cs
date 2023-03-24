@@ -28,11 +28,11 @@ public class LightController : MonoBehaviour
 
     public void TurnLightOn()
     {
-        light.intensity = onIntensity;
+        if(light != null) light.intensity = onIntensity;
     }
 
     public void TurnLightOff()
     {
-        light.intensity = offIntensity;
+        if (light != null) light.intensity = offIntensity;
     }
 }
