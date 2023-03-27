@@ -13,9 +13,6 @@ public class TriggerVolume : MonoBehaviour
     public UnityEvent onTriggerExit;
 
     [SerializeField] private bool active = true;
-
-    private Collider collider;
-
     public bool Active
     {
         get => active;
@@ -25,12 +22,7 @@ public class TriggerVolume : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        collider = GetComponent<Collider>();
-    }
-
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider _col)
     {
         if (active)
         {
@@ -38,7 +30,7 @@ public class TriggerVolume : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider col)
+    void OnTriggerExit(Collider _col)
     {
         if (active)
         {
