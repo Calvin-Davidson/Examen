@@ -9,10 +9,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class TriggerVolume : MonoBehaviour
 {
+    [SerializeField] private bool active = true;
+    
     public UnityEvent onTriggerEnter;
     public UnityEvent onTriggerExit;
-
-    [SerializeField] private bool active = true;
     public bool Active
     {
         get => active;
