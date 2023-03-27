@@ -15,7 +15,6 @@ namespace Runtime.Networking
         public UnityEvent onSpawnWithOwnership = new();
         public override void OnNetworkSpawn()
         {
-            Debug.Log($"{gameObject.name} : Spawned with ownership? {IsOwner}");
             if (!IsOwner)
             {
                 onSpawnWithoutOwnership?.Invoke();
