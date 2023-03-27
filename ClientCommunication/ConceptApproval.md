@@ -1,9 +1,7 @@
 # 20 Maart 2023
-**Van: Ingmar van Busschbach**
-
-**Naar: Edwin, Linx Interactive**
-
-**Onderwerp: Goedkeuring Concept**
+### **Van: Ingmar van Busschbach**
+### **Naar: Edwin, Linx Interactive**
+### **Onderwerp: Goedkeuring Concept**
 
 Beste Edwin,
 
@@ -20,11 +18,9 @@ Ingmar van Busschbach,
 Product owner team 9.
 
 # 20 Maart 2023
-**Van: Edwin, Linx Interactive**
-
-**Naar: Ingmar van Busschbach**
-
-**Onderwerp: Goedkeuring Concept**
+### **Van: Edwin, Linx Interactive**
+### **Naar: Ingmar van Busschbach**
+### **Onderwerp: Goedkeuring Concept**
 
 Hi Ingmar,
 
@@ -36,11 +32,9 @@ Grt
 Edwin
 
 # 21 Maart 2023
-**Van: Ingmar van Busschbach**
-
-**Naar: Edwin, Linx Interactive**
-
-**Onderwerp: Goedkeuring Concept**
+### **Van: Ingmar van Busschbach**
+### **Naar: Edwin, Linx Interactive**
+### **Onderwerp: Goedkeuring Concept**
 
 Hallo Edwin,
 
@@ -53,11 +47,9 @@ Ingmar van Busschbach,
 product owner team 9.
 
 # 21 Maart 2023
-**Van: Ingmar van Busschbach**
-
-**Naar: Edwin, Linx Interactive**
-
-**Onderwerp: Goedkeuring Concept**
+### **Van: Ingmar van Busschbach**
+### **Naar: Edwin, Linx Interactive**
+### **Onderwerp: Goedkeuring Concept**
 
 Hallo Edwin,
 
@@ -68,11 +60,9 @@ Ingmar van Busschbach,
 product owner team 9.
 
 # 21 Maart 2023
-**Van: Edwin, Linx Interactive**
-
-**Naar: Ingmar van Busschbach**
-
-**Onderwerp: Goedkeuring Concept**
+### **Van: Edwin, Linx Interactive**
+### **Naar: Ingmar van Busschbach**
+### **Onderwerp: Goedkeuring Concept**
 
 Hi Ingmar,
 
