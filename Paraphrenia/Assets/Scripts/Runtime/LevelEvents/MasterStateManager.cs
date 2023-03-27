@@ -1,19 +1,54 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Netcode;
+using UnityEngine.Events;
 
 namespace Runtime.LevelEvents
 {
-    public class MasterStateManager : MonoBehaviour
+    /// <summary>
+    /// Used to sync the game state and call specific events when the game changes.
+    /// </summary>
+    public class MasterStateManager : NetworkBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [System.Serializable]
+        public class EventContainer
         {
+            public int stateIndex;
+            public UnityEvent onStateEnter;
+            public UnityEvent onStateExit;
+        }
         
+        private readonly NetworkVariable<int> _currentState = new();
+
+        public List<EventContainer> container = new();
+
+        /// <summary>
+        /// Subscribe to the network events
+        /// </summary>
+        private void Awake()
+        {
+            _currentState.OnValueChanged += HandleStateChange;
         }
 
-        // Update is called once per frame
-        void Update()
+        /// <summary>
+        /// Increases the networked variable of currentState and calls the state enter/exit events for the current and next state.
+        /// </summary>
+        public void NextState()
         {
-        
+            if (!IsServer) return;
+            _currentState.Value += 1;
+        }
+
+        /// <summary>
+        /// Called when the state changes and calls the respective events.
+        /// </summary>
+        /// <param name="previous"></param>
+        /// <param name="newState"></param>
+        private void HandleStateChange(int previous, int newState)
+        {
+            container.FirstOrDefault(eventContainer => eventContainer.stateIndex == previous)?.onStateExit?.Invoke();
+            container.FirstOrDefault(eventContainer => eventContainer.stateIndex == newState)?.onStateEnter?.Invoke();
         }
     }
 }
