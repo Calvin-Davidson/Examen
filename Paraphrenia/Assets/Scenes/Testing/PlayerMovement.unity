@@ -995,10 +995,20 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2423930189
       objectReference: {fileID: 0}
+    - target: {fileID: 1056806442162379843, guid: 09370d2fffd04494fa267283fc448549,
+        type: 3}
+      propertyPath: Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1176243649647151452, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3206628209
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071630440754374405, guid: 09370d2fffd04494fa267283fc448549,
+        type: 3}
+      propertyPath: Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4493446918188151337, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
