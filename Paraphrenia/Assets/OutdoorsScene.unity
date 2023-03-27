@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.043, g: 2263.8164, b: 3286.5742, a: 1}
+  m_IndirectSpecularColor: {r: 2161.829, g: 2265.7383, b: 3288.8867, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -511,6 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339151177}
   - component: {fileID: 1339151176}
+  - component: {fileID: 1339151178}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -534,7 +535,7 @@ MonoBehaviour:
   LogLevel: 0
   NetworkConfig:
     ProtocolVersion: 0
-    NetworkTransport: {fileID: 706087190}
+    NetworkTransport: {fileID: 142466226}
     PlayerPrefab: {fileID: 0}
     NetworkPrefabs: []
     TickRate: 30
@@ -569,6 +570,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339151178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339151175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94ad9ca2188d584d95564f1a78d8223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredPlayers: 2
+  onPlayerJoin:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerLeave:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1711655405
 GameObject:
   m_ObjectHideFlags: 0
