@@ -277,9 +277,9 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _metallic: 0
-    - _normalStrength: 0
-    - _roughness: 0.5
+    - _metallic: 0.696
+    - _normalStrength: 2
+    - _roughness: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
