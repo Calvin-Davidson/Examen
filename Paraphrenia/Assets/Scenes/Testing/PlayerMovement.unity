@@ -1075,5 +1075,10 @@ PrefabInstance:
       propertyPath: maxTurn
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 8933511885469301682, guid: 09370d2fffd04494fa267283fc448549,
+        type: 3}
+      propertyPath: turningSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09370d2fffd04494fa267283fc448549, type: 3}
