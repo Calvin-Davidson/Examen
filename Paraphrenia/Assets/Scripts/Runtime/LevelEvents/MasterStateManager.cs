@@ -32,6 +32,14 @@ namespace Runtime.LevelEvents
         }
 
         /// <summary>
+        /// Unsubscribe from network variable's as this object should no longer exist.
+        /// </summary>
+        public override void OnNetworkDespawn()
+        {
+            _currentState.OnValueChanged -= HandleStateChange;
+        }
+
+        /// <summary>
         /// Increases the networked variable of currentState and calls the state enter/exit events for the current and next state.
         /// </summary>
         public void NextState()
