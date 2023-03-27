@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_MetalSheetGrip
-  m_Shader: {fileID: -6465566751694194690, guid: c6b3d870b93c8ee4cbcffb1cfdb3804c,
+  m_Shader: {fileID: -6465566751694194690, guid: 1add79db5c64efa40a6e8007b9f6fdbe,
     type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -135,6 +135,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _baseColor:
         m_Texture: {fileID: 2800000, guid: 380115fed7a28d5419c469fbae6d4e1e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _emissiveMap:
+        m_Texture: {fileID: 2800000, guid: aa60a7aa99485a547991bf73e003a613, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _metallicMap:
@@ -277,7 +281,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _metallic: 0.696
+    - _metallic: 0.9
     - _normalStrength: 2
     - _roughness: 1
     m_Colors:
@@ -297,5 +301,6 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
-    - _color: {r: 1, g: 1, b: 1, a: 0}
+    - _color: {r: 1, g: 0.41547683, b: 0.3820755, a: 0}
+    - _emissiveColor: {r: 32768, g: 32768, b: 32768, a: 0}
   m_BuildTextureStacks: []
