@@ -18,15 +18,15 @@ namespace Runtime.LevelEvents
             public UnityEvent onStateEnter;
             public UnityEvent onStateExit;
         }
-        
+
         private readonly NetworkVariable<int> _currentState = new();
 
         public List<EventContainer> container = new();
 
         /// <summary>
-        /// Subscribe to the network events
+        /// When the network object spawns subscribe to the state value for changes.
         /// </summary>
-        private void Awake()
+        public override void OnNetworkSpawn()
         {
             _currentState.OnValueChanged += HandleStateChange;
         }
