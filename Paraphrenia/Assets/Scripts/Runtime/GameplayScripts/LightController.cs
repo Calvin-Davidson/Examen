@@ -17,25 +17,25 @@ namespace Runtime.GameplayScripts
         [SerializeField] private float offIntensity = 5000; 
         [SerializeField] private float onIntensity = 9000;
 
-        private Light light;
+        private Light _light;
 
         private void Awake()
         {
-            light = GetComponent<Light>();
+            _light = GetComponent<Light>();
             if (overrideColor)
             {
-                light.color = color;
+                _light.color = color;
             }
         }
 
         public void TurnLightOn()
         {
-            if(light != null) light.intensity = onIntensity;
+            if(_light != null) _light.intensity = onIntensity;
         }
 
         public void TurnLightOff()
         {
-            if (light != null) light.intensity = offIntensity;
+            if (_light != null) _light.intensity = offIntensity;
         }
     }
 }

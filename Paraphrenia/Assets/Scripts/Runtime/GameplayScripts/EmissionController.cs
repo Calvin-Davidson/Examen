@@ -17,28 +17,28 @@ namespace Runtime.GameplayScripts
         [SerializeField] private float offIntensity = 4;
         [SerializeField] private float onIntensity = 15;
 
-        private Renderer renderer;
+        private Renderer _renderer;
 
         private void Awake()
         {
-            renderer = GetComponent<Renderer>();
+            _renderer = GetComponent<Renderer>();
 
-            if (!overrideColor && renderer != null)
+            if (!overrideColor && _renderer != null)
             {// We must account for default intensity of the Emissive Color if we are not overriding the color.
-                float intensity = renderer.material.GetFloat("_EmissiveIntensity");
-                color = renderer.material.GetColor("_EmissiveColor");
+                float intensity = _renderer.material.GetFloat("_EmissiveIntensity");
+                color = _renderer.material.GetColor("_EmissiveColor");
                 color /= intensity;
             }
         }
 
         public void TurnLightOn()
         {// We must use Pow 2^intensity instead of intensity so our input values matches the result Unity would give when configuring intensity in editor.
-            if (renderer != null) renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2,onIntensity));
+            if (_renderer != null) _renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2,onIntensity));
         }
 
         public void TurnLightOff()
         {
-            if (renderer != null) renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2, offIntensity));
+            if (_renderer != null) _renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2, offIntensity));
         }
     }
 }
