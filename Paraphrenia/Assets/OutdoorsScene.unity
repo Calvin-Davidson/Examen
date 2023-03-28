@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.5322, g: 2264.5625, b: 3287.5938, a: 1}
+  m_IndirectSpecularColor: {r: 2158.2754, g: 2260.5273, b: 3278.4844, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -713,8 +713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredPlayers: 2
   forceStartKey: 112
-  targetScene: PlayerMovement
-  sceneAsset: {fileID: 102900000, guid: 3f4342c7873117f43bc3278518fcd9e3, type: 3}
+  targetScene: DemoScene
+  sceneAsset: {fileID: 102900000, guid: 0c9d2cbc12fd9504aacd54f35907c338, type: 3}
   onPlayerJoin:
     m_PersistentCalls:
       m_Calls: []
