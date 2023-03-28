@@ -1,5 +1,4 @@
 using System;
-using Toolbox.Utilities;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.Networking
 {
-    public class NetworkingController : MonoSingleton<NetworkingController>
+    public class NetworkingController : MonoBehaviour
     {
         [SerializeField, Range(1, 2)] private int requiredPlayers = 2;
         [SerializeField] private KeyCode forceStartKey = KeyCode.P;
@@ -56,11 +55,6 @@ namespace Runtime.Networking
         private void HandlePlayerDisconnect(ulong id)
         {
             onPlayerLeave?.Invoke();
-        }
-
-        public bool IsServerNurse()
-        {
-            return true;
         }
     }
 }
