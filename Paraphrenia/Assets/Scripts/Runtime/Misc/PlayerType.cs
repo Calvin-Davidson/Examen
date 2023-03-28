@@ -25,15 +25,16 @@ namespace Runtime.Misc
             
             ulong serverClientID = NetworkManager.ServerClientId;
             ulong localClientID = networkManager.LocalClientId;
-            ulong otherPlayerID = networkManager.IsServer ? networkManager.ConnectedClientsIds.FirstOrDefault(id => id != localClientID) : serverClientID;
+            ulong nonServerID = networkManager.IsServer ? networkManager.ConnectedClientsIds.FirstOrDefault(id => id != localClientID) : localClientID;
             
-            
+            bool isServerNurse = NetworkingController.Instance.IsServerNurse();
+
             if (type == PlayerType.Nurse)
             {
-                return (NetworkingController.Instance.IsServerNurse() ? serverClientID : otherPlayerID);
+                return (isServerNurse ? serverClientID : nonServerID);
             }
 
-            return NetworkingController.Instance.IsServerNurse() ? otherPlayerID : serverClientID;
+            return isServerNurse ? nonServerID : serverClientID;
         }
     }
 
