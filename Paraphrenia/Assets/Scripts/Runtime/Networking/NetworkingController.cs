@@ -36,7 +36,7 @@ namespace Runtime.Networking
                 (!NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient))
             {
                 NetworkManager.Singleton.StartHost();
-                NetworkManager.Singleton.SceneManager.LoadScene("PlayerMovement", LoadSceneMode.Single);
+                NetworkManager.Singleton.SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
             }
         }
 
@@ -48,7 +48,7 @@ namespace Runtime.Networking
 
             if (NetworkManager.Singleton.ConnectedClients.Count == requiredPlayers)
             {
-                NetworkManager.Singleton.SceneManager.LoadScene("PlayerMovement", LoadSceneMode.Single);
+                NetworkManager.Singleton.SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
             }
         }
 
