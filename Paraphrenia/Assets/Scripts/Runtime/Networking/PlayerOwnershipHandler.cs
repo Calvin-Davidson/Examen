@@ -1,3 +1,4 @@
+using Runtime.Misc;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,7 +7,7 @@ namespace Runtime.Networking
 {
     public class PlayerOwnershipHandler : NetworkBehaviour
     {
-        [SerializeField] private ulong playerID;
+        [SerializeField] private PlayerType ownerType;
 
         public UnityEvent onOwnershipGained = new();
         public UnityEvent onOwnershipLost = new();
@@ -25,7 +26,7 @@ namespace Runtime.Networking
             }
             
             if (!IsServer) return;
-            NetworkObject.ChangeOwnership(playerID);
+            NetworkObject.ChangeOwnership(ownerType.GetNetworkClientID());
         }
 
         public override void OnGainedOwnership()
