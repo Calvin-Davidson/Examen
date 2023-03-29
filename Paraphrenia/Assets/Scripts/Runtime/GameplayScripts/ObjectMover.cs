@@ -3,26 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Transform))]
-public class ObjectMover : MonoBehaviour
+public class ObjectMover : MasterLerpComponent
 {
     [SerializeField] private bool localSpace = true;
-    [SerializeField] private Vector3 targetOffset;
-    [SerializeField] private float lerpTime;
+    [SerializeField] private Vector3 targetPosition;
 
-    private Vector3 currentOffset;
+    private Vector3 defaultPosition;
+    private Vector3 currentPosition;
+    private Vector3 direction;
 
-    void Awake()
+    private void Awake()
     {
-        currentOffset = this.transform.position;
+        if (localSpace)
+        {
+            defaultPosition = currentPosition = this.transform.localPosition;
+            targetPosition += defaultPosition;
+        }
+        else
+        {
+            defaultPosition = currentPosition = this.transform.position;
+        }
     }
 
-    void MoveOn()
+    public void MoveOn()
     {
-
+        if (localSpace)
+        {
+            currentPosition = this.transform.localPosition;
+        }
+        else
+        {
+            currentPosition = this.transform.position;
+        }
+        direction = targetPosition - currentPosition;
+        if (showDebug) { Debug.Log("Move On! " + direction); }
+        StartLerp();
     }
 
-    void MoveOff()
+    public void MoveOff()
     {
+        if (localSpace)
+        {
+            currentPosition = this.transform.localPosition;
+        }
+        else
+        {
+            currentPosition = this.transform.position;
+        }
+        direction = defaultPosition - currentPosition;
+        if (showDebug) { Debug.Log("Move Off! " + direction); }
+        StartLerp();
+    }
 
+    protected override void ApplyLerp(float easeStep)
+    {
+        Vector3 result = direction * easeStep;
+        if (localSpace)
+        {
+            this.transform.localPosition = currentPosition + result;
+        }
+        else
+        {
+            this.transform.position = currentPosition + result;
+        }
     }
 }
