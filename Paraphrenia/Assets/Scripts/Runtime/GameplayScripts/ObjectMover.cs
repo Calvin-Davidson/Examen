@@ -5,66 +5,64 @@ using UnityEngine;
 [RequireComponent(typeof(Transform))]
 public class ObjectMover : MasterLerpComponent
 {
-    [SerializeField] private bool localSpace = true;
-    [SerializeField] private Vector3 targetPosition;
+    [SerializeField] private bool _localSpace = true;
+    [SerializeField] private Vector3 _targetPosition;
 
-    private Vector3 defaultPosition;
-    private Vector3 currentPosition;
-    private Vector3 direction;
+    private Vector3 _defaultPosition;
+    private Vector3 _currentPosition;
+    private Vector3 _direction;
 
     private void Awake()
     {
-        if (localSpace)
+        if (_localSpace)
         {
-            defaultPosition = currentPosition = this.transform.localPosition;
-            targetPosition += defaultPosition;
+            _defaultPosition = _currentPosition = this.transform.localPosition;
+            _targetPosition += _defaultPosition;
         }
         else
         {
-            defaultPosition = currentPosition = this.transform.position;
+            _defaultPosition = _currentPosition = this.transform.position;
         }
     }
 
     public void MoveOn()
     {
-        if (localSpace)
+        if (_localSpace)
         {
-            currentPosition = this.transform.localPosition;
+            _currentPosition = this.transform.localPosition;
         }
         else
         {
-            currentPosition = this.transform.position;
+            _currentPosition = this.transform.position;
         }
-        direction = targetPosition - currentPosition;
-        if (showDebug) { Debug.Log("Move On! " + direction); }
+        _direction = _targetPosition - _currentPosition;
         StartLerp();
     }
 
     public void MoveOff()
     {
-        if (localSpace)
+        if (_localSpace)
         {
-            currentPosition = this.transform.localPosition;
+            _currentPosition = this.transform.localPosition;
         }
         else
         {
-            currentPosition = this.transform.position;
+            _currentPosition = this.transform.position;
         }
-        direction = defaultPosition - currentPosition;
-        if (showDebug) { Debug.Log("Move Off! " + direction); }
+        _direction = _defaultPosition - _currentPosition;
         StartLerp();
     }
 
     protected override void ApplyLerp(float easeStep)
     {
-        Vector3 result = direction * easeStep;
-        if (localSpace)
+        Vector3 result = _direction * easeStep;
+        if (_localSpace)
         {
-            this.transform.localPosition = currentPosition + result;
+            this.transform.localPosition = _currentPosition + result;
         }
         else
         {
-            this.transform.position = currentPosition + result;
+            this.transform.position = _currentPosition + result;
         }
     }
 }
