@@ -1143,11 +1143,6 @@ PrefabInstance:
       propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 359948306204683303, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: ownerType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 465784089694841528, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: m_IsActive
@@ -1158,20 +1153,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2423930189
       objectReference: {fileID: 0}
-    - target: {fileID: 1056806442162379843, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1176243649647151452, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3206628209
-      objectReference: {fileID: 0}
-    - target: {fileID: 4071630440754374405, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: Interpolate
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4493446918188151337, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
@@ -1233,30 +1218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7886167836809433947, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: lookXLimit
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886167836809433947, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: lookYLimit
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 8933511885469301682, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: maxTurn
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8933511885469301682, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: maxTurnX
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 8933511885469301682, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: turningSpeed
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09370d2fffd04494fa267283fc448549, type: 3}
