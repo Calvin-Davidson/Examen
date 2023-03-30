@@ -33,6 +33,7 @@ namespace Runtime.LevelEvents
 #if UNITY_EDITOR
         private void OnValidate()
         {
+            if (!Application.isPlaying) return;
             if (active) StartCoroutine(FlickerTimer());
         }
 #endif
