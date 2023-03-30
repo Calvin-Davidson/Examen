@@ -7,9 +7,9 @@ using UnityEngine.Audio;
 public class SoundCuePlayer : MonoBehaviour
 {
     public enum CueSelector { Random, LowestPiority, HighestPiority, NearestPiority, FloorNearestPiority, CeilNearestPiority};
-    [SerializeField] private SoundCue _soundCue;
-    [SerializeField] private CueSelector _cueSelector;
-    [SerializeField] private bool _loops;
+    [SerializeField] private SoundCue soundCue;
+    [SerializeField] private CueSelector cueSelector;
+    [SerializeField] private bool loops;
 
     private AudioSource _audioSource;
 
@@ -24,33 +24,33 @@ public class SoundCuePlayer : MonoBehaviour
 
     public void PlaySound(int priority = 0)
     {
-        AudioClip clip = _soundCue.GetRandomClip();
+        AudioClip clip = soundCue.GetRandomClip();
 
-        switch (_cueSelector)
+        switch (cueSelector)
         {
             case CueSelector.LowestPiority:
                 {
-                    clip = _soundCue.GetLowestPiorityClip();
+                    clip = soundCue.GetLowestPiorityClip();
                     break;
                 }
             case CueSelector.HighestPiority:
                 {
-                    clip = _soundCue.GetHighestPiorityClip();
+                    clip = soundCue.GetHighestPiorityClip();
                     break;
                 }
             case CueSelector.NearestPiority:
                 {
-                    clip = _soundCue.GetNearestPiorityClip(priority);
+                    clip = soundCue.GetNearestPiorityClip(priority);
                     break;
                 }
             case CueSelector.FloorNearestPiority:
                 {
-                    clip = _soundCue.FloorGetNearestPiorityClip(priority);
+                    clip = soundCue.FloorGetNearestPiorityClip(priority);
                     break;
                 }
             case CueSelector.CeilNearestPiority:
                 {
-                    clip = _soundCue.CeilGetNearestPiorityClip(priority);
+                    clip = soundCue.CeilGetNearestPiorityClip(priority);
                     break;
                 }
             default: break;
@@ -58,7 +58,7 @@ public class SoundCuePlayer : MonoBehaviour
 
         _audioSource.Play();
 
-        if (!_loops) return;
+        if (!loops) return;
 
         StartCoroutine(GetClipEndTime(_audioSource, priority));
     }
