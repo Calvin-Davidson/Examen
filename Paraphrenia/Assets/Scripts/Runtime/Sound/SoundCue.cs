@@ -21,7 +21,7 @@ public class SoundCue : ScriptableObject
 
     public AudioClip GetRandomClip()
     {
-        return soundClips[Random.Range(0, soundClips.Length)].soundClip;
+        return soundClips[Random.Range(0, soundClips.Length-1)].soundClip;
     }
 
     public AudioClip GetLowestPiorityClip()

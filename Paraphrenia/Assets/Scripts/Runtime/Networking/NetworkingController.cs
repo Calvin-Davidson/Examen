@@ -4,10 +4,11 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Runtime.Networking
 {
-    public class NetworkingController : MonoSingleton<NetworkingController>
+    public class NetworkingController : NetworkBehaviourSingleton<NetworkingController>
     {
         [SerializeField, Range(1, 2)] private int requiredPlayers = 2;
         [SerializeField] private KeyCode forceStartKey = KeyCode.P;
@@ -24,11 +25,13 @@ namespace Runtime.Networking
         public UnityEvent onPlayerJoin = new();
         public UnityEvent onPlayerLeave = new();
 
+        private readonly NetworkVariable<bool> _isServerNurse = new();
 
         private void Awake()
         {
             NetworkManager.Singleton.OnClientConnectedCallback += HandlePlayerJoin;
             NetworkManager.Singleton.OnClientDisconnectCallback += HandlePlayerDisconnect;
+            DontDestroyOnLoad(this);
         }
 
         private void Update()
@@ -58,9 +61,9 @@ namespace Runtime.Networking
             onPlayerLeave?.Invoke();
         }
 
-        public bool IsServerNurse()
+        public NetworkVariable<bool> IsServerNurse
         {
-            return true;
+            get => _isServerNurse;
         }
     }
 }

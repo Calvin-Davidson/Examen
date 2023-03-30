@@ -55,7 +55,7 @@ public class SoundCuePlayer : MonoBehaviour
                 }
             default: break;
         }
-
+        if(clip != null) _audioSource.clip = clip;
         _audioSource.Play();
 
         if (!loops) return;
