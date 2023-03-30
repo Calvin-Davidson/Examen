@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class MasterLerpComponent : MonoBehaviour
 {
-    [SerializeField] private EasingDictionary _easingDictionary;
-    [SerializeField] private float _lerpDuration = 1f;
+    [SerializeField] private EasingDictionary easingDictionary;
+    [SerializeField] private float lerpDuration = 1f;
     private float _lerpProgress;
 
     protected void StartLerp()
@@ -20,8 +20,8 @@ public abstract class MasterLerpComponent : MonoBehaviour
     {
         while (_lerpProgress < 1)
         {
-            _lerpProgress += dt / _lerpDuration;
-            float easeStep = _easingDictionary.CalculateEaseStep(_lerpProgress);
+            _lerpProgress += dt / lerpDuration;
+            float easeStep = easingDictionary.CalculateEaseStep(_lerpProgress);
             ApplyLerp(easeStep);
             yield return new WaitForSeconds(dt);
         }
