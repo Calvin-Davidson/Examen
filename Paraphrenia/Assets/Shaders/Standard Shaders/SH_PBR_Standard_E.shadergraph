@@ -22,13 +22,7 @@
             "m_Id": "d6dbe591e757448cbdaf9763185c9929"
         },
         {
-            "m_Id": "e46a540d0bd34c288f6aedef60e8b285"
-        },
-        {
             "m_Id": "2877d4c3b2554efdb479018b875bd951"
-        },
-        {
-            "m_Id": "490b640f84b54c0dbc40c1b201ca397b"
         },
         {
             "m_Id": "e508b22adfbc41bfa009bf7a5832e7f4"
@@ -1546,9 +1540,6 @@
             "m_Id": "772db35e4ac044448dda87c8eb3b1233"
         },
         {
-            "m_Id": "e46a540d0bd34c288f6aedef60e8b285"
-        },
-        {
             "m_Id": "2877d4c3b2554efdb479018b875bd951"
         },
         {
@@ -1556,9 +1547,6 @@
         },
         {
             "m_Id": "d6dbe591e757448cbdaf9763185c9929"
-        },
-        {
-            "m_Id": "490b640f84b54c0dbc40c1b201ca397b"
         },
         {
             "m_Id": "e508b22adfbc41bfa009bf7a5832e7f4"
@@ -1722,35 +1710,6 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "490b640f84b54c0dbc40c1b201ca397b",
-    "m_Guid": {
-        "m_GuidSerialized": "d615ac1c-58ca-4bdc-a255-851e16ab8903"
-    },
-    "m_Name": "_aoMap",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "_aoMap",
-    "m_DefaultReferenceName": "_aoMap",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
-        "m_Guid": ""
-    },
-    "isMainTexture": false,
-    "useTilingAndOffset": false,
-    "m_Modifiable": true,
-    "m_DefaultType": 0
 }
 
 {
@@ -3590,35 +3549,6 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
-    "m_ObjectId": "e46a540d0bd34c288f6aedef60e8b285",
-    "m_Guid": {
-        "m_GuidSerialized": "fdd9eb7c-3be9-4b12-990e-9b07beda5517"
-    },
-    "m_Name": "_metallicMap",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "_metallicMap",
-    "m_DefaultReferenceName": "_metallicMap",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
-        "m_Guid": ""
-    },
-    "isMainTexture": false,
-    "useTilingAndOffset": false,
-    "m_Modifiable": true,
-    "m_DefaultType": 0
 }
 
 {
