@@ -27,7 +27,7 @@ namespace Runtime.Misc
             ulong localClientID = networkManager.LocalClientId;
             ulong nonServerID = networkManager.IsServer ? networkManager.ConnectedClientsIds.FirstOrDefault(id => id != localClientID) : localClientID;
             
-            bool isServerNurse = NetworkingController.Instance.IsServerNurse();
+            bool isServerNurse = NetworkingController.Instance.IsServerNurse.Value;
 
             if (type == PlayerType.Nurse)
             {

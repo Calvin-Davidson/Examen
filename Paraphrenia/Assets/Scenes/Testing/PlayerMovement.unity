@@ -1101,8 +1101,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8343379822157983918, guid: de6f88f278f166f469a6be6497de22e3,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: GlobalObjectIdHash
       value: 4058038125
       objectReference: {fileID: 0}
@@ -1291,11 +1290,6 @@ PrefabInstance:
     - target: {fileID: 1200973692, guid: 09370d2fffd04494fa267283fc448549, type: 3}
       propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 465784089694841528, guid: 09370d2fffd04494fa267283fc448549,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 629279414569707330, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
