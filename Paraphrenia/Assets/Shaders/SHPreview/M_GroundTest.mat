@@ -278,7 +278,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     - _metallic: 1
-    - _normalStrength: 0
+    - _normalStrength: 0.7
     - _roughness: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -298,4 +298,5 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
+    - _textureScale: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
