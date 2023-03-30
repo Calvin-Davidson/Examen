@@ -20,7 +20,6 @@ public abstract class MasterLerpComponent : MonoBehaviour
     {
         while (_lerpProgress < 1)
         {
-            //if (showDebug) { Debug.Log("Lerp Updating... " + lerpProgress); }
             _lerpProgress += dt / _lerpDuration;
             float easeStep = _easingDictionary.CalculateEaseStep(_lerpProgress);
             ApplyLerp(easeStep);
