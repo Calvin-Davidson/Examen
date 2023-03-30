@@ -1,68 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(Transform))]
-public class ObjectMover : MasterLerpComponent
+namespace Runtime.GameplayScripts
 {
-    [SerializeField] private bool _localSpace = true;
-    [SerializeField] private Vector3 _targetPosition;
-
-    private Vector3 _defaultPosition;
-    private Vector3 _currentPosition;
-    private Vector3 _direction;
-
-    private void Awake()
+    [RequireComponent(typeof(Transform))]
+    public class ObjectMover : MasterLerpComponent
     {
-        if (_localSpace)
-        {
-            _defaultPosition = _currentPosition = this.transform.localPosition;
-            _targetPosition += _defaultPosition;
-        }
-        else
-        {
-            _defaultPosition = _currentPosition = this.transform.position;
-        }
-    }
+        [SerializeField] private bool localSpace = true;
+        [SerializeField] private Vector3 targetPosition;
 
-    public void MoveOn()
-    {
-        if (_localSpace)
-        {
-            _currentPosition = this.transform.localPosition;
-        }
-        else
-        {
-            _currentPosition = this.transform.position;
-        }
-        _direction = _targetPosition - _currentPosition;
-        StartLerp();
-    }
+        private Vector3 _defaultPosition;
+        private Vector3 _currentPosition;
+        private Vector3 _direction;
 
-    public void MoveOff()
-    {
-        if (_localSpace)
+        private void Awake()
         {
-            _currentPosition = this.transform.localPosition;
+            if (localSpace)
+            {
+                _defaultPosition = _currentPosition = this.transform.localPosition;
+                targetPosition += _defaultPosition;
+            }
+            else
+            {
+                _defaultPosition = _currentPosition = this.transform.position;
+            }
         }
-        else
-        {
-            _currentPosition = this.transform.position;
-        }
-        _direction = _defaultPosition - _currentPosition;
-        StartLerp();
-    }
 
-    protected override void ApplyLerp(float easeStep)
-    {
-        Vector3 result = _direction * easeStep;
-        if (_localSpace)
+        public void MoveOn()
         {
-            this.transform.localPosition = _currentPosition + result;
+            if (localSpace)
+            {
+                _currentPosition = this.transform.localPosition;
+            }
+            else
+            {
+                _currentPosition = this.transform.position;
+            }
+            _direction = targetPosition - _currentPosition;
+            StartLerp();
         }
-        else
+
+        public void MoveOff()
         {
-            this.transform.position = _currentPosition + result;
+            if (localSpace)
+            {
+                _currentPosition = this.transform.localPosition;
+            }
+            else
+            {
+                _currentPosition = this.transform.position;
+            }
+            _direction = _defaultPosition - _currentPosition;
+            StartLerp();
+        }
+
+        protected override void ApplyLerp(float easeStep)
+        {
+            Vector3 result = _direction * easeStep;
+            if (localSpace)
+            {
+                this.transform.localPosition = _currentPosition + result;
+            }
+            else
+            {
+                this.transform.position = _currentPosition + result;
+            }
         }
     }
 }

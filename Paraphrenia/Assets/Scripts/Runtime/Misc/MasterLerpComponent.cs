@@ -14,7 +14,7 @@ public abstract class MasterLerpComponent : MonoBehaviour
         StartCoroutine(Lerp(Time.deltaTime));
     }
 
-    protected virtual void ApplyLerp(float easeStep) { }
+    protected abstract void ApplyLerp(float easeStep);
 
     private IEnumerator Lerp(float dt)
     {

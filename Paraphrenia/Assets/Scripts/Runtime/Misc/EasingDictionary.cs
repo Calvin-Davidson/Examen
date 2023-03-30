@@ -6,7 +6,7 @@ using UnityEngine;
 public class EasingDictionary
 {
     public enum LerpType { Linear, EaseInSine, EaseOutSine, EaseInOutSine, EaseInCubic, EaseOutCubic, EaseInOutCubic, EaseInQuint, EaseOutQuint, EaseInOutQuint, EaseInCirc, EaseOutCirc, EaseInOutCirc, EaseInElastic, EaseOutElastic, EaseInOutElastic, EaseInQuad, EaseOutQuad, EaseInOutQuad, EaseInQuart, EaseOutQuart, EaseInOutQuart, EaseInExpo, EaseOutExpo, EaseInOutExpo, EaseInBack, EaseOutBack, EaseInOutBack, EaseInBounce, EaseOutBounce, EaseInOutBounce };
-    [SerializeField] private LerpType _lerpType = LerpType.Linear;
+    [SerializeField] private LerpType lerpType = LerpType.Linear;
     //Prepopulated dictionary with references to all functions
     public Dictionary<LerpType, Func<float, float>> easingDictionary = new Dictionary<LerpType, Func<float, float>>
     {
@@ -55,7 +55,7 @@ public class EasingDictionary
     };
 
     //Public callable function
-    public float CalculateEaseStep(float currentPercent, LerpType lerpType = LerpType.Linear)
+    public float CalculateEaseStep(float currentPercent)
     {
         Func<float, float> function = easingDictionary[lerpType];
         return function(currentPercent);
