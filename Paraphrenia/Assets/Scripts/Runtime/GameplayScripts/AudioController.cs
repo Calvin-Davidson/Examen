@@ -8,7 +8,7 @@ namespace Runtime.GameplayScripts
     public class AudioController : MonoBehaviour
     {
         private AudioSource _audioSource;
-        private float _defaultVolume;
+        private float _defaultVolume = 0.5f;
 
         private void Awake()
         {

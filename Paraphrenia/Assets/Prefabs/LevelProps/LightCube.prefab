@@ -47,7 +47,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 700b5f2e60a0ba244aa70bf0039527bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc22f3eba65c5842b1472fbae710422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundCue: {fileID: 11400000, guid: 04fa3a2c4f8a10842be1b6519350552f, type: 2}
-  _cueSelector: 0
-  _loops: 1
+  soundCue: {fileID: 11400000, guid: 04fa3a2c4f8a10842be1b6519350552f, type: 2}
+  cueSelector: 0
+  loops: 1
 --- !u!1 &8919221958963393950
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8919221958963393950}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,7 +204,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 15000
+  m_Intensity: 18000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 15000
+  m_Intensity: 18000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   overrideColor: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   offIntensity: 4000
-  onIntensity: 15000
+  onIntensity: 18000
 --- !u!1 &8919221960178487905
 GameObject:
   m_ObjectHideFlags: 0
