@@ -14,8 +14,8 @@ namespace Runtime.GameplayScripts
     {
         [SerializeField] private bool overrideColor = false;
         [SerializeField] private Color color = Color.white;
-        [SerializeField] private float offIntensity = 4;
-        [SerializeField] private float onIntensity = 15;
+        [SerializeField] private float offIntensity = 0.2f;
+        [SerializeField] private float onIntensity = 1f;
 
         private Renderer _renderer;
 
@@ -25,20 +25,20 @@ namespace Runtime.GameplayScripts
 
             if (!overrideColor && _renderer != null)
             {// We must account for default intensity of the Emissive Color if we are not overriding the color.
-                float intensity = _renderer.material.GetFloat("_EmissiveIntensity");
-                color = _renderer.material.GetColor("_EmissiveColor");
-                color /= intensity;
+                color = _renderer.material.GetColor("_emissiveColor");
             }
+            float intensity = _renderer.material.GetFloat("_emissiveIntensity");
+            color /= intensity;
         }
 
         public void TurnLightOn()
         {// We must use Pow 2^intensity instead of intensity so our input values matches the result Unity would give when configuring intensity in editor.
-            if (_renderer != null) _renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2,onIntensity));
+            if (_renderer != null) _renderer.material.SetColor("_emissiveColor", color * Mathf.Pow(2,onIntensity));
         }
 
         public void TurnLightOff()
         {
-            if (_renderer != null) _renderer.material.SetColor("_EmissiveColor", color * Mathf.Pow(2, offIntensity));
+            if (_renderer != null) _renderer.material.SetColor("_emissiveColor", color * Mathf.Pow(2, offIntensity));
         }
     }
 }

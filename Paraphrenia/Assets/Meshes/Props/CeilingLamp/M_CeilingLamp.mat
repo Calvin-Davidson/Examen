@@ -277,6 +277,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
+    - _emissiveIntensity: 1
     - _metallic: 0
     - _normalStrength: 1
     - _roughness: 1
@@ -298,5 +299,6 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
-    - _emissiveColor: {r: 32768, g: 32768, b: 32768, a: 0}
+    - _emissiveColor: {r: 98175.5, g: 98175.5, b: 98175.5, a: 0}
+    - _textureScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
