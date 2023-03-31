@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_DrawingDecal_Flower2
+  m_Name: M_DrawingDecal_Eye_2
   m_Shader: {fileID: -6465566751694194690, guid: 624221077db883c4aae478d4c0d5d9b2,
     type: 3}
   m_ValidKeywords:
@@ -135,7 +135,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _overlayTexture:
-        m_Texture: {fileID: 2800000, guid: 8f7d963a997b43740816735bb15898b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03cbb37f7467d4340b1a134dafd1ea48, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
