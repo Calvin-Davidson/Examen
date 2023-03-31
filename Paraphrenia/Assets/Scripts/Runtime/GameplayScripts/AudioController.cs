@@ -23,7 +23,7 @@ namespace Runtime.GameplayScripts
 
         public void SoundOff()
         {
-            _audioSource.volume = 0.01f;
+            _audioSource.volume = 0.001f;
         }
     }
 }
