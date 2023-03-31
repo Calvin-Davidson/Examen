@@ -8,6 +8,7 @@ using System.Linq;
 /// </summary>
 
 [CreateAssetMenu(fileName = "SC_NewSoundCue", menuName = "Sound Cues/New Sound Cue", order = 1)]
+[System.Serializable]
 public class SoundCue : ScriptableObject
 {
     [System.Serializable]
