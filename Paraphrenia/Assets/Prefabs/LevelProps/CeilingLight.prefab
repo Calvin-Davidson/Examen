@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7608757102538926391}
   - component: {fileID: 9215561365757071294}
-  - component: {fileID: 8218587714211697921}
   - component: {fileID: 5099731733155305885}
   m_Layer: 0
   m_Name: LightAudio
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429229811358373004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,16 +46,16 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 700b5f2e60a0ba244aa70bf0039527bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  DopplerLevel: 0
+  MinDistance: 0.4
+  MaxDistance: 4
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -66,23 +65,41 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.03811951
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.1641662
+      outSlope: -3.1641662
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0.21700682
+    - serializedVersion: 3
+      time: 0.26254883
+      value: 0.47296143
+      inSlope: -1.5540099
+      outSlope: -1.5540099
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38323632
+      outWeight: 0.31253904
+    - serializedVersion: 3
+      time: 0.58923036
+      value: 0.12376404
+      inSlope: -0.6435413
+      outSlope: -0.6435413
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.35904092
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.067862
+      outSlope: -0.067862
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.4368793
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -91,7 +108,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -106,7 +123,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -131,18 +148,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8218587714211697921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429229811358373004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a307f42d0b1ed5449baf7397b9064453, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5099731733155305885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +174,6 @@ GameObject:
   - component: {fileID: 8919221958963393955}
   - component: {fileID: 8919221958963393948}
   - component: {fileID: 8919221958963393949}
-  - component: {fileID: 8919221958963393953}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -184,14 +188,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8919221958963393950}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.51, z: 0}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8919221960178487909}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!108 &8919221958963393948
 Light:
   m_ObjectHideFlags: 0
@@ -245,7 +249,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 2, y: 2}
+  m_AreaSize: {x: 3.5, y: 0.6}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
@@ -279,8 +283,8 @@ MonoBehaviour:
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
-  m_ShapeWidth: 2
-  m_ShapeHeight: 2
+  m_ShapeWidth: 3.5
+  m_ShapeHeight: 0.6
   m_AspectRatio: 1
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
@@ -376,22 +380,6 @@ MonoBehaviour:
   m_PointlightHDType: 1
   m_SpotLightShape: 0
   m_AreaLightShape: 0
---- !u!114 &8919221958963393953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8919221958963393950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ecfa9acf20fee348862b83cd2be920b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideColor: 0
-  color: {r: 1, g: 1, b: 1, a: 1}
-  offIntensity: 4000
-  onIntensity: 18000
 --- !u!1 &8919221960178487905
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,10 +392,8 @@ GameObject:
   - component: {fileID: 8919221960178487910}
   - component: {fileID: 8919221960178487911}
   - component: {fileID: 8919221960178487904}
-  - component: {fileID: 8919221960178487908}
-  - component: {fileID: 8919221960178487915}
   m_Layer: 0
-  m_Name: LightCube
+  m_Name: CeilingLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,16 +406,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8919221960178487905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 6}
-  m_LocalScale: {x: 2, y: 0.2, z: 2}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8919221958963393955}
   - {fileID: 7608757102538926391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &8919221960178487910
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -437,7 +423,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8919221960178487905}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 593370505030628240, guid: 537ace78c3b9e46469e1ce5bf886836b, type: 3}
 --- !u!23 &8919221960178487911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -458,7 +444,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5db2126e19fb124da5347cadec9d4ef, type: 2}
+  - {fileID: 2100000, guid: b64964e9bbda3b04e8b5965cf0a177ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -491,116 +477,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8919221960178487908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8919221960178487905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff698b6bb02049479424440ea644cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onFlickerOn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8919221960178487915}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.EmissionController, Assembly-CSharp
-        m_MethodName: TurnLightOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8919221958963393953}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.LightController, Assembly-CSharp
-        m_MethodName: TurnLightOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8218587714211697921}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.AudioController, Assembly-CSharp
-        m_MethodName: SoundOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onFlickerOff:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8919221960178487915}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.EmissionController, Assembly-CSharp
-        m_MethodName: TurnLightOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8919221958963393953}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.LightController, Assembly-CSharp
-        m_MethodName: TurnLightOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8218587714211697921}
-        m_TargetAssemblyTypeName: Runtime.GameplayScripts.AudioController, Assembly-CSharp
-        m_MethodName: SoundOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  active: 1
-  minOffDelay: 0.02
-  maxOffDelay: 0.08
-  minOnDelay: 0.7
-  maxOnDelay: 1.5
---- !u!114 &8919221960178487915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8919221960178487905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e0ba6b5fc6da947beb32a82d985280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideColor: 0
-  color: {r: 1, g: 1, b: 1, a: 1}
-  offIntensity: 6
-  onIntensity: 15
+  m_Size: {x: 3.6, y: 0.6, z: 0.4}
+  m_Center: {x: 0, y: 0, z: -0.2}
