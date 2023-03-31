@@ -1,1 +1,1 @@
-[System.Serializable] public enum SurfaceType { Default, Concrete, Wood };
+[System.Serializable] public enum SurfaceType { Default, Carpet, Concrete, Laminate, Wood };
