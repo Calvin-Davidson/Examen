@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb139e823af9914a973637535bb7051, type: 3}
+  m_Name: SC_LaminateFootSteps
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundClip: {fileID: 8300000, guid: bf130abbd0ade7d4eabf3d83a57bcd43, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: a7c3c0ffb74c4314899cd3cc87ed1dac, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 4a7f850d720bb294ab83a836fe1699bf, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 0d97b73410223594eb09ac782e5732fe, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: a0733b7bedc90f5438c9d21a2c22f19d, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: f3ccdb64566bd09419c7c54476d576ef, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 5b0e9b1ae509aa04f9b73318e9714c70, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: f514e01912d06f74c9f62b77d7b452e5, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 2f84382262878214a8c4dc2fab3c7196, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 0e7e7be9fa943b448b19531fb4860b12, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 54151891a41f77742aacbe95beab1a2c, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: eadbd7679e3bdbe45b0140207ebe1b1d, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 4cfeefaf465590b478bc44e17f901445, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 54eb7672804a33d4286bbe402b7c5685, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 27a39a117c358c744903b0c23ec66e79, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: a7f79db5092d9c241831ff6b3d972762, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: e067a8f4d7ed3fc4eb063f5af07e0e87, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 9945d4e98c6008c419becdb56d9c3173, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 5f0f9b73254b9fb4eb2319f1a6c3b575, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: fe2a3aacf5a06d44499e47082750682a, type: 3}
+    priority: 0

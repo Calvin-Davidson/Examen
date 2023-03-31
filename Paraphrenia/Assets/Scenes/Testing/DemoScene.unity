@@ -3135,6 +3135,79 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7568513615273587228, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCue
+      value: 
+      objectReference: {fileID: 11400000, guid: c63fd90d795f0214e852f27019279fc2,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: currentSurfaceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Version
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Keys.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Keys.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Next.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Next.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Values.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1edf8f4d486089344880b33cd9bdd7cb,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Values.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c63fd90d795f0214e852f27019279fc2,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Buckets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Buckets.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._HashCodes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._HashCodes.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8735640789271995158, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
       propertyPath: GlobalObjectIdHash
