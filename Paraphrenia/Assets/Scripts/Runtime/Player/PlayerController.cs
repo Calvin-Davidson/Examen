@@ -39,7 +39,7 @@ namespace Runtime.Player
             bool isRunning = Input.GetKey(KeyCode.LeftShift);
             float curSpeedX = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical");
             float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
-            _moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+            _moveDirection = (forward * curSpeedX + right * curSpeedY).normalized * (isRunning ? runningSpeed : walkingSpeed);
             
             _characterController.velocity = new Vector3(_moveDirection.x, _characterController.velocity.y, _moveDirection.z);
 
