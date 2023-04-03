@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -3130,6 +3130,89 @@ PrefabInstance:
       propertyPath: field of view
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 5829384483135329666, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568513615273587228, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCue
+      value: 
+      objectReference: {fileID: 11400000, guid: c63fd90d795f0214e852f27019279fc2,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: currentSurfaceType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Version
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Keys.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Keys.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Next.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Next.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Values.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1edf8f4d486089344880b33cd9bdd7cb,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Values.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c63fd90d795f0214e852f27019279fc2,
+        type: 2}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Buckets.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._Buckets.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._HashCodes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855225089345654078, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: soundCueDictionary._HashCodes.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735640789271995158, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 210006259
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6f88f278f166f469a6be6497de22e3, type: 3}
 --- !u!65 &588960109 stripped
@@ -3301,13 +3384,13 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
---- !u!82 &588960129
+--- !u!82 &588960122
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588960112}
+  m_GameObject: {fileID: 588960110}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1575054197871252455, guid: 81118191a99776b4989742188e42ffcb,
