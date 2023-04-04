@@ -22,7 +22,6 @@ namespace Runtime.Renderers
         
         public void SwitchPlayers()
         {
-            Debug.Log(1);
             if (!IsServer) return;
             NetworkingController.Instance.IsServerNurse.Value = !NetworkingController.Instance.IsServerNurse.Value;
         }

@@ -16,7 +16,13 @@ namespace Runtime.LevelEvents
     
         public UnityEvent onTriggerEnter;
         public UnityEvent onTriggerExit;
+
+        public UnityEvent onLastTriggerExit;
+        public UnityEvent onFirstTriggerEnter;
+
+        private int _activeTriggers = 0;
         
+
         public bool Active
         {
             get => active;
@@ -25,6 +31,8 @@ namespace Runtime.LevelEvents
         
         void OnTriggerEnter(Collider _)
         {
+            if (_activeTriggers == 0) HandleFirstTriggerEnterClientRpc();
+            _activeTriggers += 1;
             if (active && IsServer)
             {
                 HandleTriggerEnterClientRpc();
@@ -33,6 +41,8 @@ namespace Runtime.LevelEvents
 
         void OnTriggerExit(Collider _)
         {
+            if (_activeTriggers == 1) HandleLastTriggerExitClientRpc();
+            _activeTriggers -= 1;
             if (active && IsServer)
             {
                 HandleTriggerExitClientRpc();
@@ -49,6 +59,18 @@ namespace Runtime.LevelEvents
         private void HandleTriggerEnterClientRpc()
         {
             onTriggerEnter.Invoke();
+        }
+
+        [ClientRpc]
+        private void HandleFirstTriggerEnterClientRpc()
+        {
+            onFirstTriggerEnter?.Invoke();
+        }
+
+        [ClientRpc]
+        private void HandleLastTriggerExitClientRpc()
+        {
+            onLastTriggerExit?.Invoke();
         }
     }
 }

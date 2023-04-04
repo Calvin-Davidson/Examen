@@ -3853,6 +3853,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349203758}
+  - component: {fileID: 349203759}
+  - component: {fileID: 349203760}
   m_Layer: 0
   m_Name: Puzzle1
   m_TagString: Untagged
@@ -3881,6 +3883,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349203759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349203757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ada52fb976d4846aa7626fb9567ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCompleteNetworked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 382318435}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pressurePlates:
+  - {fileID: 1288726934}
+  - {fileID: 1715864888}
+  - {fileID: 365980645}
+  - {fileID: 1257041358}
+  - {fileID: 648455802}
+  onValidEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onInvalidEnter:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &349203760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349203757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4160230690
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &359431626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,6 +4024,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onLastTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &365980646
@@ -4415,6 +4478,12 @@ PrefabInstance:
 --- !u!4 &382318434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 300332976612783789, guid: 0f4484c6bd6464c4fa754c1b814f04ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 382318433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &382318435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1471867522841024507, guid: 0f4484c6bd6464c4fa754c1b814f04ba,
     type: 3}
   m_PrefabInstance: {fileID: 382318433}
   m_PrefabAsset: {fileID: 0}
@@ -5159,68 +5228,11 @@ MonoBehaviour:
   active: 1
   onTriggerEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1288726934}
-        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
-        m_MethodName: set_Active
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1715864888}
-        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
-        m_MethodName: set_Active
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 365980645}
-        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
-        m_MethodName: set_Active
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1257041358}
-        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
-        m_MethodName: set_Active
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 648455802}
-        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
-        m_MethodName: set_Active
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onLastTriggerExit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1288726934}
@@ -5282,6 +5294,93 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 349203759}
+        m_TargetAssemblyTypeName: Runtime.Puzzels.PressurePlatePuzzle, Assembly-CSharp
+        m_MethodName: set_IsActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFirstTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1288726934}
+        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1715864888}
+        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 365980645}
+        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1257041358}
+        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 648455802}
+        m_TargetAssemblyTypeName: Runtime.LevelEvents.NetworkedTriggerVolume, Assembly-CSharp
+        m_MethodName: set_Active
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 349203759}
+        m_TargetAssemblyTypeName: Runtime.Puzzels.PressurePlatePuzzle, Assembly-CSharp
+        m_MethodName: set_IsActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!65 &460902244
 BoxCollider:
@@ -8448,6 +8547,12 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  onLastTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &648455803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9305,7 +9410,7 @@ PrefabInstance:
     - target: {fileID: 7043913541232358664, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09370d2fffd04494fa267283fc448549, type: 3}
@@ -14052,6 +14157,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6f88f278f166f469a6be6497de22e3, type: 3}
+--- !u!1 &1091347355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1941312060868033098, guid: de6f88f278f166f469a6be6497de22e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1091347354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091347356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091347355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1394667931
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1092610284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16977,6 +17104,12 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  onLastTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1257041359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17332,6 +17465,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onLastTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &1288726935
@@ -21648,6 +21787,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onLastTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstTriggerEnter:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &1715864889
