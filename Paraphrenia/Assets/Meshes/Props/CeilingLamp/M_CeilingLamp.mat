@@ -299,6 +299,6 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
-    - _emissiveColor: {r: 98175.5, g: 98175.5, b: 98175.5, a: 0}
+    - _emissiveColor: {r: 131072, g: 130557.99, b: 118221.805, a: 0}
     - _textureScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

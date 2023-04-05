@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8919221960178487905, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
       propertyPath: m_Name
-      value: FlickeringLight Variant
+      value: FlickeringLight
       objectReference: {fileID: 0}
     - target: {fileID: 8919221960178487909, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
@@ -177,9 +177,9 @@ MonoBehaviour:
         m_CallState: 2
   active: 1
   minOffDelay: 0.1
-  maxOffDelay: 0.6
-  minOnDelay: 0.02
-  maxOnDelay: 0.1
+  maxOffDelay: 0.2
+  minOnDelay: 0.7
+  maxOnDelay: 1
 --- !u!114 &2292303953955907733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overrideColor: 1
-  color: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: 1, g: 0.99607843, b: 0.9019608, a: 1}
   offIntensity: 4
   onIntensity: 17
 --- !u!1 &504198403484676519 stripped
@@ -214,10 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecfa9acf20fee348862b83cd2be920b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overrideColor: 0
-  color: {r: 1, g: 1, b: 1, a: 1}
+  overrideColor: 1
+  color: {r: 1, g: 0.99607843, b: 0.9019608, a: 1}
   offIntensity: 5000
-  onIntensity: 9000
+  onIntensity: 25000
 --- !u!1 &8704572861343568053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 429229811358373004, guid: 3b1a397af4b767543b56295588383131,

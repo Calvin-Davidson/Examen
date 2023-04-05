@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/Scenes/Testing/PlayerMovement.unity
-    guid: 3f4342c7873117f43bc3278518fcd9e3
-  - enabled: 1
-    path: Assets/Scenes/Testing/DemoScene.unity
-    guid: 0c9d2cbc12fd9504aacd54f35907c338
-  - enabled: 1
     path: Assets/Scenes/Menus/CharacterSelectionMenu.unity
     guid: aa09ecb1f0ce8f9428b3256942d647a3
+  - enabled: 1
+    path: Assets/Scenes/Production/MainLevel.unity
+    guid: 27c224dda60cf174f958ef785c32dfa2
+  - enabled: 0
+    path: Assets/Scenes/Testing/PlayerMovement.unity
+    guid: 3f4342c7873117f43bc3278518fcd9e3
+  - enabled: 0
+    path: Assets/Scenes/Testing/DemoScene.unity
+    guid: 0c9d2cbc12fd9504aacd54f35907c338
   m_configObjects: {}
