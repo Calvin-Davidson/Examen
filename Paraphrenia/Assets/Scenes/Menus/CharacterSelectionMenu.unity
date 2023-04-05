@@ -223,6 +223,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4377339938342536716, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
+    - target: {fileID: 4377339938342536716, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6253676062739652545, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
     - target: {fileID: 4399039787265031806, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
         type: 3}
       propertyPath: m_RootOrder
@@ -348,6 +360,44 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917493983232332028, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_text
+      value: 'You are the Patient!
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917493983232332028, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
+    - target: {fileID: 5917493983232332028, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6253676062739652545, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
+    - target: {fileID: 6866128191409974776, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_text
+      value: 'You are the Nurse!
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866128191409974776, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
+    - target: {fileID: 6866128191409974776, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6253676062739652545, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
     - target: {fileID: 7446414231613765869, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
         type: 3}
       propertyPath: sceneAsset
@@ -359,6 +409,18 @@ PrefabInstance:
       propertyPath: targetScene
       value: MainLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 8838354784209854576, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
+    - target: {fileID: 8838354784209854576, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6253676062739652545, guid: 57be73fc3cc870e4398f021c84053d83,
+        type: 2}
     - target: {fileID: 8850744990513860113, guid: 8db1dce1c1b6c2a459afc0721a0feafb,
         type: 3}
       propertyPath: m_IsActive
