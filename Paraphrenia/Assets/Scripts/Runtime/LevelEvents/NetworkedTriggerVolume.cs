@@ -17,10 +17,10 @@ namespace Runtime.LevelEvents
         public UnityEvent onTriggerEnter;
         public UnityEvent onTriggerExit;
 
+        private int _activeTriggers = 0;
+        
         public UnityEvent onLastTriggerExit;
         public UnityEvent onFirstTriggerEnter;
-
-        private int _activeTriggers = 0;
         
 
         public bool Active
