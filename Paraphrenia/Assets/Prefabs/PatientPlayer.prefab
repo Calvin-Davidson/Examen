@@ -555,6 +555,7 @@ MonoBehaviour:
   lookXLimit: 20
   lookYLimit: 45
   playerCamera: {fileID: 6398809172540424878}
+  wheelchairParent: {fileID: 4948815508684914328}
 --- !u!114 &629279414569707330
 MonoBehaviour:
   m_ObjectHideFlags: 0
