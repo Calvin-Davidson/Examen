@@ -1,12 +1,14 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.Misc
 {
-    public class Wheelchair : MonoBehaviour
+    public class Wheelchair : NetworkBehaviour
     {
         [SerializeField, Range(0, 1)] private float lookAtTolerance = .1f;
+        [SerializeField] private GameObject playerParent;
         
         private Collider _playerCollider;
         private bool _isGrabbed;
@@ -39,24 +41,40 @@ namespace Runtime.Misc
         /// </summary>
         private void Update()
         {
+            if (!IsOwner) return;
+            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (_isGrabbed)
                 {
-                    transform.parent = null;
                     _isGrabbed = false;
-                    onRelease?.Invoke();
+                    ReleaseServerRpc();
                     return;
                 }
                 // if we are not holding it, we cannot release it.
-                if (_isGrabbed || _playerCollider == null) return;
+                if (_isGrabbed || playerParent == null) return;
                 
-                if (Vector3.Dot(transform.forward, _playerCollider.transform.forward) < 1 - lookAtTolerance) return;
-                    
-                transform.parent = _playerCollider.gameObject.transform;
+                if (Vector3.Dot(transform.forward, playerParent.transform.forward) < 1 - lookAtTolerance) return;
+
                 _isGrabbed = true;
-                onGrab?.Invoke();
+                GrabServerRpc();
             }
+        }
+
+        [ServerRpc]
+        private void GrabServerRpc()
+        {
+            transform.parent = playerParent.transform;
+            _isGrabbed = true;
+            onGrab?.Invoke();
+        }
+
+        [ServerRpc]
+        private void ReleaseServerRpc()
+        {
+            transform.parent = null;
+            _isGrabbed = false;
+            onRelease?.Invoke();
         }
     }
 }
