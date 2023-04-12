@@ -74,7 +74,7 @@ public class LobbyScreenUI : MonoBehaviour
     {
         // Do nothing, participant added will take care of this
         _vivoxVoiceManager.OnParticipantAddedEvent += VivoxVoiceManager_OnParticipantAddedEvent;
-        _vivoxVoiceManager.JoinChannel(LobbyChannelName, ChannelType.NonPositional, VivoxVoiceManager.ChatCapability.AudioOnly);
+        _vivoxVoiceManager.JoinChannel(LobbyChannelName, ChannelType.NonPositional, VivoxVoiceManager.ChatCapability.TextAndAudio);
     }
 
     private void LogoutOfVivoxService()
