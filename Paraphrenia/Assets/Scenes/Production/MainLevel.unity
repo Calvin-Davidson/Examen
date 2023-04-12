@@ -9526,6 +9526,22 @@ PrefabInstance:
       propertyPath: playerParent
       value: 
       objectReference: {fileID: 1091347355}
+    - target: {fileID: 1200973692, guid: 09370d2fffd04494fa267283fc448549, type: 3}
+      propertyPath: onGrab.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1091347357}
+    - target: {fileID: 1200973692, guid: 09370d2fffd04494fa267283fc448549, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1091347357}
+    - target: {fileID: 1200973692, guid: 09370d2fffd04494fa267283fc448549, type: 3}
+      propertyPath: onGrab.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200973692, guid: 09370d2fffd04494fa267283fc448549, type: 3}
+      propertyPath: onRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
     - target: {fileID: 629279414569707330, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14373,6 +14389,12 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!65 &1091347357 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 316177395, guid: de6f88f278f166f469a6be6497de22e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1091347354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1092610284
 PrefabInstance:
   m_ObjectHideFlags: 0
