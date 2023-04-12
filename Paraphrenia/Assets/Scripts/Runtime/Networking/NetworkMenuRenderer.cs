@@ -56,12 +56,14 @@ namespace Runtime.Networking
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             string newID = new string(Enumerable.Repeat(chars, 5).Select(s => s[r.Next(s.Length)]).ToArray());
             _transport.RoomName = newID;
+            NetworkingController.Instance.RoomCode = newID;
             
             NetworkManager.Singleton.OnServerStarted += () =>
             {
                 displayText.text = waitingForOtherPlayerDisplayText.Replace("%roomName%", _transport.RoomName);
                 onServerStarted?.Invoke();
             };
+            
             
             displayText.text = serverStartingDisplayText;
             NetworkManager.Singleton.StartHost();
@@ -78,7 +80,7 @@ namespace Runtime.Networking
                 onInvalidKey?.Invoke();
                 return;
             }
-
+            NetworkingController.Instance.RoomCode = _transport.RoomName;
             NetworkManager.Singleton.StartClient();
             onServerJoined?.Invoke();
             displayText.text = joiningServerDisplayText.Replace("%roomName%", _transport.RoomName);
