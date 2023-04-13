@@ -9570,7 +9570,7 @@ PrefabInstance:
     - target: {fileID: 4948815508684914328, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 74.74
       objectReference: {fileID: 0}
     - target: {fileID: 4948815508684914328, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
@@ -9580,7 +9580,7 @@ PrefabInstance:
     - target: {fileID: 4948815508684914328, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: -30.31
       objectReference: {fileID: 0}
     - target: {fileID: 4948815508684914328, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
@@ -9620,7 +9620,7 @@ PrefabInstance:
     - target: {fileID: 7043913541232358664, guid: 09370d2fffd04494fa267283fc448549,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09370d2fffd04494fa267283fc448549, type: 3}
@@ -10213,7 +10213,7 @@ GameObject:
   - component: {fileID: 779082890}
   - component: {fileID: 779082889}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12345,7 +12345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &932842105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13604,7 +13604,7 @@ GameObject:
   - component: {fileID: 1044260005}
   - component: {fileID: 1044260004}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14230,7 +14230,7 @@ PrefabInstance:
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 74.78
       objectReference: {fileID: 0}
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
@@ -14240,7 +14240,7 @@ PrefabInstance:
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: -31.94
       objectReference: {fileID: 0}
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
@@ -18739,7 +18739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1365169052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20365,7 +20365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1525228391
 Transform:
   m_ObjectHideFlags: 0
@@ -27740,7 +27740,7 @@ GameObject:
   - component: {fileID: 2073754217}
   - component: {fileID: 2073754216}
   m_Layer: 0
-  m_Name: Plane (2)
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
