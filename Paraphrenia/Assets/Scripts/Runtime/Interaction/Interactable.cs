@@ -7,7 +7,7 @@ namespace Runtime.Interaction
     /// The base class for the interaction system, handles interactor enter, exit and interact events.
     /// </summary>
     [RequireComponent(typeof(Collider))]
-    public class Interactable : MonoBehaviour
+    public class Interactable : MonoBehaviour, IInteractable
     {
         public UnityEvent onInteract;
         public UnityEvent onInteractorEnter;
@@ -16,7 +16,7 @@ namespace Runtime.Interaction
         /// <summary>
         /// Called when the interactor can interact with this object
         /// </summary>
-        public virtual void InteractorEnter()
+        public void InteractorEnter()
         {
             onInteractorEnter?.Invoke();
         }
@@ -24,7 +24,7 @@ namespace Runtime.Interaction
         /// <summary>
         /// Called when the interactor can no longer interact with this object.
         /// </summary>
-        public virtual void InteractorExit()
+        public void InteractorExit()
         {
             onInteractorExit?.Invoke();
         }
@@ -32,7 +32,7 @@ namespace Runtime.Interaction
         /// <summary>
         /// Called when the interactor interacts with this object.
         /// </summary>
-        public virtual void DoInteract()
+        public void DoInteract()
         {
             onInteract?.Invoke();
         }
