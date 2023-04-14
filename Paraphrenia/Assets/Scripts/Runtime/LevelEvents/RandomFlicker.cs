@@ -34,6 +34,7 @@ namespace Runtime.LevelEvents
         private void OnValidate()
         {
             if (!Application.isPlaying) return;
+            if (!gameObject.activeInHierarchy) return;
             if (active) StartCoroutine(FlickerTimer());
         }
 #endif
