@@ -16,7 +16,7 @@ namespace Runtime.Interaction
 
         public bool IsActive { get; set; } = true;
 
-        
+
         /// <summary>
         /// Called when the interactor can interact with this object
         /// </summary>
@@ -25,11 +25,11 @@ namespace Runtime.Interaction
             if (!IsActive) return;
             if (IsServer)
             {
-                InteractorEnterServerRpc();
+                InteractorEnterClientRpc();
             }
             else
             {
-                InteractorEnterClientRpc();
+                InteractorEnterServerRpc();
             }
         }
 
@@ -66,37 +66,37 @@ namespace Runtime.Interaction
                 DoInteractServerRpc();
             }
         }
-        
-        [ServerRpc]
+
+        [ServerRpc(RequireOwnership = false)]
         private void InteractorEnterServerRpc()
         {
             InteractorEnterClientRpc();
         }
-        
+
         [ClientRpc]
         private void InteractorEnterClientRpc()
         {
             onInteractorEnter?.Invoke();
         }
-        
-        [ServerRpc]
+
+        [ServerRpc(RequireOwnership = false)]
         private void InteractorExitServerRpc()
         {
             InteractorExitClientRpc();
         }
-        
+
         [ClientRpc]
         private void InteractorExitClientRpc()
         {
             onInteractorExit?.Invoke();
         }
-        
-        [ServerRpc]
+
+        [ServerRpc(RequireOwnership = false)]
         private void DoInteractServerRpc()
         {
             DoInteractClientRpc();
         }
-        
+
         [ClientRpc]
         private void DoInteractClientRpc()
         {

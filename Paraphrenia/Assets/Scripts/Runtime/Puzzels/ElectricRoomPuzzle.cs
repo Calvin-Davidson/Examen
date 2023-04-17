@@ -1,4 +1,5 @@
 using Runtime.Interaction;
+using Runtime.Networking.NetworkEvent;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +21,8 @@ namespace Runtime.Puzzels
         public UnityEvent onBecameInvalid;
         public UnityEvent onInvalidCableRepaired;
 
+        public NetworkEvent Evt = new(NetworkEventPermission.Everyone, NetworkEventPermission.Owner);
+
         private bool IsValid
         {
             get => _isValid;
@@ -33,6 +36,9 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkSpawn()
         {
+            Debug.Log("Subscribing");
+            Evt.Initialize(NetworkObject);
+            
             breakerInteractable.onInteract.AddListener(HandleBreakerInteract);
             foreach (var networkedInteractable in interactableCables)
             {
@@ -45,9 +51,15 @@ namespace Runtime.Puzzels
             base.OnNetworkSpawn();
         }
 
+        public override void OnNetworkDespawn()
+        {
+            Evt.Dispose();
+        }
+
 
         private void HandleBreakerInteract()
         {
+            Evt.SendMessage();
             if (IsValid)
             {
                 onBreakerSuccess?.Invoke();
