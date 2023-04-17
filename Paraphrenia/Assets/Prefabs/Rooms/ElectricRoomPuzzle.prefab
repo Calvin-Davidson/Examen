@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2067757316}
   - component: {fileID: 2067757315}
   - component: {fileID: 2067757314}
+  - component: {fileID: 2067757317}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -97,6 +98,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2067757317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067757312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractorEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractorExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2469222572538891341
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2469222572538891340}
+  - component: {fileID: 1338110234}
   m_Layer: 0
   m_Name: ElectricRoomPuzzle
   m_TagString: Untagged
@@ -134,6 +157,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338110234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469222572538891341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa33e7d3577b6b4db35dd94997097e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCompleteNetworked:
+    m_PersistentCalls:
+      m_Calls: []
+  breakerInteractable: {fileID: 2067757317}
+  interactableCables:
+  - {fileID: 5431359700365158955}
+  - {fileID: 2425072517225626913}
+  - {fileID: 1577474011435496477}
+  - {fileID: 5518288517115415590}
+  onBreakerFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onBreakerSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  onBecameValid:
+    m_PersistentCalls:
+      m_Calls: []
+  onBecameInvalid:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2469222572724258031
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +521,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de384a0479855d243a2550aee1ecb04d, type: 3}
+--- !u!114 &1577474011435496477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8502728250951976141, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2425072517225626913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4736665928943898097, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3047941276513858950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5357001499508852054, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &597318561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047941276513858950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &5431359700365158955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3133241816670608123, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5518288517115415590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3210912745954622710, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047941276513858950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8297866887786157636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1386092678408988308, guid: de384a0479855d243a2550aee1ecb04d,
