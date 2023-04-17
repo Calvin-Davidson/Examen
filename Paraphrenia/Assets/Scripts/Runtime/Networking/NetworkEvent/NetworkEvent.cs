@@ -12,7 +12,7 @@ namespace Runtime.Networking.NetworkEvent
         private NetworkObject _ownerObject;
         private string _eventNameID;
 
-        private bool _isInitialized = false;
+        private bool _isInitialized;
 
         public UnityEvent called = new();
         public UnityEvent calledClient = new();
