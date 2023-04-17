@@ -13,11 +13,14 @@ namespace Runtime.Interaction
         public UnityEvent onInteractorEnter;
         public UnityEvent onInteractorExit;
 
+        public bool IsActive { get; set; } = true;
+
         /// <summary>
         /// Called when the interactor can interact with this object
         /// </summary>
         public void InteractorEnter()
         {
+            if (!IsActive) return;
             onInteractorEnter?.Invoke();
         }
 
@@ -26,6 +29,7 @@ namespace Runtime.Interaction
         /// </summary>
         public void InteractorExit()
         {
+            if (!IsActive) return;
             onInteractorExit?.Invoke();
         }
 
@@ -34,6 +38,7 @@ namespace Runtime.Interaction
         /// </summary>
         public void DoInteract()
         {
+            if (!IsActive) return;
             onInteract?.Invoke();
         }
     }

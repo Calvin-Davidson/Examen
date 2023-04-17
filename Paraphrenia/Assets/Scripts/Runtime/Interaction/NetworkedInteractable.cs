@@ -14,18 +14,22 @@ namespace Runtime.Interaction
         public UnityEvent onInteractorEnter;
         public UnityEvent onInteractorExit;
 
+        public bool IsActive { get; set; } = true;
+
+
         /// <summary>
         /// Called when the interactor can interact with this object
         /// </summary>
         public void InteractorEnter()
         {
+            if (!IsActive) return;
             if (IsServer)
             {
-                InteractorEnterServerRpc();
+                InteractorEnterClientRpc();
             }
             else
             {
-                InteractorEnterClientRpc();
+                InteractorEnterServerRpc();
             }
         }
 
@@ -34,6 +38,8 @@ namespace Runtime.Interaction
         /// </summary>
         public void InteractorExit()
         {
+            if (!IsActive) return;
+
             if (IsServer)
             {
                 InteractorExitClientRpc();
@@ -49,6 +55,8 @@ namespace Runtime.Interaction
         /// </summary>
         public void DoInteract()
         {
+            if (!IsActive) return;
+
             if (IsServer)
             {
                 DoInteractClientRpc();
@@ -59,36 +67,36 @@ namespace Runtime.Interaction
             }
         }
 
-        [ServerRpc]
+        [ServerRpc(RequireOwnership = false)]
         private void InteractorEnterServerRpc()
         {
             InteractorEnterClientRpc();
         }
-        
+
         [ClientRpc]
         private void InteractorEnterClientRpc()
         {
             onInteractorEnter?.Invoke();
         }
-        
-        [ServerRpc]
+
+        [ServerRpc(RequireOwnership = false)]
         private void InteractorExitServerRpc()
         {
             InteractorExitClientRpc();
         }
-        
+
         [ClientRpc]
         private void InteractorExitClientRpc()
         {
             onInteractorExit?.Invoke();
         }
-        
-        [ServerRpc]
+
+        [ServerRpc(RequireOwnership = false)]
         private void DoInteractServerRpc()
         {
             DoInteractClientRpc();
         }
-        
+
         [ClientRpc]
         private void DoInteractClientRpc()
         {
