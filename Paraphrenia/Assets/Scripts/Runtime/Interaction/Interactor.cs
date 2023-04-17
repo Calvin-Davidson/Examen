@@ -11,15 +11,15 @@ namespace Runtime.Interaction
         [SerializeField] private float interactionDistance = 10;
         [SerializeField] private KeyCode interactionKey = KeyCode.E;
 
-        private Interactable _interactable;
+        private IInteractable _interactable;
 
         private void Update()
         {
             Transform cameraTransform = interactorCamera.transform;
             var didHit = Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hitInfo, interactionDistance);
-            var interactable = didHit ? hitInfo.collider.GetComponent<Interactable>() : null;
+            var interactable = didHit ? hitInfo.collider.GetComponent<IInteractable>() : null;
             
-            if (didHit && interactable)
+            if (didHit && interactable != null)
             {
                 DoInteractionHit(hitInfo, interactable);
             }
@@ -47,7 +47,7 @@ namespace Runtime.Interaction
         /// </summary>
         /// <param name="hitInfo"></param>
         /// <param name="interactable"></param>
-        private void DoInteractionHit(RaycastHit hitInfo, Interactable interactable)
+        private void DoInteractionHit(RaycastHit hitInfo, IInteractable interactable)
         {
             if (_interactable == interactable) return;
            
