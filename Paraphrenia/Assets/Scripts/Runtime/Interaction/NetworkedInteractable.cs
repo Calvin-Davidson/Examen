@@ -14,11 +14,15 @@ namespace Runtime.Interaction
         public UnityEvent onInteractorEnter;
         public UnityEvent onInteractorExit;
 
+        public bool IsActive { get; set; } = true;
+
+        
         /// <summary>
         /// Called when the interactor can interact with this object
         /// </summary>
         public void InteractorEnter()
         {
+            if (!IsActive) return;
             if (IsServer)
             {
                 InteractorEnterServerRpc();
@@ -34,6 +38,8 @@ namespace Runtime.Interaction
         /// </summary>
         public void InteractorExit()
         {
+            if (!IsActive) return;
+
             if (IsServer)
             {
                 InteractorExitClientRpc();
@@ -49,6 +55,8 @@ namespace Runtime.Interaction
         /// </summary>
         public void DoInteract()
         {
+            if (!IsActive) return;
+
             if (IsServer)
             {
                 DoInteractClientRpc();
@@ -58,7 +66,7 @@ namespace Runtime.Interaction
                 DoInteractServerRpc();
             }
         }
-
+        
         [ServerRpc]
         private void InteractorEnterServerRpc()
         {

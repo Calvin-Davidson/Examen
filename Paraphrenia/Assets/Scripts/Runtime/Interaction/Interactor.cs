@@ -19,7 +19,7 @@ namespace Runtime.Interaction
             var didHit = Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hitInfo, interactionDistance);
             var interactable = didHit ? hitInfo.collider.GetComponent<IInteractable>() : null;
             
-            if (didHit && interactable != null)
+            if (didHit && interactable is { IsActive: true })
             {
                 DoInteractionHit(hitInfo, interactable);
             }
