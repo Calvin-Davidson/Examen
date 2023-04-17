@@ -34,11 +34,11 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkSpawn()
         {
-            onBreakerFailed.Initialize(NetworkObject);
-            onBreakerSuccess.Initialize(NetworkObject);
-            onBecameValid.Initialize(NetworkObject);
-            onBecameInvalid.Initialize(NetworkObject);
-            onInvalidCableRepaired.Initialize(NetworkObject);
+            onBreakerFailed.Initialize(this);
+            onBreakerSuccess.Initialize(this);
+            onBecameValid.Initialize(this);
+            onBecameInvalid.Initialize(this);
+            onInvalidCableRepaired.Initialize(this);
 
             breakerInteractable.onInteract.AddListener(HandleBreakerInteract);
             foreach (var networkedInteractable in interactableCables)

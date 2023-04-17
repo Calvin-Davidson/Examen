@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using System.Reflection;
+using ExitGames.Client.Photon.StructWrapping;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine.Events;
@@ -23,14 +26,24 @@ namespace Runtime.Networking.NetworkEvent
             _invokePermission = invokePermission;
         }
 
-        public void Initialize(NetworkObject networkObject)
+        public void Initialize(NetworkBehaviour behaviour)
         {
             if (_isInitialized) return;
 
             _isInitialized = true;
 
-            _eventNameID = networkObject.name + networkObject.NetworkObjectId;
-            _ownerObject = networkObject;
+            var bindingFlags = BindingFlags.Instance |
+                               BindingFlags.NonPublic |
+                               BindingFlags.Public;
+
+            var events = behaviour.GetType()
+                .GetFields(bindingFlags).Where(field => field.GetValue(behaviour).IsType<NetworkEvent>())
+                .Select(field => field.GetValue(behaviour) as NetworkEvent)
+                .ToList();
+
+
+            _eventNameID = behaviour.NetworkObject.name + behaviour.NetworkObject.NetworkObjectId + events.IndexOf(this);
+            _ownerObject = behaviour.NetworkObject;
 
 
             NetworkManager.Singleton.CustomMessagingManager.RegisterNamedMessageHandler(_eventNameID, ReceiveMessage);
@@ -51,7 +64,7 @@ namespace Runtime.Networking.NetworkEvent
         public void Invoke()
         {
             if (!CanInvoke()) return;
-            
+
             var writer = new FastBufferWriter(0, Allocator.Temp);
             var customMessagingManager = NetworkManager.Singleton.CustomMessagingManager;
             using (writer)
