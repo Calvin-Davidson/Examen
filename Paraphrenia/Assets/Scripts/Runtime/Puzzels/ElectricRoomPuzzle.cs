@@ -7,15 +7,18 @@ namespace Runtime.Puzzels
     public class ElectricRoomPuzzle : Puzzle
     {
         [SerializeField, Space] private NetworkedInteractable breakerInteractable;
-        [SerializeField] private NetworkedInteractable[] interactableCables;
+
+        [SerializeField, Tooltip("Should be filled in the order in which the should be fixed")]
+        private NetworkedInteractable[] interactableCables;
 
         private int _repairedCables = 0;
         private bool _isValid = false;
-        
+
         public UnityEvent onBreakerFailed;
         public UnityEvent onBreakerSuccess;
         public UnityEvent onBecameValid;
         public UnityEvent onBecameInvalid;
+        public UnityEvent onInvalidCableRepaired;
 
         private bool IsValid
         {
@@ -33,11 +36,15 @@ namespace Runtime.Puzzels
             breakerInteractable.onInteract.AddListener(HandleBreakerInteract);
             foreach (var networkedInteractable in interactableCables)
             {
-                networkedInteractable.onInteract.AddListener(HandleCableInteract);
+                networkedInteractable.onInteract.AddListener(() =>
+                {
+                    HandleCableInteract(networkedInteractable);
+                });
             }
+
             base.OnNetworkSpawn();
         }
-        
+
 
         private void HandleBreakerInteract()
         {
@@ -51,8 +58,21 @@ namespace Runtime.Puzzels
             }
         }
 
-        private void HandleCableInteract()
+        private void HandleCableInteract(NetworkedInteractable interactable)
         {
+            if (interactableCables[_repairedCables] != interactable)
+            {
+                _repairedCables = 0;
+                onInvalidCableRepaired?.Invoke();
+                
+                foreach (var networkedInteractable in interactableCables)
+                {
+                    networkedInteractable.enabled = true;
+                }
+                return;
+            }
+
+            interactable.enabled = false;
             _repairedCables += 1;
             if (_repairedCables == interactableCables.Length - 1) IsValid = true;
         }

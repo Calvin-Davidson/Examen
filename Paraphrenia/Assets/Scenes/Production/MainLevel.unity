@@ -33758,6 +33758,21 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2352361911
       objectReference: {fileID: 0}
+    - target: {fileID: 173686387442044263, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 638328771
+      objectReference: {fileID: 0}
+    - target: {fileID: 557626233270302500, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 637462905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469222571612011863, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 296204305
+      objectReference: {fileID: 0}
     - target: {fileID: 2469222572538891340, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
         type: 3}
       propertyPath: m_RootOrder
@@ -33817,6 +33832,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ElectricRoomPuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460626326459730432, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 763235967
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617129982412652985, guid: 3cb528ba676bf0a4cabfacd4f21f8f90,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2538334603
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cb528ba676bf0a4cabfacd4f21f8f90, type: 3}

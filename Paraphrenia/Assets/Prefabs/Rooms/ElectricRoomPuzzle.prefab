@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2469222572538891340}
   - component: {fileID: 1338110234}
+  - component: {fileID: 2469222571612011863}
   m_Layer: 0
   m_Name: ElectricRoomPuzzle
   m_TagString: Untagged
@@ -190,6 +191,73 @@ MonoBehaviour:
   onBecameInvalid:
     m_PersistentCalls:
       m_Calls: []
+  onInvalidCableRepaired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7158007949257420496}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7254295028043921815}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4907493820771279380}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6754378451553698843}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2469222571612011863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469222572538891341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2469222572724258031
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +587,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenElectricBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1697188669539823977, guid: de384a0479855d243a2550aee1ecb04d,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772787086877883088, guid: de384a0479855d243a2550aee1ecb04d,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093904795066695095, guid: de384a0479855d243a2550aee1ecb04d,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468802239955322868, guid: de384a0479855d243a2550aee1ecb04d,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de384a0479855d243a2550aee1ecb04d, type: 3}
 --- !u!114 &1577474011435496477 stripped
@@ -567,6 +655,12 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!1 &4907493820771279380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2594488635987399364, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5431359700365158955 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3133241816670608123, guid: de384a0479855d243a2550aee1ecb04d,
@@ -591,6 +685,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6754378451553698843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4442745370946532555, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7158007949257420496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 238066549960154624, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7254295028043921815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 340018399106992455, guid: de384a0479855d243a2550aee1ecb04d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6925289424023335120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8297866887786157636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1386092678408988308, guid: de384a0479855d243a2550aee1ecb04d,

@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 3834554643751265776}
   - component: {fileID: 5339286741356902716}
   - component: {fileID: 3210912745954622710}
+  - component: {fileID: 7093904795066695095}
   m_Layer: 0
   m_Name: WireBlue
   m_TagString: Untagged
@@ -890,7 +891,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5357001499508852054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f50a88f517f1934b95055724c4b5bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onInteract:
@@ -914,6 +915,22 @@ MonoBehaviour:
   onInteractorExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7093904795066695095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5357001499508852054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &5864792917085273735
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +944,7 @@ GameObject:
   - component: {fileID: 8454447258930584682}
   - component: {fileID: 5883569167204738706}
   - component: {fileID: 3133241816670608123}
+  - component: {fileID: 1697188669539823977}
   m_Layer: 0
   m_Name: WireWhite
   m_TagString: Untagged
@@ -1023,7 +1041,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5864792917085273735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f50a88f517f1934b95055724c4b5bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onInteract:
@@ -1047,6 +1065,22 @@ MonoBehaviour:
   onInteractorExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1697188669539823977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864792917085273735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &6102877338467820130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1191,7 @@ GameObject:
   - component: {fileID: 794461896389870225}
   - component: {fileID: 7667421187601898561}
   - component: {fileID: 8502728250951976141}
+  - component: {fileID: 7468802239955322868}
   m_Layer: 0
   m_Name: WireYellow
   m_TagString: Untagged
@@ -1253,7 +1288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7051279212367968103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f50a88f517f1934b95055724c4b5bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onInteract:
@@ -1277,6 +1312,22 @@ MonoBehaviour:
   onInteractorExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7468802239955322868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051279212367968103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8601486919604677784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1438,7 @@ GameObject:
   - component: {fileID: 5294119903314867340}
   - component: {fileID: 7910585123039543197}
   - component: {fileID: 4736665928943898097}
+  - component: {fileID: 5772787086877883088}
   m_Layer: 0
   m_Name: WireOrange
   m_TagString: Untagged
@@ -1483,7 +1535,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8624805393013952575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f50a88f517f1934b95055724c4b5bf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f73c8a14ee7cf48b696f3ed767e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onInteract:
@@ -1507,3 +1559,19 @@ MonoBehaviour:
   onInteractorExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5772787086877883088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8624805393013952575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
