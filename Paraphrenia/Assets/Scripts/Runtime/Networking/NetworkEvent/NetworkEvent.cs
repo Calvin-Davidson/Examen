@@ -1,26 +1,25 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 using Unity.Collections;
 using Unity.Netcode;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.Networking.NetworkEvent
 {
+    [Serializable]
     public class NetworkEvent : IDisposable
     {
-        private NetworkEventPermission _listenPermission;
         private NetworkEventPermission _invokePermission;
         private NetworkObject _ownerObject;
         private string _eventNameID;
 
         private bool _isInitialized = false;
 
-        public NetworkEvent(NetworkEventPermission listenPermission = NetworkEventPermission.Everyone,
-            NetworkEventPermission invokePermission = NetworkEventPermission.Server)
+        public UnityEvent called = new();
+        public UnityEvent calledClient = new();
+        public UnityEvent calledServer = new();
+
+        public NetworkEvent(NetworkEventPermission invokePermission = NetworkEventPermission.Server)
         {
-            _listenPermission = listenPermission;
             _invokePermission = invokePermission;
         }
 
@@ -44,19 +43,16 @@ namespace Runtime.Networking.NetworkEvent
 
         private void ReceiveMessage(ulong senderId, FastBufferReader messagePayload)
         {
-            if (NetworkManager.Singleton.IsServer)
-            {
-                Debug.Log($"Server received from client ({senderId})");
-            }
-            else
-            {
-                Debug.Log($"Client received from the server.");
-            }
+            called?.Invoke();
+            if (NetworkManager.Singleton.IsClient) calledClient?.Invoke();
+            if (NetworkManager.Singleton.IsServer) calledServer?.Invoke();
         }
 
-        public void SendMessage()
+        public void Invoke()
         {
-            var writer = new FastBufferWriter(1100, Allocator.Temp);
+            if (!CanInvoke()) return;
+            
+            var writer = new FastBufferWriter(0, Allocator.Temp);
             var customMessagingManager = NetworkManager.Singleton.CustomMessagingManager;
             using (writer)
             {
@@ -69,6 +65,17 @@ namespace Runtime.Networking.NetworkEvent
                     customMessagingManager.SendNamedMessage(_eventNameID, NetworkManager.ServerClientId, writer);
                 }
             }
+        }
+
+        private bool CanInvoke()
+        {
+            return _invokePermission switch
+            {
+                NetworkEventPermission.Server => NetworkManager.Singleton.IsServer,
+                NetworkEventPermission.Owner => _ownerObject.IsOwner,
+                NetworkEventPermission.Everyone => true,
+                _ => false
+            };
         }
     }
 }

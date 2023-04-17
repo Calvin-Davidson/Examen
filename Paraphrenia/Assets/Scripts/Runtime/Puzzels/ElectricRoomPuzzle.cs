@@ -12,16 +12,14 @@ namespace Runtime.Puzzels
         [SerializeField, Tooltip("Should be filled in the order in which the should be fixed")]
         private NetworkedInteractable[] interactableCables;
 
-        private int _repairedCables = 0;
-        private bool _isValid = false;
+        private int _repairedCables;
+        private bool _isValid;
 
-        public UnityEvent onBreakerFailed;
-        public UnityEvent onBreakerSuccess;
-        public UnityEvent onBecameValid;
-        public UnityEvent onBecameInvalid;
-        public UnityEvent onInvalidCableRepaired;
-
-        public NetworkEvent Evt = new(NetworkEventPermission.Everyone, NetworkEventPermission.Owner);
+        public NetworkEvent onBreakerFailed = new(NetworkEventPermission.Everyone);
+        public NetworkEvent onBreakerSuccess = new(NetworkEventPermission.Everyone);
+        public NetworkEvent onBecameValid = new(NetworkEventPermission.Everyone);
+        public NetworkEvent onBecameInvalid = new(NetworkEventPermission.Everyone);
+        public NetworkEvent onInvalidCableRepaired = new(NetworkEventPermission.Everyone);
 
         private bool IsValid
         {
@@ -36,16 +34,16 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkSpawn()
         {
-            Debug.Log("Subscribing");
-            Evt.Initialize(NetworkObject);
-            
+            onBreakerFailed.Initialize(NetworkObject);
+            onBreakerSuccess.Initialize(NetworkObject);
+            onBecameValid.Initialize(NetworkObject);
+            onBecameInvalid.Initialize(NetworkObject);
+            onInvalidCableRepaired.Initialize(NetworkObject);
+
             breakerInteractable.onInteract.AddListener(HandleBreakerInteract);
             foreach (var networkedInteractable in interactableCables)
             {
-                networkedInteractable.onInteract.AddListener(() =>
-                {
-                    HandleCableInteract(networkedInteractable);
-                });
+                networkedInteractable.onInteract.AddListener(() => { HandleCableInteract(networkedInteractable); });
             }
 
             base.OnNetworkSpawn();
@@ -53,13 +51,16 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkDespawn()
         {
-            Evt.Dispose();
+            onBreakerFailed.Dispose();
+            onBreakerSuccess.Dispose();
+            onBecameValid.Dispose();
+            onBecameInvalid.Dispose();
+            onInvalidCableRepaired.Dispose();
         }
 
 
         private void HandleBreakerInteract()
         {
-            Evt.SendMessage();
             if (IsValid)
             {
                 onBreakerSuccess?.Invoke();
