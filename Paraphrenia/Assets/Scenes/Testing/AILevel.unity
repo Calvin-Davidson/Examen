@@ -3532,7 +3532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6a2554fd8b9fb4e9cf2eab49d8abe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targets:
+  targets:
   - {fileID: 1560682799}
   - {fileID: 38990927}
   - {fileID: 820258359}
@@ -3540,15 +3540,11 @@ MonoBehaviour:
   - {fileID: 1023180532}
   - {fileID: 1023533220}
   - {fileID: 974558883}
-  _targetAccuracy: 5
-  _switchTime: 3
-  _searchTime: 10
-  _aggroTime: 1.5
-  _aggroDecayRate: 0.5
-  _currentIndex: 0
-  _aiState: 1
-  _timeSinceLastChase: 0
-  _accumulatedAggro: 0
+  targetAccuracy: 5
+  switchTime: 3
+  searchTime: 10
+  aggroTime: 1
+  aggroDecayRate: 1
 --- !u!195 &223936796
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3592,12 +3588,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 183
   visibleTargets: []
-  _tickDelay: 0.1
-  _drawFieldOfView: 1
-  _meshResolution: 10
-  _edgeDistanceThreshold: 5
-  _edgeResolveIterations: 10
-  _viewMeshFilter: {fileID: 1686179230}
+  tickDelay: 0.1
+  drawFieldOfView: 1
+  meshResolution: 10
+  edgeDistanceThreshold: 5
+  edgeResolveIterations: 5
+  viewMeshFilter: {fileID: 1686179230}
 --- !u!114 &223936798
 MonoBehaviour:
   m_ObjectHideFlags: 0
