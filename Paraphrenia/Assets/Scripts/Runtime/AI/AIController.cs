@@ -23,11 +23,10 @@ public class AIController : MonoBehaviour
     [SerializeField] private float aggroTime = 1;
     [SerializeField] private float aggroDecayRate = 1;
 
-    // Serialized only for debug purposes
-    [SerializeField] private int _currentIndex = 0;
-    [SerializeField] private AIState _aiState = AIState.Roaming;
-    [SerializeField] private float _timeSinceLastChase;
-    [SerializeField] private float _accumulatedAggro;
+    private int _currentIndex = 0;
+    private AIState _aiState = AIState.Roaming;
+    private float _timeSinceLastChase;
+    private float _accumulatedAggro;
 
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fieldOfView;
