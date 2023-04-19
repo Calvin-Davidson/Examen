@@ -16,12 +16,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(FieldOfView))]
 public class AIController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _targets;
-    [SerializeField] private float _targetAccuracy = 5;
-    [SerializeField] private float _switchTime = 3;
-    [SerializeField] private float _searchTime = 10;
-    [SerializeField] private float _aggroTime = 2;
-    [SerializeField] private float _aggroDecayRate = 0.25f;
+    [SerializeField] private GameObject[] targets;
+    [SerializeField] private float targetAccuracy = 5;
+    [SerializeField] private float switchTime = 3;
+    [SerializeField] private float searchTime = 10;
+    [SerializeField] private float aggroTime = 1;
+    [SerializeField] private float aggroDecayRate = 1;
 
     // Serialized only for debug purposes
     [SerializeField] private int _currentIndex = 0;
@@ -48,13 +48,13 @@ public class AIController : MonoBehaviour
         // Update AI State
         if(_fieldOfView.visibleTargets.Count > 0)
         {
-            if(_accumulatedAggro < _aggroTime)
+            if(_accumulatedAggro < aggroTime)
             {
                 _accumulatedAggro += Time.deltaTime;
-                if (_accumulatedAggro > _aggroTime) _accumulatedAggro = _aggroTime;
+                if (_accumulatedAggro > aggroTime) _accumulatedAggro = aggroTime;
             }
 
-            if(_accumulatedAggro >= _aggroTime)
+            if(_accumulatedAggro >= aggroTime)
             {
                 _aiState = AIState.Chasing;
                 _timeSinceLastChase = 0;
@@ -65,37 +65,28 @@ public class AIController : MonoBehaviour
             _aiState = AIState.Searching;
             _invertSearchPattern = RandomBool();
         }
-        else if(_aiState == AIState.Searching && _timeSinceLastChase >= _searchTime)
+        else if(_aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
         {
             _aiState = AIState.Roaming;
         }
         else if (_aiState == AIState.Roaming)
         {
-            _accumulatedAggro -= Time.deltaTime * _aggroDecayRate;
+            _accumulatedAggro -= Time.deltaTime * aggroDecayRate;
             if (_accumulatedAggro < 0) _accumulatedAggro = 0;
         }
 
         switch (_aiState)
         {
             case AIState.Chasing:
-            {
                 OnChase();
                 break;
-            }
             case AIState.Searching:
-            {
                 OnSearch();
-                break;
-            }
             case AIState.Roaming:
-            {
                 OnRoam();
                 break;
-            }
             default:
-            {
                 break;
-            }
         }
     }
     
@@ -127,7 +118,7 @@ public class AIController : MonoBehaviour
         }
         _navMeshAgent.destination = _lastKnownTargetPosition;
 
-        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= _targetAccuracy)
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
         {
             Debug.Log("Caught a player!");
         }
@@ -141,9 +132,9 @@ public class AIController : MonoBehaviour
 
     private void OnRoam()
     {
-        _navMeshAgent.destination = _targets[_currentIndex].transform.position;
+        _navMeshAgent.destination = targets[_currentIndex].transform.position;
 
-        if (Vector3.Distance(transform.position, _targets[_currentIndex].transform.position) <= _targetAccuracy)
+        if (Vector3.Distance(transform.position, targets[_currentIndex].transform.position) <= targetAccuracy)
         {
             StartCoroutine(SelectNewTarget(_currentIndex));
         }
@@ -169,13 +160,13 @@ public class AIController : MonoBehaviour
 
     private IEnumerator SelectNewTarget(int oldIndex)
     {
-        yield return new WaitForSeconds(_switchTime);
+        yield return new WaitForSeconds(switchTime);
 
         // Must take into account the chance of selecting the same object over and over, so I itterate 10 attempts to try and select a different target
         int attempts = 0;
         while(_currentIndex==oldIndex && attempts < 10)
         {
-            _currentIndex = Random.Range(0, _targets.Length - 1);
+            _currentIndex = Random.Range(0, targets.Length - 1);
             attempts++;
         }
     }

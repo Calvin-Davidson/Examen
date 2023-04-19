@@ -9,12 +9,12 @@ public class FieldOfView : MonoBehaviour {
 	public LayerMask obstacleMask;
 	[HideInInspector] public List<Transform> visibleTargets = new List<Transform>();
 
-	[SerializeField] private float _tickDelay = 0.1f;
-	[SerializeField] private bool _drawFieldOfView = true;
-	[SerializeField] private float _meshResolution = 10;
-	[SerializeField] private float _edgeDistanceThreshold = 5;
-	[SerializeField] private int _edgeResolveIterations = 5;
-	[SerializeField] private MeshFilter _viewMeshFilter;
+	[SerializeField] private float tickDelay = 0.1f;
+	[SerializeField] private bool drawFieldOfView = true;
+	[SerializeField] private float meshResolution = 10;
+	[SerializeField] private float edgeDistanceThreshold = 5;
+	[SerializeField] private int edgeResolveIterations = 5;
+	[SerializeField] private MeshFilter viewMeshFilter;
 
 	private Mesh _viewMesh;
 
@@ -22,14 +22,14 @@ public class FieldOfView : MonoBehaviour {
 	{
 		_viewMesh = new Mesh ();
 		_viewMesh.name = "View Mesh";
-		_viewMeshFilter.mesh = _viewMesh;
+		viewMeshFilter.mesh = _viewMesh;
 
-		StartCoroutine ("FindTargetsWithDelay", _tickDelay);
+		StartCoroutine ("FindTargetsWithDelay", tickDelay);
 	}
 
 	private void LateUpdate()
 	{
-		if(_drawFieldOfView) DrawFieldOfView();
+		if(drawFieldOfView) DrawFieldOfView();
 	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -66,7 +66,7 @@ public class FieldOfView : MonoBehaviour {
 	private void DrawFieldOfView()
 	{
 		// Calculate the amount of rays to cast in the FoV drawing algorithm
-		int stepCount = Mathf.RoundToInt(viewAngle * _meshResolution);
+		int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
 		float stepAngleSize = viewAngle / stepCount;
 		List<Vector3> viewPoints = new List<Vector3> ();
 		ViewCastInfo oldViewCast = new ViewCastInfo ();
@@ -79,7 +79,7 @@ public class FieldOfView : MonoBehaviour {
 			if (i > 0)
 			{
 				// See if we can find a corner of a mesh that we can use to construct or visualization mesh
-				bool edgeDistanceThresholdExceeded = Mathf.Abs(oldViewCast.distance - newViewCast.distance) > _edgeDistanceThreshold;
+				bool edgeDistanceThresholdExceeded = Mathf.Abs(oldViewCast.distance - newViewCast.distance) > edgeDistanceThreshold;
 				if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThresholdExceeded))
 				{
 					EdgeInfo edge = FindEdge (oldViewCast, newViewCast);
@@ -125,12 +125,12 @@ public class FieldOfView : MonoBehaviour {
 		Vector3 maxPoint = Vector3.zero;
 
 		// Takes two angles in between an object corner was found. Then, checks if a raycast in between the two hits the object, and updates the angles accordingly. Through only a handful of itterations, this will accurately find the corner of the object
-		for (int i = 0; i < _edgeResolveIterations; i++) 
+		for (int i = 0; i < edgeResolveIterations; i++) 
 		{
 			float angle = (minAngle + maxAngle) / 2;
 			ViewCastInfo newViewCast = ViewCast (angle);
 
-			bool edgeDistanceThresholdExceeded = Mathf.Abs (minViewCast.distance - newViewCast.distance) > _edgeDistanceThreshold;
+			bool edgeDistanceThresholdExceeded = Mathf.Abs (minViewCast.distance - newViewCast.distance) > edgeDistanceThreshold;
 			if (newViewCast.hit == minViewCast.hit && !edgeDistanceThresholdExceeded)
 			{
 				minAngle = angle;
