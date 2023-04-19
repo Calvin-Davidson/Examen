@@ -86,8 +86,6 @@ public class AIController : MonoBehaviour
             case AIState.Roaming:
                 OnRoam();
                 break;
-            default:
-                break;
         }
     }
     
