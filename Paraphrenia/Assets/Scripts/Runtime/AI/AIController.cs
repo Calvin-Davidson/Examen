@@ -118,7 +118,7 @@ public class AIController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
         {
-            Debug.Log("Caught a player!");
+            Debug.Log("[AIController] Caught a player!");
         }
     }
 
