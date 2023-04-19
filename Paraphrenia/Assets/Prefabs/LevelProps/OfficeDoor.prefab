@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9176998777714461498}
   - component: {fileID: 6395050507358814192}
   m_Layer: 0
-  m_Name: SM_OfficeDoor
+  m_Name: OfficeDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
