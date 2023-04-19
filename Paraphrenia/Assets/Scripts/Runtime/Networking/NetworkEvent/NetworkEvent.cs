@@ -64,6 +64,7 @@ namespace Runtime.Networking.NetworkEvent
         public void Invoke()
         {
             if (!CanInvoke()) return;
+            if (!_isInitialized) throw new Exception("Cannot invoke a networkEvent that is not initialized");
 
             var writer = new FastBufferWriter(0, Allocator.Temp);
             var customMessagingManager = NetworkManager.Singleton.CustomMessagingManager;
