@@ -52,7 +52,6 @@ public class AIController : MonoBehaviour
             {
                 _accumulatedAggro += Time.deltaTime;
                 if (_accumulatedAggro > _aggroTime) _accumulatedAggro = _aggroTime;
-                Debug.Log("Accumulating aggro... " + _accumulatedAggro);
             }
 
             if(_accumulatedAggro >= _aggroTime)
