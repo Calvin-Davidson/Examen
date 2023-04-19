@@ -7,16 +7,12 @@ namespace Runtime.Puzzels
 {
     public class ElectricRoomPuzzle : Puzzle
     {
-        [SerializeField, Space] private NetworkedInteractable breakerInteractable;
-
         [SerializeField, Tooltip("Should be filled in the order in which the should be fixed")]
         private NetworkedInteractable[] interactableCables;
 
         private int _repairedCables;
         private bool _isValid;
 
-        public NetworkEvent onBreakerFailed = new(NetworkEventPermission.Everyone);
-        public NetworkEvent onBreakerSuccess = new(NetworkEventPermission.Everyone);
         public NetworkEvent onBecameValid = new(NetworkEventPermission.Everyone);
         public NetworkEvent onBecameInvalid = new(NetworkEventPermission.Everyone);
         public NetworkEvent onInvalidCableRepaired = new(NetworkEventPermission.Everyone);
@@ -34,13 +30,10 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkSpawn()
         {
-            onBreakerFailed.Initialize(this);
-            onBreakerSuccess.Initialize(this);
             onBecameValid.Initialize(this);
             onBecameInvalid.Initialize(this);
             onInvalidCableRepaired.Initialize(this);
 
-            breakerInteractable.onInteract.AddListener(HandleBreakerInteract);
             foreach (var networkedInteractable in interactableCables)
             {
                 networkedInteractable.onInteract.AddListener(() => { HandleCableInteract(networkedInteractable); });
@@ -51,26 +44,11 @@ namespace Runtime.Puzzels
 
         public override void OnNetworkDespawn()
         {
-            onBreakerFailed.Dispose();
-            onBreakerSuccess.Dispose();
             onBecameValid.Dispose();
             onBecameInvalid.Dispose();
             onInvalidCableRepaired.Dispose();
         }
-
-
-        private void HandleBreakerInteract()
-        {
-            if (IsValid)
-            {
-                onBreakerSuccess?.Invoke();
-            }
-            else
-            {
-                DoFail();
-                onBreakerFailed?.Invoke();
-            }
-        }
+        
 
         private void HandleCableInteract(NetworkedInteractable interactable)
         {
@@ -83,7 +61,11 @@ namespace Runtime.Puzzels
 
             interactable.IsActive = false;
             _repairedCables += 1;
-            if (_repairedCables == interactableCables.Length) IsValid = true;
+            
+            if (_repairedCables != interactableCables.Length) return;
+            
+            onCompleteNetworked?.Invoke();
+            IsValid = true;
         }
 
         /// <summary>
