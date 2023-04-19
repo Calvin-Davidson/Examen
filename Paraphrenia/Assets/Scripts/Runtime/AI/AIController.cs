@@ -82,6 +82,7 @@ public class AIController : MonoBehaviour
                 break;
             case AIState.Searching:
                 OnSearch();
+                break;
             case AIState.Roaming:
                 OnRoam();
                 break;
