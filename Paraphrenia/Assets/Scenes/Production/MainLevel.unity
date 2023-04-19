@@ -6606,13 +6606,13 @@ Transform:
   - {fileID: 1652847063}
   - {fileID: 1753975876}
   - {fileID: 716634555}
-  - {fileID: 73032942}
   - {fileID: 2015807018}
-  - {fileID: 724605895}
+  - {fileID: 73032942}
   - {fileID: 1138481278}
+  - {fileID: 724605895}
   - {fileID: 820160462}
-  - {fileID: 222407368}
   - {fileID: 1430765652}
+  - {fileID: 222407368}
   - {fileID: 1614388413}
   - {fileID: 1245785380}
   m_Father: {fileID: 803895105}
@@ -17336,6 +17336,8 @@ GameObject:
   m_Component:
   - component: {fileID: 932842106}
   - component: {fileID: 932842105}
+  - component: {fileID: 932842108}
+  - component: {fileID: 932842107}
   m_Layer: 0
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -17375,6 +17377,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932842107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932842104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 631758053
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &932842108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932842104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193236c7f6f5f144698673a3e71ee8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleFor: 2
+  onTurnVisible:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 932842104}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onTurnInvisible:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &939764535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25672,6 +25721,8 @@ GameObject:
   - component: {fileID: 1365169054}
   - component: {fileID: 1365169053}
   - component: {fileID: 1365169052}
+  - component: {fileID: 1365169056}
+  - component: {fileID: 1365169055}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -25878,6 +25929,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1365169055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365169051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1423578498
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1365169056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365169051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193236c7f6f5f144698673a3e71ee8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleFor: 3
+  onTurnVisible:
+    m_PersistentCalls:
+      m_Calls: []
+  onTurnInvisible:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1365169051}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1367926632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27967,7 +28065,19 @@ MonoBehaviour:
       m_Calls: []
   onTurnInvisible:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1525228390}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1525228397
 MonoBehaviour:
   m_ObjectHideFlags: 0
