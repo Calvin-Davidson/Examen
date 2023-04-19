@@ -52,6 +52,7 @@ namespace Runtime.Interaction
             if (_interactable == interactable) return;
            
             interactable.InteractorEnter();
+            _interactable?.InteractorExit();
             _interactable = interactable;
         }
 
