@@ -18,7 +18,7 @@ public class FieldOfView : MonoBehaviour {
 
 	private Mesh _viewMesh;
 
-	void Start()
+	private void Start()
 	{
 		_viewMesh = new Mesh ();
 		_viewMesh.name = "View Mesh";
@@ -27,7 +27,7 @@ public class FieldOfView : MonoBehaviour {
 		StartCoroutine ("FindTargetsWithDelay", _tickDelay);
 	}
 
-	void LateUpdate()
+	private void LateUpdate()
 	{
 		if(_drawFieldOfView) DrawFieldOfView();
 	}
@@ -42,7 +42,7 @@ public class FieldOfView : MonoBehaviour {
 	}
 
 	// For each target within a sphere of this object, check if the target falls within the field of view angle, and whether there is direct line of sight.
-	void FindVisibleTargets()
+	private void FindVisibleTargets()
 	{
 		visibleTargets.Clear ();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
@@ -63,7 +63,7 @@ public class FieldOfView : MonoBehaviour {
 		}
 	}
 
-	void DrawFieldOfView()
+	private void DrawFieldOfView()
 	{
 		// Calculate the amount of rays to cast in the FoV drawing algorithm
 		int stepCount = Mathf.RoundToInt(viewAngle * _meshResolution);

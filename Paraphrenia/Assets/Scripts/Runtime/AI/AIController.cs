@@ -43,7 +43,7 @@ public class AIController : MonoBehaviour
         _aiState = AIState.Roaming;
     }
 
-    void Update()
+    private void Update()
     {
         // Update AI State
         if(_fieldOfView.visibleTargets.Count > 0)
@@ -76,70 +76,82 @@ public class AIController : MonoBehaviour
             if (_accumulatedAggro < 0) _accumulatedAggro = 0;
         }
 
-            switch (_aiState)
+        switch (_aiState)
         {
             case AIState.Chasing:
-                {
-                    // Update last known target position
-                    float distance = _fieldOfView.viewRadius + 1;
-                    foreach(Transform _transform in _fieldOfView.visibleTargets)
-                    {
-                        // Due to Field Of View not being updated every frame for performance reasons, we check whether the target has moved outside of line of sight
-                        Vector3 directionToTarget = (_transform.position - transform.position).normalized;
-                        if (Vector3.Angle(transform.forward, directionToTarget) > _fieldOfView.viewAngle / 2)
-                        {
-                            return; // Target is outside of view angle
-                        }
-                        float distanceToTarget = Vector3.Distance(transform.position, _transform.position);
-                        if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _fieldOfView.obstacleMask))
-                        {
-                            return; // Target is hidden by obstacle
-                        }
-
-                        // Only chase the closest possible target
-                        if (Vector3.Distance(transform.position, _transform.position) < distance)
-                        {
-                            distance = Vector3.Distance(transform.position, _transform.position);
-                            _lastKnownTargetPosition = _transform.position;
-                        }
-                    }
-
-                    _navMeshAgent.destination = _lastKnownTargetPosition;
-
-                    if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= _targetAccuracy)
-                    {
-                        Debug.Log("Caught a player!");
-                    }
-
-                    break;
-                }
+            {
+                OnChase();
+                break;
+            }
             case AIState.Searching:
-                {
-                    _navMeshAgent.destination = _lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f);
-                    _timeSinceLastChase += Time.deltaTime;
-                    
-                    break;
-                }
+            {
+                OnSearch();
+                break;
+            }
             case AIState.Roaming:
-                {
-                    _navMeshAgent.destination = _targets[_currentIndex].transform.position;
-                    
-                    if (Vector3.Distance(transform.position, _targets[_currentIndex].transform.position) <= _targetAccuracy)
-                    {
-                        StartCoroutine(SelectNewTarget(_currentIndex));
-                    }
-                    
-                    break;
-                }
+            {
+                OnRoam();
+                break;
+            }
             default:
-                {
-                    break;
-                }
+            {
+                break;
+            }
+        }
+    }
+    
+    // Update functions per state
+    private void OnChase()
+    {
+        // Update last known target position
+        float distance = _fieldOfView.viewRadius + 1;
+        foreach (Transform _transform in _fieldOfView.visibleTargets)
+        {
+            // Due to Field Of View not being updated every frame for performance reasons, we check whether the target has moved outside of line of sight
+            Vector3 directionToTarget = (_transform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, directionToTarget) > _fieldOfView.viewAngle / 2)
+            {
+                return; // Target is outside of view angle
+            }
+            float distanceToTarget = Vector3.Distance(transform.position, _transform.position);
+            if (Physics.Raycast(transform.position, directionToTarget, distanceToTarget, _fieldOfView.obstacleMask))
+            {
+                return; // Target is hidden by obstacle
+            }
+
+            // Only chase the closest possible target
+            if (Vector3.Distance(transform.position, _transform.position) < distance)
+            {
+                distance = Vector3.Distance(transform.position, _transform.position);
+                _lastKnownTargetPosition = _transform.position;
+            }
+        }
+        _navMeshAgent.destination = _lastKnownTargetPosition;
+
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= _targetAccuracy)
+        {
+            Debug.Log("Caught a player!");
         }
     }
 
-    // Simple script that creates a vector that "rotates" around another vector based on time.
-    Vector3 RotationalVector(float time, bool invert = false, float rotationRadius = 1, float rotationRate = 2)
+    private void OnSearch()
+    {
+        _navMeshAgent.destination = _lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f);
+        _timeSinceLastChase += Time.deltaTime;
+    }
+
+    private void OnRoam()
+    {
+        _navMeshAgent.destination = _targets[_currentIndex].transform.position;
+
+        if (Vector3.Distance(transform.position, _targets[_currentIndex].transform.position) <= _targetAccuracy)
+        {
+            StartCoroutine(SelectNewTarget(_currentIndex));
+        }
+    }
+
+    // Simple function that creates a vector that "rotates" around another vector based on time.
+    private Vector3 RotationalVector(float time, bool invert = false, float rotationRadius = 1, float rotationRate = 2)
     {
         Vector3 rotationalVector = new Vector3(Mathf.Sin(time * rotationRate), 0, Mathf.Cos(time * rotationRate));
         
@@ -151,12 +163,12 @@ public class AIController : MonoBehaviour
         return rotationalVector * rotationRadius;
     }
 
-    bool RandomBool()
+    private bool RandomBool()
     {
         return Random.value >= 0.5;
     }
 
-    IEnumerator SelectNewTarget(int oldIndex)
+    private IEnumerator SelectNewTarget(int oldIndex)
     {
         yield return new WaitForSeconds(_switchTime);
 
@@ -167,7 +179,5 @@ public class AIController : MonoBehaviour
             _currentIndex = Random.Range(0, _targets.Length - 1);
             attempts++;
         }
-
-        yield return null;
     }
 }
