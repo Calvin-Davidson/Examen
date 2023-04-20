@@ -240,6 +240,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 7993475156089710865}
+          m_TargetAssemblyTypeName: SoundCuePlayer, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     calledClient:
       m_PersistentCalls:
         m_Calls: []
@@ -1863,6 +1875,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8829495700418238351}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7993475156089710865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1469911542515875486, guid: cfd52de2b024400419edc4a16293b87a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8829495700418238351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc22f3eba65c5842b1472fbae710422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8578580258177327391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 974350663835334288, guid: cfd52de2b024400419edc4a16293b87a,
