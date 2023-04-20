@@ -31,6 +31,8 @@ namespace Runtime.Player
 
         private void Update()
         {
+            if (!IsOwner) return;
+            
             switch (shouldHold)
             {
                 case true when Input.GetKey(switchKey):
