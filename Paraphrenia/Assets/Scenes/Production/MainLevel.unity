@@ -8997,6 +8997,16 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 761275737
       objectReference: {fileID: 0}
+    - target: {fileID: 1003048926267104774, guid: d0496032a42402a4e98cfe1d2dbf5e39,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321286084282878389, guid: d0496032a42402a4e98cfe1d2dbf5e39,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1705671923106722766, guid: d0496032a42402a4e98cfe1d2dbf5e39,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -9137,7 +9147,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -222.363
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 932457588924841261, guid: d0496032a42402a4e98cfe1d2dbf5e39, type: 3}
+    - {fileID: 8540013415768958979, guid: d0496032a42402a4e98cfe1d2dbf5e39, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0496032a42402a4e98cfe1d2dbf5e39, type: 3}
 --- !u!4 &448960241 stripped
 Transform:
