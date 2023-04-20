@@ -4,7 +4,7 @@ Paraphrenia is a 2 player online co-op Horror Puzzle game with asymmetrical game
 
 ### Gameplay
 
-Paraphrenia is played online, with two players. Both players play a different role in the game. The first player plays a Mental Health Patient, called Edith Hall. The patient is restrained in a wheelchair and cannot speak. Instead, they can communicate through the use of basic body motion, like nodding, shaking their head, or leaning in certain directions. The Patient can see paranormal activity, which they must communicate to the second player in order to solve puzzles. The second player plays a Nurse. The nurse can move the wheelchair around and ask the patient questions through in-game chat, though they can also walk around alone. Through interpreting the Patient's limited responses on their questions, the Nurse must attempt to solve puzzles.
+Paraphrenia is played online, with two players. Both players play a different role in the game. The first player plays a Mental Health Patient, called Edith Hall. The patient is restrained in a wheelchair. The Patient has the ability to look trough the ghost's eyes and can see paranormal activity, which they must communicate to the second player in order to solve puzzles. The second player plays a Nurse. The nurse can move the wheelchair around and ask the patient questions through "in-game" chat, though they can also walk around alone. The player's need to communicate with eachother to solve the various puzzles found in the Psych ward.
 
 ### Horror Story
 
