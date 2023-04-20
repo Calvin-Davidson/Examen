@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.Player
 {
@@ -11,9 +13,17 @@ namespace Runtime.Player
 
         [SerializeField] private KeyCode switchKey = KeyCode.Space;
         [SerializeField] private bool shouldHold = false;
+        [SerializeField] private float switchDelay = .75f;
+
+        public UnityEvent onSwitchStart = new();
+        public UnityEvent onSwitchComplete = new();
+        public UnityEvent onSwitchCancelled = new();
+        public UnityEvent<float> onSwitchProgress = new();
+
 
         private bool _isPatientView = true;
-        
+        private bool _shouldBePatientView = true;
+
         private void Awake()
         {
             if (patientCamera == null)
@@ -32,50 +42,75 @@ namespace Runtime.Player
         private void Update()
         {
             if (!IsOwner) return;
-            
-            switch (shouldHold)
+
+            if (shouldHold)
             {
-                case true when Input.GetKey(switchKey):
-                    SwitchToEnemyCamera();
-                    break;
-                case true:
-                    SwitchToPatientCamera();
-                    break;
-                default:
+                if (Input.GetKey(switchKey) && _shouldBePatientView)
                 {
-                    if (Input.GetKeyDown(switchKey))
-                    {
-                        SwitchView();
-                    }
-                    break;
+                    SwitchView();
                 }
+                if (!Input.GetKey(switchKey) && !_shouldBePatientView)
+                {
+                    SwitchView();
+                }
+            }
+            
+            if (!shouldHold && Input.GetKeyDown(KeyCode.Space))
+            {
+                SwitchView();
             }
         }
 
-        private void SwitchToPatientCamera()
+        private IEnumerator SwitchWithDelay()
         {
-            patientCamera.enabled = true;
-            enemyCamera.enabled = false;
-            _isPatientView = true;
-        }
+            float progress = 0;
 
-        private void SwitchToEnemyCamera()
-        {
-            patientCamera.enabled = false;
-            enemyCamera.enabled = true;
-            _isPatientView = false;
-        }
-
-        private void SwitchView()
-        {
-            if (_isPatientView)
+            while (progress < switchDelay)
             {
-                SwitchToEnemyCamera();
+                progress += Time.deltaTime;
+                onSwitchProgress.Invoke(progress / switchDelay);
+                yield return null;
+            }
+            
+            if (!_isPatientView && _shouldBePatientView)
+            {
+                patientCamera.enabled = true;
+                _isPatientView = true;
+                enemyCamera.enabled = false;
             }
             else
             {
-                SwitchToPatientCamera();
+                patientCamera.enabled = false;
+                _isPatientView = false;
+                enemyCamera.enabled = true;
             }
+            
+            onSwitchComplete?.Invoke();
+        }
+        
+        private void SwitchView()
+        {
+            _shouldBePatientView = !_shouldBePatientView;
+            
+            if (ShouldCancelSwitch())
+            {
+                onSwitchCancelled?.Invoke();
+                CancelSwitch();
+                return;
+            }
+         
+            onSwitchStart?.Invoke();
+            StartCoroutine(SwitchWithDelay());
+        }
+
+        private bool ShouldCancelSwitch()
+        {
+            return _isPatientView && _shouldBePatientView;
+        }
+
+        private void CancelSwitch()
+        {
+            StopAllCoroutines();
         }
     }
 }

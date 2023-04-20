@@ -17,23 +17,18 @@ namespace Runtime.Networking
             CheckVisibility();
         }
 
-        [ClientRpc]
-        public void SetVisibleForClientRpc(PlayerType playerType)
-        {
-            visibleFor = playerType;
-            CheckVisibility();
-        }
-
         private void CheckVisibility()
         {
             if (visibleFor == PlayerType.Both)
             {
                 onTurnVisible?.Invoke();
+                return;
             }
 
             if (visibleFor == PlayerType.None)
             {
                 onTurnInvisible?.Invoke();
+                return;
             }
             
             if (NetworkManager.Singleton.LocalClientId == visibleFor.GetNetworkClientID())
