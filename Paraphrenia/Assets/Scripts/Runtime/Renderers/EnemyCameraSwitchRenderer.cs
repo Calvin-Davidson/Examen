@@ -60,9 +60,12 @@ namespace Runtime.Renderers
 
             // Easing
             float progress = _switchProgress > 1 ? 1f : 1f - Mathf.Pow(2f, -10f * _switchProgress);
-            _vignette.intensity.Override(Mathf.Lerp(0, 1, progress));
-            _vignette.roundness.Override(Mathf.Lerp(0, 1, progress));
-            _vignette.smoothness.Override(Mathf.Lerp(0, 1, progress));
+            
+            _vignette.intensity.Override(Mathf.Lerp(_startIntensity, targetIntensity, progress));
+            _vignette.roundness.Override(Mathf.Lerp(_startRoundness, targetRoundness, progress));
+            _vignette.smoothness.Override(Mathf.Lerp(_startSmoothness, targetSmoothness, progress));
+            
+            _exposure.fixedExposure.Override(Mathf.Lerp(_startFixedExposure, targetFixedExposure, progress < 0 ? 0 : Mathf.Pow(2, 10 * progress - 10)));
         }
 
         private void HandleSwitchComplete()
