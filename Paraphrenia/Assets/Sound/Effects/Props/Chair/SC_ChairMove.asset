@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb139e823af9914a973637535bb7051, type: 3}
+  m_Name: SC_ChairMove
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundClip: {fileID: 8300000, guid: cdee533d7eaf5e842bca83b166c29b65, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: e6840efcda852d244bfda28fb704fd63, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 00d2928a46b34ec438735fc4d09d969c, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 02fe02be4e2d309478cae4378bce85c7, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 3ae6f56da5edb0040b80393f5ddcf81e, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 3aafd4cc3bca3604fb2d2e70a7ffc83f, type: 3}
+    priority: 0

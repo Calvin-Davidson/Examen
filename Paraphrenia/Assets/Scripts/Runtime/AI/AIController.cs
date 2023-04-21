@@ -23,7 +23,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float aggroTime = 1;
     [SerializeField] private float aggroDecayRate = 1;
 
-    private int _currentIndex = 0;
+    private int _currentIndex = 1;
     private AIState _aiState = AIState.Roaming;
     private float _timeSinceLastChase;
     private float _accumulatedAggro;
