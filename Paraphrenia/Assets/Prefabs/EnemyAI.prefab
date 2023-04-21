@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5103003399061368648}
   - component: {fileID: 4070659834529895359}
   - component: {fileID: 2519700779148566873}
+  - component: {fileID: 5271904986216575741}
   m_Layer: 0
   m_Name: EnemyCam
   m_TagString: Untagged
@@ -58,8 +59,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  far clip plane: 500
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -210,6 +211,45 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &5271904986216575741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023872514071413692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 0
+  fadeRadius: 100
+  priority: 0
+  customPasses:
+  - rid: 8185163062839083008
+  injectionPoint: 2
+  m_TargetCamera: {fileID: 5103003399061368648}
+  useTargetCamera: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 8185163062839083008
+      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition,
+        asm: Unity.RenderPipelines.HighDefinition.Runtime}
+      data:
+        m_Name: CustomPostProcessingPass
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        fullscreenPassMaterial: {fileID: 2100000, guid: f59a1f6dac301d649ab2454c42a29a32,
+          type: 2}
+        materialPassIndex: 0
+        materialPassName: EnemyCustomPostProcess
+        fetchColorBuffer: 0
 --- !u!1 &8542314901091631292
 GameObject:
   m_ObjectHideFlags: 0
