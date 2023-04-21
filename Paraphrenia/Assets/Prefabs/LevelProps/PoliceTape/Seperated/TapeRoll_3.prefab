@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5761563262659608891}
   - component: {fileID: 522674401284640752}
   m_Layer: 0
-  m_Name: TapeRoll_Var3
+  m_Name: TapeRoll_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

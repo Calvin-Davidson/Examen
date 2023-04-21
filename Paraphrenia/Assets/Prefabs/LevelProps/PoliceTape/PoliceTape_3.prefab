@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7878661298230135819}
   - component: {fileID: 1803595682008800413}
   m_Layer: 0
-  m_Name: TapeRoll_Var4
+  m_Name: TapeRoll_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 1214468703338990173}
   - component: {fileID: 8023759548169551906}
   m_Layer: 0
-  m_Name: TapeRoll_Var3 (3)
+  m_Name: TapeRoll_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 2754194930545831082}
   - component: {fileID: 7966053457119093345}
   m_Layer: 0
-  m_Name: TapeRoll_Var3
+  m_Name: TapeRoll_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 7969814875612163655}
   - component: {fileID: 3590258444232339294}
   m_Layer: 0
-  m_Name: TapeRoll_Var2 (1)
+  m_Name: TapeRoll_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 6044533694212911407}
   - component: {fileID: 7247354382711740338}
   m_Layer: 0
-  m_Name: TapeRoll_Var3 (1)
+  m_Name: TapeRoll_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 3529313283428210729}
   - component: {fileID: 270478205272032196}
   m_Layer: 0
-  m_Name: TapeRoll_Var1
+  m_Name: TapeRoll_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7857808303873267573}
   m_Layer: 0
-  m_Name: PoliceTape_Group3
+  m_Name: PoliceTape_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 7046412149721748762}
   - component: {fileID: 3557098735622713432}
   m_Layer: 0
-  m_Name: TapeRoll_Var2
+  m_Name: TapeRoll_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 1248029243252306512}
   - component: {fileID: 4195226345196382814}
   m_Layer: 0
-  m_Name: TapeRoll_Var3 (2)
+  m_Name: TapeRoll_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

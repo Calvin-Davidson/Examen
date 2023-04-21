@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3352793769113609829}
   m_Layer: 0
-  m_Name: PoliceTape_Group2
+  m_Name: PoliceTape_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ PrefabInstance:
     - target: {fileID: 8932111967068254042, guid: 26c14b18551710e4d8d489d6cdacdeb2,
         type: 3}
       propertyPath: m_Name
-      value: Tape_Var4 (1)
+      value: Tape_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c14b18551710e4d8d489d6cdacdeb2, type: 3}
@@ -246,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 5125528317379352705, guid: dfd9d8e2206cc924984d0a6f6900b8da,
         type: 3}
       propertyPath: m_Name
-      value: TapeRoll_Var3 (1)
+      value: TapeRoll_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd9d8e2206cc924984d0a6f6900b8da, type: 3}
@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 2004654123786610901, guid: 1e6d5b3184a49a74da12f82307986893,
         type: 3}
       propertyPath: m_Name
-      value: TapeRoll_Var1
+      value: TapeRoll_1
       objectReference: {fileID: 0}
     - target: {fileID: 8151750754287045631, guid: 1e6d5b3184a49a74da12f82307986893,
         type: 3}
@@ -341,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 703554530490439960, guid: 78726bd932fe61e47a036b5d67bb425c,
         type: 3}
       propertyPath: m_Name
-      value: TapeRoll_Var2
+      value: TapeRoll_2
       objectReference: {fileID: 0}
     - target: {fileID: 5002895588927105163, guid: 78726bd932fe61e47a036b5d67bb425c,
         type: 3}
@@ -471,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 5125528317379352705, guid: dfd9d8e2206cc924984d0a6f6900b8da,
         type: 3}
       propertyPath: m_Name
-      value: TapeRoll_Var3
+      value: TapeRoll_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd9d8e2206cc924984d0a6f6900b8da, type: 3}
@@ -771,7 +771,7 @@ PrefabInstance:
     - target: {fileID: 8178727758972850494, guid: 266255f23283f724b9772e0ad9f9c38f,
         type: 3}
       propertyPath: m_Name
-      value: Tape_Var3
+      value: Tape_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 266255f23283f724b9772e0ad9f9c38f, type: 3}
@@ -846,7 +846,7 @@ PrefabInstance:
     - target: {fileID: 8932111967068254042, guid: 26c14b18551710e4d8d489d6cdacdeb2,
         type: 3}
       propertyPath: m_Name
-      value: Tape_Var4
+      value: Tape_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26c14b18551710e4d8d489d6cdacdeb2, type: 3}
@@ -921,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 4071411492639118665, guid: 778a5c3887f2f1a43adad170fd970192,
         type: 3}
       propertyPath: m_Name
-      value: Tape_Var5
+      value: Tape_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 778a5c3887f2f1a43adad170fd970192, type: 3}
