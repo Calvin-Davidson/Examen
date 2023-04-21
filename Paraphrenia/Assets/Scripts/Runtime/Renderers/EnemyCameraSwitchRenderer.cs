@@ -13,9 +13,13 @@ namespace Runtime.Renderers
         [SerializeField] private float targetIntensity = 1;
         [SerializeField] private float targetSmoothness = 1;
         [SerializeField] private float targetRoundness = 1;
-
+        [SerializeField] private float targetFixedExposure = 20;
+        
         private EnemyCameraSwitcher _enemyCameraSwitcher;
+
         private Vignette _vignette;
+        private Exposure _exposure;
+
         private float _switchProgress = 0;
 
         private bool _isSwitching = false;
@@ -23,6 +27,7 @@ namespace Runtime.Renderers
         private float _startIntensity;
         private float _startSmoothness;
         private float _startRoundness;
+        private float _startFixedExposure;
 
         private void Awake()
         {
@@ -34,14 +39,14 @@ namespace Runtime.Renderers
             _enemyCameraSwitcher.onSwitchProgress.AddListener(HandleSwitchProgressChange);
 
             if (!processingVolume.profile) throw new NullReferenceException(nameof(VolumeProfile));
-
-            if (!processingVolume.profile.TryGet(out Vignette vignette))
-                throw new NullReferenceException(nameof(vignette));
-            _vignette = vignette;
-
-            _startIntensity = vignette.intensity.value;
-            _startRoundness = vignette.roundness.value;
-            _startSmoothness = vignette.smoothness.value;
+            
+            if (!processingVolume.profile.TryGet(out _vignette)) throw new NullReferenceException(nameof(_vignette));
+            if (!processingVolume.profile.TryGet(out _exposure)) throw new NullReferenceException(nameof(_exposure));
+            
+            _startIntensity = _vignette.intensity.value;
+            _startRoundness = _vignette.roundness.value;
+            _startSmoothness = _vignette.smoothness.value;
+            _startFixedExposure = _exposure.fixedExposure.value;
         }
 
 
