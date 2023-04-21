@@ -260,8 +260,8 @@ Material:
     - _ZWrite: 0
     - _alphaHorizontalBalance: 0.02
     - _alphaHorizontalContrast: 1.4
-    - _alphaVerticalBalance: 0.23
-    - _alphaVerticalContrast: 1.39
+    - _alphaVerticalBalance: 0.29
+    - _alphaVerticalContrast: 1.27
     - _lightningCutoff: 0.07
     - _lightningRotation: 90
     - _lightningScale: 10.31
