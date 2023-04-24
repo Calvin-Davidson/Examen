@@ -35201,6 +35201,7 @@ MonoBehaviour:
   targetIntensity: 1
   targetSmoothness: 1
   targetRoundness: 1
+  targetFixedExposure: 20
 --- !u!1 &1728552251
 GameObject:
   m_ObjectHideFlags: 0
