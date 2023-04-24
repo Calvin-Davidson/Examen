@@ -51,7 +51,9 @@ namespace Runtime.Player
             
             Vector3 newRotation = playerCamera.transform.localRotation.eulerAngles + new Vector3(rotationX, rotationY, 0);
 
-            newRotation.y += additionalRotation;
+            Quaternion parentRotation = wheelchairParent.rotation;
+            Vector3 newParentRotation = new Vector3(parentRotation.x, parentRotation.y + additionalRotation, parentRotation.z);
+            wheelchairParent.rotation = Quaternion.Euler(newParentRotation);
 
             if (newRotation.x > lookXLimit && newRotation.x < 360 - lookXLimit)
             {
