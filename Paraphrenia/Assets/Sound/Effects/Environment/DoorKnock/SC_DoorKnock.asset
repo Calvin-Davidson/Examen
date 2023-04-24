@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb139e823af9914a973637535bb7051, type: 3}
+  m_Name: SC_DoorKnock
+  m_EditorClassIdentifier: 
+  soundClips:
+  - soundClip: {fileID: 8300000, guid: 145f0777b6107bb488becaea4081e1c1, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 2c809e1224d7cc54ea82d89bd41f045c, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 8b28c6cef66c4d440993ac6136636c47, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 1d36a8d47d206b14b802ad87dd20245b, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: 65ab5ee868bb30e4694d0c8b2e4eac9a, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: d9f1ef5993e2af145bbba1adb7f999f8, type: 3}
+    priority: 0
+  - soundClip: {fileID: 8300000, guid: e3b81661c663caf4185d8547353df019, type: 3}
+    priority: 0

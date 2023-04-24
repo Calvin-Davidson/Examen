@@ -24,7 +24,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float aggroTime = 1;
     [SerializeField] private float aggroDecayRate = 1;
 
-    private int _currentIndex = 0;
+    private int _currentIndex = 1;
     private AIState _aiState = AIState.Roaming;
     private float _timeSinceLastChase;
     private float _accumulatedAggro;
@@ -116,8 +116,9 @@ public class AIController : MonoBehaviour
                 _lastKnownTargetPosition = _transform.position;
             }
         }
-        _navMeshAgent.destination = _lastKnownTargetPosition;
 
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition);
+        
         if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy && !_didCatchPlayer)
         {
             _didCatchPlayer = true;
@@ -128,13 +129,13 @@ public class AIController : MonoBehaviour
 
     private void OnSearch()
     {
-        _navMeshAgent.destination = _lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f);
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f));
         _timeSinceLastChase += Time.deltaTime;
     }
 
     private void OnRoam()
     {
-        _navMeshAgent.destination = targets[_currentIndex].transform.position;
+        _navMeshAgent.SetDestination(targets[_currentIndex].transform.position);
 
         if (Vector3.Distance(transform.position, targets[_currentIndex].transform.position) <= targetAccuracy)
         {
