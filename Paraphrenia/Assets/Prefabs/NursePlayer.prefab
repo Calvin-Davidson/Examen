@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316177394}
   - component: {fileID: 316177395}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: WheelChairCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 5200629532055792367}
   - component: {fileID: 1276920210848231189}
   - component: {fileID: 287412807123906897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1941312060868033102}
   - component: {fileID: 1941312060868033103}
   - component: {fileID: 1863790768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 5829384483135329666}
   - component: {fileID: 7568513615273587228}
   - component: {fileID: 7855225089345654078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NursePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 1941312062267454406}
   - component: {fileID: 1941312062267454407}
   - component: {fileID: 1941312062267454408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NurseCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

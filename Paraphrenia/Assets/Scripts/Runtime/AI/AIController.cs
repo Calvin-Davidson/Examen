@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 /// <summary>
 /// This script is a basic state-based controller for an AI actor.
@@ -32,8 +33,9 @@ public class AIController : MonoBehaviour
     private FieldOfView _fieldOfView;
     private Vector3 _lastKnownTargetPosition;
     private bool _invertSearchPattern;
+    private bool _didCatchPlayer = false;
     
-    
+    public UnityEvent onCaughtPlayer = new();
 
     private void Awake()
     {
@@ -117,8 +119,10 @@ public class AIController : MonoBehaviour
 
         _navMeshAgent.SetDestination(_lastKnownTargetPosition);
         
-        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy && !_didCatchPlayer)
         {
+            _didCatchPlayer = true;
+            onCaughtPlayer?.Invoke();
             Debug.Log("[AIController] Caught a player!");
         }
     }
