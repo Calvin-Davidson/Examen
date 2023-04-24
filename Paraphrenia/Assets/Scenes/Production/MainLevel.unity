@@ -467,6 +467,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3552670827
       objectReference: {fileID: 0}
+    - target: {fileID: 5941846109982885815, guid: 210c4fe4cbe238b4ba55ed9c6acf255b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0253
+      objectReference: {fileID: 0}
     - target: {fileID: 5941846110189050081, guid: 210c4fe4cbe238b4ba55ed9c6acf255b,
         type: 3}
       propertyPath: m_RootOrder
