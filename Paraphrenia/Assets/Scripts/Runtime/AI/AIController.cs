@@ -114,8 +114,9 @@ public class AIController : MonoBehaviour
                 _lastKnownTargetPosition = _transform.position;
             }
         }
-        _navMeshAgent.destination = _lastKnownTargetPosition;
 
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition);
+        
         if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
         {
             Debug.Log("[AIController] Caught a player!");
@@ -124,13 +125,13 @@ public class AIController : MonoBehaviour
 
     private void OnSearch()
     {
-        _navMeshAgent.destination = _lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f);
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f));
         _timeSinceLastChase += Time.deltaTime;
     }
 
     private void OnRoam()
     {
-        _navMeshAgent.destination = targets[_currentIndex].transform.position;
+        _navMeshAgent.SetDestination(targets[_currentIndex].transform.position);
 
         if (Vector3.Distance(transform.position, targets[_currentIndex].transform.position) <= targetAccuracy)
         {
