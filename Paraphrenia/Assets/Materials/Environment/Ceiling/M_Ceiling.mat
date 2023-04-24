@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Ceiling
-  m_Shader: {fileID: -6465566751694194690, guid: c6b3d870b93c8ee4cbcffb1cfdb3804c,
+  m_Shader: {fileID: -6465566751694194690, guid: 678e56f128bf37b4aa540b839912e3d5,
     type: 3}
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
@@ -85,6 +85,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LayerMask:
+        m_Texture: {fileID: 2800000, guid: 70a7822312d0d6f4cae2c2dc9b831402, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -102,6 +106,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ORM:
+        m_Texture: {fileID: 2800000, guid: 5f7276c6b846c6e4e80707c41cf328de, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ORM1:
+        m_Texture: {fileID: 2800000, guid: 5f7276c6b846c6e4e80707c41cf328de, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ORM2:
         m_Texture: {fileID: 2800000, guid: 5f7276c6b846c6e4e80707c41cf328de, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -133,7 +145,23 @@ Material:
         m_Texture: {fileID: 2800000, guid: c4177913eabab4448bd4f9bb7f2e4ede, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _baseColor1:
+        m_Texture: {fileID: 2800000, guid: c4177913eabab4448bd4f9bb7f2e4ede, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _baseColor2:
+        m_Texture: {fileID: 2800000, guid: c4177913eabab4448bd4f9bb7f2e4ede, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _normalMap:
+        m_Texture: {fileID: 2800000, guid: 9f2f004538e492f40bf3a368d5571085, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normalMap1:
+        m_Texture: {fileID: 2800000, guid: 9f2f004538e492f40bf3a368d5571085, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normalMap2:
         m_Texture: {fileID: 2800000, guid: 9f2f004538e492f40bf3a368d5571085, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -265,6 +293,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
+    - _invertMask: 0
     - _metallic: 0
     - _normalStrength: 1
     - _roughness: 0.8
@@ -286,5 +315,10 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
+    - _color1: {r: 1, g: 1, b: 1, a: 0}
+    - _color2: {r: 1, g: 1, b: 1, a: 0}
+    - _maskScale: {r: 1, g: 1, b: 0, a: 0}
     - _textureScale: {r: 120, g: 120, b: 0, a: 0}
+    - _textureScale1: {r: 0.35, g: 0.35, b: 0, a: 0}
+    - _textureScale2: {r: 0.35, g: 0.35, b: 0, a: 0}
   m_BuildTextureStacks: []
