@@ -12,10 +12,20 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 25000
       objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393948, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
       propertyPath: m_Intensity
       value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Override
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8919221960178487905, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
