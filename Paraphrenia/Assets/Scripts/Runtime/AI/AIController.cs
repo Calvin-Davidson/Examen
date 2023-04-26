@@ -17,6 +17,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(FieldOfView))]
 public class AIController : MonoBehaviour
 {
+    public AIState aiState = AIState.Roaming;
+
     [SerializeField] private GameObject[] targets;
     [SerializeField] private float targetAccuracy = 5;
     [SerializeField] private float switchTime = 3;
@@ -25,7 +27,6 @@ public class AIController : MonoBehaviour
     [SerializeField] private float aggroDecayRate = 1;
 
     private int _currentIndex = 1;
-    private AIState _aiState = AIState.Roaming;
     private float _timeSinceLastChase;
     private float _accumulatedAggro;
 
@@ -41,7 +42,7 @@ public class AIController : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _fieldOfView = GetComponent<FieldOfView>();
-        _aiState = AIState.Roaming;
+        aiState = AIState.Roaming;
     }
 
     private void Update()
@@ -57,26 +58,26 @@ public class AIController : MonoBehaviour
 
             if(_accumulatedAggro >= aggroTime)
             {
-                _aiState = AIState.Chasing;
+                aiState = AIState.Chasing;
                 _timeSinceLastChase = 0;
             }
         }
-        else if(_aiState == AIState.Chasing)
+        else if(aiState == AIState.Chasing)
         {
-            _aiState = AIState.Searching;
+            aiState = AIState.Searching;
             _invertSearchPattern = RandomBool();
         }
-        else if(_aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
+        else if(aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
         {
-            _aiState = AIState.Roaming;
+            aiState = AIState.Roaming;
         }
-        else if (_aiState == AIState.Roaming)
+        else if (aiState == AIState.Roaming)
         {
             _accumulatedAggro -= Time.deltaTime * aggroDecayRate;
             if (_accumulatedAggro < 0) _accumulatedAggro = 0;
         }
 
-        switch (_aiState)
+        switch (aiState)
         {
             case AIState.Chasing:
                 OnChase();

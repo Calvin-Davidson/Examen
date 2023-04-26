@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 1088725704572715486}
   - component: {fileID: 927469872241260841}
   - component: {fileID: 2804745722115032786}
+  - component: {fileID: 4460035472031866125}
   m_Layer: 0
   m_Name: EnemyAI
   m_TagString: Untagged
@@ -435,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6a2554fd8b9fb4e9cf2eab49d8abe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiState: 1
   targets:
   - {fileID: 0}
   - {fileID: 0}
@@ -683,6 +685,7 @@ MonoBehaviour:
   soundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
   cueSelector: 0
   loops: 1
+  loopDelay: 3
 --- !u!114 &2804745722115032786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +753,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4460035472031866125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542314901091631292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f8a3f1485f0e24fb3f4e44b4ee9cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roamingSoundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
+  _chasingSoundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
+  _searchingSoundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
 --- !u!1 &8542314901216346210
 GameObject:
   m_ObjectHideFlags: 0
