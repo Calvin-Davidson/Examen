@@ -267,7 +267,7 @@ Material:
     - _ZWrite: 1
     - _metallic: 0.24
     - _normalStrength: 1
-    - _roughness: 0.724
+    - _roughness: 0.69
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
