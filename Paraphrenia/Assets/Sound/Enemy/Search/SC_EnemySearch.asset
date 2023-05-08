@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb139e823af9914a973637535bb7051, type: 3}
-  m_Name: SC_EnemyIdle
+  m_Name: SC_EnemySearch
   m_EditorClassIdentifier: 
   soundClips:
-  - soundClip: {fileID: 8300000, guid: 1411bcc9f3999c04487c8cf05f7db8ae, type: 3}
-    priority: 0
-  - soundClip: {fileID: 8300000, guid: 4163aa36f90b59946b1bf0c3181520c3, type: 3}
+  - soundClip: {fileID: 8300000, guid: da4ba5bdf8ecad542b7b921a8ffc9cf2, type: 3}
     priority: 0

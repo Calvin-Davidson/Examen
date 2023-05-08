@@ -791,7 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roamingSoundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
   _chasingSoundCue: {fileID: 11400000, guid: 073452fa7bad19e4aaa0dfe9d1af9fa6, type: 2}
-  _searchingSoundCue: {fileID: 11400000, guid: c9d4d83145b47fb489ac010e06dcc886, type: 2}
+  _searchingSoundCue: {fileID: 11400000, guid: 4f14165264d472248b5d181f6975ee59, type: 2}
 --- !u!1 &8542314901216346210
 GameObject:
   m_ObjectHideFlags: 0
