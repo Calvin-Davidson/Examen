@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 5829384483135329666}
   - component: {fileID: 7568513615273587228}
   - component: {fileID: 7855225089345654078}
+  - component: {fileID: 8072115335388381276}
   m_Layer: 8
   m_Name: NursePlayer
   m_TagString: Untagged
@@ -695,6 +696,36 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
   footStepDistance: 1.5
+  onFootStepPlaced:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8072115335388381276}
+        m_TargetAssemblyTypeName: Runtime.CameraSystems.CameraShakeImpulse, Assembly-CSharp
+        m_MethodName: Pulse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8072115335388381276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941312061282533385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d51e05dc7c65b4e8e23af891bbbb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionStrength: 0.2
+  duration: 0.06
+  falloffExponent: 4
 --- !u!1 &1941312062267454404
 GameObject:
   m_ObjectHideFlags: 0
