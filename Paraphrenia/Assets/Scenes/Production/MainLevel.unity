@@ -77086,7 +77086,7 @@ MonoBehaviour:
   patientCamera: {fileID: 1727397312}
   enemyCamera: {fileID: 1216048746}
   switchKey: 32
-  shouldHold: 1
+  shouldHold: 0
   switchDelay: 1.5
   onSwitchStart:
     m_PersistentCalls:
