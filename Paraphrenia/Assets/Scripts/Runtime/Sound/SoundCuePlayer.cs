@@ -8,6 +8,7 @@ public class SoundCuePlayer : MonoBehaviour
     [SerializeField] private SoundCue soundCue;
     [SerializeField] private CueSelector cueSelector;
     [SerializeField] private bool loops;
+    [SerializeField] private float loopDelay = 0;
 
     private AudioSource _audioSource;
 
@@ -61,9 +62,14 @@ public class SoundCuePlayer : MonoBehaviour
         StartCoroutine(GetClipEndTime(_audioSource, priority));
     }
 
+    public void UpdateSoundCue(SoundCue newSoundCue)
+    {
+        soundCue = newSoundCue;
+    }
+
     private IEnumerator GetClipEndTime(AudioSource source, int priority = 0)
     {
-        var waitForClipRemainingTime = new WaitForSeconds(source.GetClipRemainingTime());
+        var waitForClipRemainingTime = new WaitForSeconds(source.GetClipRemainingTime() + loopDelay);
         yield return waitForClipRemainingTime;
         OnClipEnd(priority);
     }
