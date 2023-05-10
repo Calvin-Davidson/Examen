@@ -94,11 +94,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ORM1:
-        m_Texture: {fileID: 2800000, guid: 109083b614c038b418f6de6a9005daa2, type: 3}
+        m_Texture: {fileID: 2800000, guid: b7cdf0a92225f1f4d83bf42612a4605a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ORM2:
-        m_Texture: {fileID: 2800000, guid: 109083b614c038b418f6de6a9005daa2, type: 3}
+        m_Texture: {fileID: 2800000, guid: b7cdf0a92225f1f4d83bf42612a4605a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -126,11 +126,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _baseColor1:
-        m_Texture: {fileID: 2800000, guid: aa60a7aa99485a547991bf73e003a613, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01e7f265ac5fe1b4582411ebed003326, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _baseColor2:
-        m_Texture: {fileID: 2800000, guid: aa60a7aa99485a547991bf73e003a613, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01e7f265ac5fe1b4582411ebed003326, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap:
@@ -138,11 +138,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap1:
-        m_Texture: {fileID: 2800000, guid: 91f4fe14ec9a69440a0af8f6e9b1d49f, type: 3}
+        m_Texture: {fileID: 2800000, guid: d768c81efe1d1844aab0d479013b4134, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap2:
-        m_Texture: {fileID: 2800000, guid: 91f4fe14ec9a69440a0af8f6e9b1d49f, type: 3}
+        m_Texture: {fileID: 2800000, guid: d768c81efe1d1844aab0d479013b4134, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -301,8 +301,8 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 1, g: 1, b: 1, a: 0}
-    - _color1: {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 0}
-    - _color2: {r: 0.8666667, g: 0.8666667, b: 0.8666667, a: 0}
+    - _color1: {r: 1, g: 1, b: 1, a: 0}
+    - _color2: {r: 1, g: 1, b: 1, a: 0}
     - _maskScale: {r: 1, g: 1, b: 0, a: 0}
     - _textureScale1: {r: 1, g: 1, b: 0, a: 0}
     - _textureScale2: {r: 1, g: 1, b: 0, a: 0}
