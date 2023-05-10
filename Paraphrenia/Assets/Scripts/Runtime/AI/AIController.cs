@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 /// <summary>
 /// This script is a basic state-based controller for an AI actor.
@@ -10,21 +11,24 @@ using UnityEngine.AI;
 /// If the AI find the target again, or another target, during the search, it will go back to chasing. Otherwise, it will return to patrol behavior.
 /// </summary>
 
-[System.Serializable] public enum AIState { Default, Roaming, Chasing, Searching };
+[System.Serializable] public enum AIState { Default, Roaming, Chasing, Searching, ForcedHunt };
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(FieldOfView))]
 public class AIController : MonoBehaviour
 {
+    public AIState aiState = AIState.Roaming;
+
     [SerializeField] private GameObject[] targets;
     [SerializeField] private float targetAccuracy = 5;
     [SerializeField] private float switchTime = 3;
     [SerializeField] private float searchTime = 10;
     [SerializeField] private float aggroTime = 1;
     [SerializeField] private float aggroDecayRate = 1;
+    [SerializeField] private float searchRadius = 1;
+    [SerializeField] private float searchRotationRate = 1;
 
-    private int _currentIndex = 0;
-    private AIState _aiState = AIState.Roaming;
+    private int _currentIndex = 1;
     private float _timeSinceLastChase;
     private float _accumulatedAggro;
 
@@ -32,14 +36,15 @@ public class AIController : MonoBehaviour
     private FieldOfView _fieldOfView;
     private Vector3 _lastKnownTargetPosition;
     private bool _invertSearchPattern;
+    private bool _didCatchPlayer = false;
     
-    
+    public UnityEvent onCaughtPlayer = new();
 
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _fieldOfView = GetComponent<FieldOfView>();
-        _aiState = AIState.Roaming;
+        aiState = AIState.Roaming;
     }
 
     private void Update()
@@ -55,26 +60,26 @@ public class AIController : MonoBehaviour
 
             if(_accumulatedAggro >= aggroTime)
             {
-                _aiState = AIState.Chasing;
+                aiState = AIState.Chasing;
                 _timeSinceLastChase = 0;
             }
         }
-        else if(_aiState == AIState.Chasing)
+        else if(aiState == AIState.Chasing)
         {
-            _aiState = AIState.Searching;
+            aiState = AIState.Searching;
             _invertSearchPattern = RandomBool();
         }
-        else if(_aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
+        else if(aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
         {
-            _aiState = AIState.Roaming;
+            aiState = AIState.Roaming;
         }
-        else if (_aiState == AIState.Roaming)
+        else if (aiState == AIState.Roaming)
         {
             _accumulatedAggro -= Time.deltaTime * aggroDecayRate;
             if (_accumulatedAggro < 0) _accumulatedAggro = 0;
         }
 
-        switch (_aiState)
+        switch (aiState)
         {
             case AIState.Chasing:
                 OnChase();
@@ -84,6 +89,9 @@ public class AIController : MonoBehaviour
                 break;
             case AIState.Roaming:
                 OnRoam();
+                break;
+            case AIState.ForcedHunt:
+                OnForcedHunt();
                 break;
         }
     }
@@ -114,27 +122,41 @@ public class AIController : MonoBehaviour
                 _lastKnownTargetPosition = _transform.position;
             }
         }
-        _navMeshAgent.destination = _lastKnownTargetPosition;
 
-        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition);
+        
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy && !_didCatchPlayer)
         {
+            _didCatchPlayer = true;
+            onCaughtPlayer?.Invoke();
             Debug.Log("[AIController] Caught a player!");
         }
     }
 
     private void OnSearch()
     {
-        _navMeshAgent.destination = _lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f);
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, searchRadius, searchRotationRate));
         _timeSinceLastChase += Time.deltaTime;
     }
 
     private void OnRoam()
     {
-        _navMeshAgent.destination = targets[_currentIndex].transform.position;
+        _navMeshAgent.SetDestination(targets[_currentIndex].transform.position);
 
         if (Vector3.Distance(transform.position, targets[_currentIndex].transform.position) <= targetAccuracy)
         {
             StartCoroutine(SelectNewTarget(_currentIndex));
+        }
+    }
+
+    private void OnForcedHunt()
+    {
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition);
+
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
+        {
+            _timeSinceLastChase = 0;
+            aiState = AIState.Searching;
         }
     }
 
@@ -154,6 +176,12 @@ public class AIController : MonoBehaviour
     private bool RandomBool()
     {
         return Random.value >= 0.5;
+    }
+
+    public void ForceNewTarget(Vector3 newTargetPosition)
+    {
+        _lastKnownTargetPosition = newTargetPosition;
+        aiState = AIState.ForcedHunt;
     }
 
     private IEnumerator SelectNewTarget(int oldIndex)

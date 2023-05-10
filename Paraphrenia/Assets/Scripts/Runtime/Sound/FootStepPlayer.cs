@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SoundCuePlayer))]
 public class FootStepPlayer : MonoBehaviour
@@ -10,6 +10,9 @@ public class FootStepPlayer : MonoBehaviour
 
     private SoundCuePlayer _soundCuePlayer;
     private Vector3 _lastPosition;
+
+    public UnityEvent onFootStepPlaced = new();
+
     void Awake()
     {
         _soundCuePlayer = GetComponent<SoundCuePlayer>();
@@ -22,6 +25,7 @@ public class FootStepPlayer : MonoBehaviour
         {
             _lastPosition = this.transform.position;
             _soundCuePlayer.PlaySound();
+            onFootStepPlaced?.Invoke();
         }
     }
 }
