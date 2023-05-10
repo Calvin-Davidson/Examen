@@ -46730,7 +46730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932842104}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -52733,7 +52733,7 @@ PrefabInstance:
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.47
+      value: 90.674
       objectReference: {fileID: 0}
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
@@ -52743,7 +52743,7 @@ PrefabInstance:
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.7
+      value: -31.254
       objectReference: {fileID: 0}
     - target: {fileID: 1941312061282533387, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
@@ -52824,6 +52824,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 103.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944595228661818687, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: parameters.meanFreePath
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944595228661818687, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: parameters.distanceFadeEnd
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6944595228661818687, guid: de6f88f278f166f469a6be6497de22e3,
+        type: 3}
+      propertyPath: parameters.distanceFadeStart
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7568513615273587228, guid: de6f88f278f166f469a6be6497de22e3,
         type: 3}
