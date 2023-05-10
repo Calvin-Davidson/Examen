@@ -11,7 +11,7 @@ using UnityEngine.Events;
 /// If the AI find the target again, or another target, during the search, it will go back to chasing. Otherwise, it will return to patrol behavior.
 /// </summary>
 
-[System.Serializable] public enum AIState { Default, Roaming, Chasing, Searching };
+[System.Serializable] public enum AIState { Default, Roaming, Chasing, Searching, ForcedHunt };
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(FieldOfView))]
@@ -25,6 +25,8 @@ public class AIController : MonoBehaviour
     [SerializeField] private float searchTime = 10;
     [SerializeField] private float aggroTime = 1;
     [SerializeField] private float aggroDecayRate = 1;
+    [SerializeField] private float searchRadius = 1;
+    [SerializeField] private float searchRotationRate = 1;
 
     private int _currentIndex = 1;
     private float _timeSinceLastChase;
@@ -88,6 +90,9 @@ public class AIController : MonoBehaviour
             case AIState.Roaming:
                 OnRoam();
                 break;
+            case AIState.ForcedHunt:
+                OnForcedHunt();
+                break;
         }
     }
     
@@ -130,7 +135,7 @@ public class AIController : MonoBehaviour
 
     private void OnSearch()
     {
-        _navMeshAgent.SetDestination(_lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, 0.5f, 2f));
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition + RotationalVector(_timeSinceLastChase, _invertSearchPattern, searchRadius, searchRotationRate));
         _timeSinceLastChase += Time.deltaTime;
     }
 
@@ -141,6 +146,17 @@ public class AIController : MonoBehaviour
         if (Vector3.Distance(transform.position, targets[_currentIndex].transform.position) <= targetAccuracy)
         {
             StartCoroutine(SelectNewTarget(_currentIndex));
+        }
+    }
+
+    private void OnForcedHunt()
+    {
+        _navMeshAgent.SetDestination(_lastKnownTargetPosition);
+
+        if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
+        {
+            _timeSinceLastChase = 0;
+            aiState = AIState.Searching;
         }
     }
 
@@ -160,6 +176,12 @@ public class AIController : MonoBehaviour
     private bool RandomBool()
     {
         return Random.value >= 0.5;
+    }
+
+    public void ForceNewTarget(Vector3 newTargetPosition)
+    {
+        _lastKnownTargetPosition = newTargetPosition;
+        aiState = AIState.ForcedHunt;
     }
 
     private IEnumerator SelectNewTarget(int oldIndex)
