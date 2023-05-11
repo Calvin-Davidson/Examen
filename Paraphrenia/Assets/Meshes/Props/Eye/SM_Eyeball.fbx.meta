@@ -3,7 +3,12 @@ guid: 5c59d5e44bad7634ab24dda6131cb593
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nurse_Body
+    second: {fileID: 2100000, guid: 907a25b86f8c65f4e8b55c7584818dfc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
