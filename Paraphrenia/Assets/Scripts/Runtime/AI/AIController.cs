@@ -178,11 +178,12 @@ public class AIController : MonoBehaviour
         return Random.value >= 0.5;
     }
 
-    public void ForceNewTarget(Vector3 newTargetPosition)
+    public void ForceNewTarget(Transform trans)
     {
-        _lastKnownTargetPosition = newTargetPosition;
+        _lastKnownTargetPosition = trans.position;
         aiState = AIState.ForcedHunt;
     }
+    
 
     private IEnumerator SelectNewTarget(int oldIndex)
     {
