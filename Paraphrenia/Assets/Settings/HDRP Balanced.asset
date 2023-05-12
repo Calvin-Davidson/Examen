@@ -242,9 +242,9 @@ MonoBehaviour:
       RTRSmoothDenoising: 010000
       Fog_ControlMode: 000000000000000000000000
       Fog_Budget:
-      - 0.166
-      - 0.333
-      - 0.666
+      - 0.25
+      - 0.5
+      - 0.75
       Fog_DepthRatio:
       - 0.5
       - 0.5
