@@ -9,9 +9,12 @@ using UnityEngine;
 public class SoundCuePlayer : MonoBehaviour
 {
     public enum CueSelector { Random, LowestPiority, HighestPiority, NearestPiority, FloorNearestPiority, CeilNearestPiority};
+    
     [SerializeField] private SoundCue soundCue;
+    [Tooltip("What method is used to select sound cue. This only matters if you are feeding a priority value into the sound cue.")]
     [SerializeField] private CueSelector cueSelector;
     [SerializeField] private bool loops;
+    [Tooltip("Delay between each loop, in seconds.")]
     [SerializeField] private float loopDelay = 0;
 
     private AudioSource _audioSource;

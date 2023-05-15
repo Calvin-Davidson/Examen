@@ -10,8 +10,8 @@ namespace Runtime.GameplayScripts
     [RequireComponent(typeof(AudioSource))]
     public class AudioController : MonoBehaviour
     {
-        private AudioSource _audioSource;
         private float _defaultVolume = 0.5f;
+        private AudioSource _audioSource;
 
         private void Awake()
         {

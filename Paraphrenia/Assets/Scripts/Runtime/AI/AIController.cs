@@ -20,14 +20,23 @@ public class AIController : MonoBehaviour
     public AIState aiState = AIState.Roaming;
 
     [SerializeField] private GameObject[] targets;
+    [Tooltip("How close the AI will try to get to a roam target, in meters.")]
     [SerializeField] private float targetAccuracy = 5;
+    [Tooltip("How long the AI will stay at a roam target, before selecting a new roam target, in seconds.")]
     [SerializeField] private float switchTime = 3;
+    [Tooltip("How long the AI will stay in search state, in seconds.")]
     [SerializeField] private float searchTime = 10;
+    [Tooltip("How long the AI needs to see a target to switch to chase state, in seconds.")]
     [SerializeField] private float aggroTime = 1;
+    [Tooltip("Multiplier to the decay rate of accumulated aggro.")]
     [SerializeField] private float aggroDecayRate = 1;
+    [Tooltip("The radius of the circle the AI will walk during search.")]
     [SerializeField] private float searchRadius = 1;
+    [Tooltip("The rate at which the AI will follow the circle when searching.")]
     [SerializeField] private float searchRotationRate = 1;
 
+    private bool _invertSearchPattern;
+    private bool _didCatchPlayer = false;
     private int _currentIndex = 1;
     private float _timeSinceLastChase;
     private float _accumulatedAggro;
@@ -35,8 +44,6 @@ public class AIController : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private FieldOfView _fieldOfView;
     private Vector3 _lastKnownTargetPosition;
-    private bool _invertSearchPattern;
-    private bool _didCatchPlayer = false;
     
     public UnityEvent onCaughtPlayer = new();
 
@@ -44,7 +51,6 @@ public class AIController : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _fieldOfView = GetComponent<FieldOfView>();
-        aiState = AIState.Roaming;
     }
 
     private void Update()
@@ -160,6 +166,8 @@ public class AIController : MonoBehaviour
         }
     }
 
+
+
     // Simple function that creates a vector that "rotates" around another vector based on time.
     private Vector3 RotationalVector(float time, bool invert = false, float rotationRadius = 1, float rotationRate = 2)
     {
@@ -178,12 +186,11 @@ public class AIController : MonoBehaviour
         return Random.value >= 0.5;
     }
 
-    public void ForceNewTarget(Transform trans)
+    public void ForceNewTarget(Transform transform)
     {
-        _lastKnownTargetPosition = trans.position;
+        _lastKnownTargetPosition = transform.position;
         aiState = AIState.ForcedHunt;
     }
-    
 
     private IEnumerator SelectNewTarget(int oldIndex)
     {
