@@ -15,8 +15,8 @@ namespace Runtime.Interaction
 
         private void Update()
         {
-            Transform cameraTransform = interactorCamera.transform;
-            var didHit = Physics.Raycast(cameraTransform.position, cameraTransform.forward, out var hitInfo, interactionDistance);
+            Ray ray = interactorCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            var didHit = Physics.Raycast(ray, out var hitInfo, interactionDistance);
             var interactable = didHit ? hitInfo.collider.GetComponent<IInteractable>() : null;
             
             if (didHit && interactable is { IsActive: true })

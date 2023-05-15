@@ -53,7 +53,7 @@ namespace Runtime.Networking
         {
             onStartConnection?.Invoke();
             System.Random r = new System.Random();
-            const string chars = "ABCDEFGHIJKLMNOQRSTUVWXYZ0123456789";
+            const string chars = "0123456789";
             string newID = new string(Enumerable.Repeat(chars, 5).Select(s => s[r.Next(s.Length)]).ToArray());
             _transport.RoomName = newID;
             
