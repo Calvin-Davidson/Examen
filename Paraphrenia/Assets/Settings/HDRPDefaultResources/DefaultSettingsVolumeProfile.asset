@@ -439,14 +439,14 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   enabledTransparent:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   tracing:
     m_OverrideState: 0
     m_Value: 1
   m_MinSmoothness:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.75
   m_SmoothnessFadeStart:
     m_OverrideState: 1
     m_Value: 1
@@ -464,10 +464,10 @@ MonoBehaviour:
     m_Value: 1
   accumulationFactor:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0.15
   m_RayMaxIterations:
     m_OverrideState: 1
-    m_Value: 128
+    m_Value: 256
   rayMiss:
     m_OverrideState: 0
     m_Value: 3

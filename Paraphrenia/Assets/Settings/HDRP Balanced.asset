@@ -58,11 +58,11 @@ MonoBehaviour:
       cookieAtlasLastValidMip: 0
       cookieTexArraySize: 16
       planarReflectionAtlasSize: 1024
-      reflectionProbeCacheSize: 32
-      reflectionCubemapSize: 128
+      reflectionProbeCacheSize: 16
+      reflectionCubemapSize: 256
       reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
-      skyReflectionSize: 512
+      skyReflectionSize: 128
       skyLightingOverrideLayerMask:
         serializedVersion: 2
         m_Bits: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     hdShadowInitParams:
       maxShadowRequests: 128
       directionalShadowsDepthBits: 16
-      shadowFilteringQuality: 1
+      shadowFilteringQuality: 2
       punctualLightShadowAtlas:
         shadowAtlasResolution: 4096
         shadowAtlasDepthBits: 16
