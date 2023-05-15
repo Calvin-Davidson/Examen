@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Static library script that can calculate the UVs for any procedural mesh, assuming the mesh is generated linearly.
+/// </summary>
 
 public class UvCalculator
 {

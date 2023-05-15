@@ -8,14 +8,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(AIController))]
 [RequireComponent(typeof(SoundCuePlayer))]
-public class AIAudioController : MonoBehaviour
+public class AISoundController : MonoBehaviour
 {
-    private AIController _aiController;
-    private SoundCuePlayer _soundCuePlayer;
-
     [SerializeField] private SoundCue _roamingSoundCue;
     [SerializeField] private SoundCue _chasingSoundCue;
     [SerializeField] private SoundCue _searchingSoundCue;
+
+    private AIController _aiController;
+    private SoundCuePlayer _soundCuePlayer;
 
     private void Awake()
     {
