@@ -11,7 +11,9 @@ public class FieldOfView : MonoBehaviour {
 
 	[SerializeField] private float tickDelay = 0.1f;
 	[SerializeField] private bool drawFieldOfView = true;
-	[SerializeField] private float meshResolution = 10;
+	[SerializeField] private bool clampUvToBounds = true;
+	[SerializeField] private float meshResolution = 1; //Resolution is the amount of vertices per angle in degrees. So a resolution of 1 makes a mesh of 360 triangles in a 360 degree field of view.
+	[SerializeField] private float UvResolution = 1;
 	[SerializeField] private float edgeDistanceThreshold = 5;
 	[SerializeField] private int edgeResolveIterations = 5;
 	[SerializeField] private MeshFilter viewMeshFilter;
@@ -109,11 +111,13 @@ public class FieldOfView : MonoBehaviour {
 				triangles [i * 3 + 2] = i + 2;
 			}
 		}
+		Vector2[] uvs = UvCalculator.CalculateUVs(vertices, UvResolution, clampUvToBounds);
 
 		// Reconstruct the procedural mesh
 		_viewMesh.Clear ();
 		_viewMesh.vertices = vertices;
 		_viewMesh.triangles = triangles;
+		_viewMesh.uv = uvs;
 		_viewMesh.RecalculateNormals ();
 	}
 

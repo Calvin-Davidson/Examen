@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429229811358373004, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8919221958963393948, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
       propertyPath: m_Intensity
@@ -24,13 +29,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
+      propertyPath: m_FadeDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_AffectSpecular
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_ShadowFadeDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393949, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
       propertyPath: m_ShadowResolution.m_Override
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393950, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_Name
+      value: FlickeringLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221958963393950, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8919221960178487905, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
       propertyPath: m_Name
       value: FlickeringLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221960178487905, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8919221960178487909, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
@@ -85,6 +120,11 @@ PrefabInstance:
     - target: {fileID: 8919221960178487909, guid: 3b1a397af4b767543b56295588383131,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919221960178487911, guid: 3b1a397af4b767543b56295588383131,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9215561365757071294, guid: 3b1a397af4b767543b56295588383131,
