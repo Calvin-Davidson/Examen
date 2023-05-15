@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 0
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
     supportSSGI: 1
     supportSubsurfaceScattering: 1
@@ -58,11 +58,11 @@ MonoBehaviour:
       cookieAtlasLastValidMip: 0
       cookieTexArraySize: 16
       planarReflectionAtlasSize: 2048
-      reflectionProbeCacheSize: 32
-      reflectionCubemapSize: 256
+      reflectionProbeCacheSize: 16
+      reflectionCubemapSize: 512
       reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
-      skyReflectionSize: 1024
+      skyReflectionSize: 128
       skyLightingOverrideLayerMask:
         serializedVersion: 2
         m_Bits: 0

@@ -514,7 +514,9 @@ MonoBehaviour:
   visibleTargets: []
   tickDelay: 0.1
   drawFieldOfView: 1
-  meshResolution: 10
+  clampUvToBounds: 1
+  meshResolution: 1
+  UvResolution: 1
   edgeDistanceThreshold: 5
   edgeResolveIterations: 5
   viewMeshFilter: {fileID: 8542314901216346211}
@@ -855,7 +857,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9811ac84dbc3bf7458723c4af8272a1e, type: 2}
+  - {fileID: 2100000, guid: 881e827d4f29ec248a88fd727e394768, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
