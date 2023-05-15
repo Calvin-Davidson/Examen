@@ -1,6 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Simple controller to control the volume of an audio source in a turn on and turn off fashion.
+/// The reason we use volume instead of enabling and disabling the object is to not pause the audio clip itself, which would have caused a variety of issues within the project.
+/// </summary>
 
 namespace Runtime.GameplayScripts
 {

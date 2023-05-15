@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Controller script to hook up sound cues to an audio source. This script can decide how the sound files are selected within the cue, as well as looping and looping delay options.
+/// </summary>
+
 [RequireComponent(typeof(AudioSource))]
 public class SoundCuePlayer : MonoBehaviour
 {

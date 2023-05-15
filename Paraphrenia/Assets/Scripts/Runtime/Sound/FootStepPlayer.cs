@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Simply plays a sound effect and calls an unity event when the player moves a certain distance.
+/// Missing behavior: The ability to swap footstep types depending on walking surface.
+/// </summary>
+
 [RequireComponent(typeof(SoundCuePlayer))]
 public class FootStepPlayer : MonoBehaviour
 {

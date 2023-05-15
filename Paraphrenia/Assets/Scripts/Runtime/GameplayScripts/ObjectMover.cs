@@ -1,6 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Simple script that controls object movement based on a lerp conponent.
+/// </summary>
+
 namespace Runtime.GameplayScripts
 {
     [RequireComponent(typeof(Transform))]
