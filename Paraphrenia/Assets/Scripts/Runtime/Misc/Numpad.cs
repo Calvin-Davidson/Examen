@@ -16,12 +16,19 @@ namespace Runtime.Misc
         [SerializeField] private string code;
 
         [SerializeField] private bool autoSubmit = false;
-        
+        [SerializeField] private bool forceBlock = false;
+
         private string _insertedCode;
 
         public NetworkEvent onCodeFailed = new(NetworkEventPermission.Everyone);
         public NetworkEvent onCodeSuccess = new(NetworkEventPermission.Everyone);
         public NetworkEvent onPadPressed = new(NetworkEventPermission.Everyone);
+
+        public bool ForceBlock
+        {
+            get => forceBlock;
+            set => forceBlock = value;
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -49,7 +56,7 @@ namespace Runtime.Misc
 
         public void TryKeyCode()
         {
-            if (_insertedCode == code)
+            if (_insertedCode == code && !forceBlock)
             {
                 onCodeSuccess?.Invoke();
             }
