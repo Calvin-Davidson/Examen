@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A dictionary of various lerp smoothing algorithms. This allows us to move objects in various ways, creating emergent behavior.
+/// </summary>
+
 [System.Serializable]
 public class EasingDictionary
 {

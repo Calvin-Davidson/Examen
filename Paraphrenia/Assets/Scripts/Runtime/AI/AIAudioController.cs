@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sound controller for the enemy AI. Depending on the AI state, play sound effects of a respective sound cue.
+/// </summary>
+
 [RequireComponent(typeof(AIController))]
 [RequireComponent(typeof(SoundCuePlayer))]
 public class AIAudioController : MonoBehaviour

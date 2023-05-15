@@ -1,14 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// This script is a basic controller script that can drive the emission intensity of an default unity material through an On and Off state.
+/// There is support for a color override, though the materials's default configured emission color can also be used.
+/// This script is meant to be hooked up to the RandomFlicker.cs manager script.
+/// WARNING: This script is configured for Unity's default HDRP shader, other shaders may not be supported!
+/// </summary>
+
 namespace Runtime.GameplayScripts
 {
-    /// <summary>
-    /// This script is a basic controller script that can drive the emission intensity of an default unity material through an On and Off state.
-    /// There is support for a color override, though the materials's default configured emission color can also be used.
-    /// This script is meant to be hooked up to the RandomFlicker.cs manager script.
-    /// WARNING: This script is configured for Unity's default HDRP shader, other shaders may not be supported!
-    /// </summary>
-
     [RequireComponent(typeof(Renderer))]
     public class EmissionController : MonoBehaviour
     {

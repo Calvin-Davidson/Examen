@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Small extention script to be able to fetch the remaining time of an audio clip played by an audio source.
+/// </summary>
+
 public static class AudioSourceExtension
 {
     public static bool IsReversePitch(this AudioSource source)
