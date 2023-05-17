@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7883875605198058043}
   - component: {fileID: 6541193147890646430}
   - component: {fileID: 9016782370609383764}
+  - component: {fileID: 1397356058562224075}
   m_Layer: 0
   m_Name: OfficeDesk
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1397356058562224075
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7359717124673300609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023228599, y: 0.008909392, z: 0.0083204685}
+  m_Center: {x: -0.011131107, y: 0.0039576464, z: 0.0041602324}
