@@ -22,6 +22,7 @@ namespace Runtime.Misc
         /// <param name="other"></param>
         public void OnTriggerEnter(Collider other)
         {
+            if (other != playerParent.GetComponent<Collider>()) return;
             _playerCollider = other;
         }
 
@@ -31,6 +32,7 @@ namespace Runtime.Misc
         /// <param name="other"></param>
         private void OnTriggerExit(Collider other)
         {
+            if (other != playerParent.GetComponent<Collider>()) return;
             _playerCollider = null;
         }
 
@@ -52,7 +54,7 @@ namespace Runtime.Misc
                     return;
                 }
                 // if we are not holding it, we cannot release it.
-                if (_isGrabbed || playerParent == null) return;
+                if (_isGrabbed || playerParent == null || _playerCollider == null) return;
                 
                 if (Vector3.Dot(transform.forward, playerParent.transform.forward) < 1 - lookAtTolerance) return;
 

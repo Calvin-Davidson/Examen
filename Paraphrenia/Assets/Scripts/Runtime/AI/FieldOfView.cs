@@ -2,17 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FieldOfView : MonoBehaviour {
+/// <summary>
+/// Script that can calculate the field of view for an AI actor, and visualize it through a procedural mesh.
+/// </summary>
+
+public class FieldOfView : MonoBehaviour
+{
 	[Range(0, 50)] public float viewRadius = 30;
 	[Range(0,360)] public float viewAngle = 75;
+	[Tooltip("What layers are considered targets.")]
 	public LayerMask targetMask;
+	[Tooltip("What layers are considered obstacles.")]
 	public LayerMask obstacleMask;
+
 	[HideInInspector] public List<Transform> visibleTargets = new List<Transform>();
 
-	[SerializeField] private float tickDelay = 0.1f;
+	[Tooltip("Whether to draw the field of view using a procedural mesh.")]
 	[SerializeField] private bool drawFieldOfView = true;
-	[SerializeField] private float meshResolution = 10;
+	[Tooltip("Whether the UVs should be bound, which means the UVs scale with the mesh scale.")]
+	[SerializeField] private bool clampUvToBounds = true;
+	[Tooltip("How often the procedural mesh will be updated in seconds.")]
+	[SerializeField] private float tickDelay = 0.1f;
+	[Tooltip("Amount of vertices per angle in degrees. Recommended is 1-10, as face count is resolution * view angle")] 
+	[SerializeField] private float meshResolution = 1;
+	[Tooltip("Scale of the UVs. When unbound, this is the surface area of a single 0-1 UV slice in square meters.")]
+	[SerializeField] private float uvResolution = 1;
+	[Tooltip("The distance for the edge resolving algorithm to recognize an edge corner as an edge corner. 3-10 recommended.")]
 	[SerializeField] private float edgeDistanceThreshold = 5;
+	[Tooltip("How many iterations the algorithm uses to solve for edge corners. 3-10 recommended.")]
 	[SerializeField] private int edgeResolveIterations = 5;
 	[SerializeField] private MeshFilter viewMeshFilter;
 
@@ -109,11 +126,13 @@ public class FieldOfView : MonoBehaviour {
 				triangles [i * 3 + 2] = i + 2;
 			}
 		}
+		Vector2[] uvs = UvCalculator.CalculateUVs(vertices, uvResolution, clampUvToBounds);
 
 		// Reconstruct the procedural mesh
 		_viewMesh.Clear ();
 		_viewMesh.vertices = vertices;
 		_viewMesh.triangles = triangles;
+		_viewMesh.uv = uvs;
 		_viewMesh.RecalculateNormals ();
 	}
 

@@ -10,19 +10,25 @@ namespace Runtime.Player
     {
         [SerializeField] private Camera patientCamera;
         [SerializeField] private Camera enemyCamera;
-
+        [SerializeField] private float maxEnemyCamTime = 10f;
+        [SerializeField] private float switchCooldown = 25f;
+        
         [SerializeField] private KeyCode switchKey = KeyCode.Space;
         [SerializeField] private bool shouldHold = false;
         [SerializeField] private float switchDelay = .75f;
 
+        private bool _isPatientView = true;
+        private bool _shouldBePatientView = true;
+        private Coroutine _abilityCrashTimer;
+        private Coroutine _switchCoroutine;
+        private float _timeSinceLastSwitch = -float.PositiveInfinity;
+        
         public UnityEvent onSwitchStart = new();
         public UnityEvent onSwitchComplete = new();
         public UnityEvent onSwitchCancelled = new();
+        public UnityEvent onSwitchFailed = new();
         public UnityEvent<float> onSwitchProgress = new();
-
-
-        private bool _isPatientView = true;
-        private bool _shouldBePatientView = true;
+        public UnityEvent onEnemyEyeCrash;
 
         private void Awake()
         {
@@ -74,6 +80,7 @@ namespace Runtime.Player
             
             if (!_isPatientView && _shouldBePatientView)
             {
+                if (_abilityCrashTimer != null) StopCoroutine(_abilityCrashTimer);
                 patientCamera.enabled = true;
                 _isPatientView = true;
                 enemyCamera.enabled = false;
@@ -83,13 +90,31 @@ namespace Runtime.Player
                 patientCamera.enabled = false;
                 _isPatientView = false;
                 enemyCamera.enabled = true;
+                if (_abilityCrashTimer != null) StopCoroutine(_abilityCrashTimer);
+                _abilityCrashTimer = StartCoroutine(EnemyEyeCrashTimer());
             }
             
             onSwitchComplete?.Invoke();
         }
+
+        private IEnumerator EnemyEyeCrashTimer()
+        {
+            yield return new WaitForSeconds(maxEnemyCamTime);
+            if (_shouldBePatientView) yield break;
+            StopCoroutine(_switchCoroutine);
+            SwitchView();
+            onEnemyEyeCrash?.Invoke();
+        }
         
         private void SwitchView()
         {
+            
+            if (_timeSinceLastSwitch + switchCooldown > Time.time && _isPatientView)
+            {
+                onSwitchFailed?.Invoke();
+                return;
+            }
+            
             _shouldBePatientView = !_shouldBePatientView;
             
             if (ShouldCancelSwitch())
@@ -98,9 +123,10 @@ namespace Runtime.Player
                 CancelSwitch();
                 return;
             }
-         
+
+            _timeSinceLastSwitch = Time.time;
             onSwitchStart?.Invoke();
-            StartCoroutine(SwitchWithDelay());
+            _switchCoroutine = StartCoroutine(SwitchWithDelay());
         }
 
         private bool ShouldCancelSwitch()
@@ -110,7 +136,7 @@ namespace Runtime.Player
 
         private void CancelSwitch()
         {
-            StopAllCoroutines();
+            StopCoroutine(_switchCoroutine);
         }
     }
 }

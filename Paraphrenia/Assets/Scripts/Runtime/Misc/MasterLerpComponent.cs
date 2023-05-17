@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class MasterLerpComponent : MonoBehaviour
 {
     [SerializeField] private EasingDictionary easingDictionary;
     [SerializeField] private float lerpDuration = 1f;
+
     private float _lerpProgress;
 
     protected void StartLerp()

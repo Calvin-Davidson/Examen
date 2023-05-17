@@ -19,7 +19,7 @@ namespace Runtime.Player
             _currentRotZ = Mathf.Lerp(_currentRotZ, horizontalInput * maxTurnZ, Time.deltaTime * turningSpeed);
             _currentRotX = Mathf.Lerp(_currentRotX, verticalInput * maxTurnX, Time.deltaTime * turningSpeed);
             
-            transform.rotation = Quaternion.Euler(new Vector3(_currentRotX,0,_currentRotZ));
+            transform.rotation = Quaternion.Euler(new Vector3(_currentRotX,transform.rotation.y,_currentRotZ));
         }
     }
 }
