@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.Interaction
 {
@@ -13,6 +14,9 @@ namespace Runtime.Interaction
 
         private IInteractable _interactable;
 
+        public UnityEvent onInteractableGain;
+        public UnityEvent onInteractableLose;
+        
         private void Update()
         {
             Ray ray = interactorCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -54,6 +58,8 @@ namespace Runtime.Interaction
             interactable.InteractorEnter();
             _interactable?.InteractorExit();
             _interactable = interactable;
+            
+            onInteractableGain?.Invoke();
         }
 
         private void DoInteractionMiss()
@@ -62,6 +68,8 @@ namespace Runtime.Interaction
 
             _interactable.InteractorExit();
             _interactable = null;
+            
+            onInteractableLose?.Invoke();
         }
     }
 }
