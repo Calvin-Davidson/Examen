@@ -102,7 +102,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ORM:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 97763ebde8c351543885b28409573a12, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -130,11 +130,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _baseColor:
-        m_Texture: {fileID: 2800000, guid: 0ba6fdb72b183f24f977eee1bc5e34f5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 855042ddda9787848bdd8c421029d52a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 90d891491583a9d439bba112e9912d9f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -265,9 +265,9 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _metallic: 0.24
+    - _metallic: 0
     - _normalStrength: 1
-    - _roughness: 0.69
+    - _roughness: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
@@ -286,5 +286,5 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
     - _color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
-    - _textureScale: {r: 1000, g: 1000, b: 0, a: 0}
+    - _textureScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
