@@ -11,6 +11,7 @@ public abstract class MasterLerpComponent : MonoBehaviour
     protected void StartLerp()
     {
         _lerpProgress = 0f;
+        StopAllCoroutines();
         StartCoroutine(Lerp(Time.deltaTime));
     }
 
@@ -25,5 +26,6 @@ public abstract class MasterLerpComponent : MonoBehaviour
             ApplyLerp(easeStep);
             yield return new WaitForSeconds(dt);
         }
+        
     }
 }
