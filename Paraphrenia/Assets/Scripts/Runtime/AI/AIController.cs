@@ -200,11 +200,11 @@ public class AIController : MonoBehaviour
         int attempts = 0;
         bool success = false;
         NavMeshPath navMeshPath = new NavMeshPath();
-        while (_currentIndex==oldIndex && attempts < 10 && !success)
+        while (attempts < 25 && !success)
         {
             _currentIndex = Random.Range(0, targets.Length - 1);
             attempts++;
-            if (_navMeshAgent.CalculatePath(targets[_currentIndex].transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+            if (_currentIndex != oldIndex && _navMeshAgent.CalculatePath(targets[_currentIndex].transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
             {
                 success = true;
             }
