@@ -130,7 +130,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _baseColor:
-        m_Texture: {fileID: 2800000, guid: f50916387581fc14a817a1aab7acc225, type: 3}
+        m_Texture: {fileID: 2800000, guid: 596b6bdb4b9b1194287180ad007b9109, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap:
