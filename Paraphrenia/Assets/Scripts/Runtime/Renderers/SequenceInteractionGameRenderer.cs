@@ -38,44 +38,27 @@ namespace Runtime.Renderers
 
         private void HandleInteractableEnter(NetworkedInteractable interactable)
         {
-            if (PlayerType.Wheelchair.GetNetworkClientID() == NetworkManager.LocalClientId)
-            {
-                if (_sequenceInteraction.TargetInteractable == interactable)
-                {
-                    interactable.GetComponent<MeshRenderer>().material = newTargetMaterial;
-                }
-
-                return;
-            } 
-            
+            if (PlayerType.Wheelchair.GetNetworkClientID() == NetworkManager.LocalClientId) return;
             interactable.GetComponent<MeshRenderer>().material = hoverMaterial;
         }
 
         private void HandleInteractableExit(NetworkedInteractable interactable)
         {
-            if (PlayerType.Wheelchair.GetNetworkClientID() == NetworkManager.LocalClientId)
-            {
-                if (_sequenceInteraction.TargetInteractable == interactable)
-                {
-                    interactable.GetComponent<MeshRenderer>().material = newTargetMaterial;
-                }
-                
-                return;
-            }
+            if (PlayerType.Wheelchair.GetNetworkClientID() == NetworkManager.LocalClientId) return;
             interactable.GetComponent<MeshRenderer>().material = defaultMaterial;
         }
 
         private void HandleWrongInteractable()
         {
-            if (PlayerType.Wheelchair.GetNetworkClientID() != NetworkManager.LocalClientId) return;
-            
-            foreach (var sequenceInteractionInteractable in _sequenceInteraction.Interactables)
-            {
-                sequenceInteractionInteractable.GetComponent<MeshRenderer>().material = defaultMaterial;
-            }
+            RenderWheelChair();
         }
 
         private void RenderNewTarget(NetworkedInteractable interactable)
+        {
+            RenderWheelChair();
+        }
+
+        private void RenderWheelChair()
         {
             if (PlayerType.Wheelchair.GetNetworkClientID() != NetworkManager.LocalClientId) return;
            
@@ -84,7 +67,7 @@ namespace Runtime.Renderers
                 sequenceInteractionInteractable.GetComponent<MeshRenderer>().material = defaultMaterial;
             }
                 
-            interactable.GetComponent<MeshRenderer>().material = newTargetMaterial;
+            _sequenceInteraction.TargetInteractable.GetComponent<MeshRenderer>().material = newTargetMaterial;
         }
     }
 }
