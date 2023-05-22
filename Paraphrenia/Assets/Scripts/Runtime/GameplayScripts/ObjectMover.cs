@@ -17,6 +17,7 @@ namespace Runtime.GameplayScripts
         private Vector3 _defaultPosition;
         private Vector3 _currentPosition;
         private Vector3 _direction;
+        private bool _isEndTarget = false;
 
         private void Awake()
         {
@@ -31,6 +32,7 @@ namespace Runtime.GameplayScripts
             if (localSpace) {  _currentPosition = transform.localPosition; }
             else { _currentPosition = transform.position; }
             _direction = targetPosition - _currentPosition;
+            _isEndTarget = true;
             StartLerp();
         }
 
@@ -39,6 +41,25 @@ namespace Runtime.GameplayScripts
             if (localSpace) { _currentPosition = transform.localPosition; }
             else { _currentPosition = transform.position; }
             _direction = _defaultPosition - _currentPosition;
+            _isEndTarget = false;
+            StartLerp();
+        }
+
+        public void Switch()
+        {
+            if (localSpace) { _currentPosition = transform.localPosition; }
+            else { _currentPosition = transform.position; }
+
+            if (_isEndTarget)
+            {
+                _direction = _defaultPosition - _currentPosition;
+                _isEndTarget = false;
+            }
+            else
+            {
+                _direction = targetPosition - _currentPosition;
+                _isEndTarget = true;
+            }
             StartLerp();
         }
 
