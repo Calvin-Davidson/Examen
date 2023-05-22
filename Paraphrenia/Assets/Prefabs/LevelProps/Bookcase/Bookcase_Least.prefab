@@ -3578,6 +3578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6874325230493514592}
+  - component: {fileID: 2491371098572742715}
   m_Layer: 0
   m_Name: Bookcase_Least
   m_TagString: Untagged
@@ -3602,6 +3603,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2491371098572742715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798417230165116940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.422094, y: 2.4940684, z: 1.7340305}
+  m_Center: {x: -0.013691485, y: 1.2196478, z: 0}
 --- !u!1 &4805461144541157717
 GameObject:
   m_ObjectHideFlags: 0
