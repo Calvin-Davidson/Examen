@@ -12,8 +12,8 @@ namespace Runtime.Misc
      {
           [SerializeField, Tooltip("Should be added in the right sequence")] private List<NetworkedInteractable> interactables = new();
 
-          private NetworkVariable<int> _currentTarget = new();
-
+          private readonly NetworkVariable<int> _currentTarget = new();
+          
           public NetworkEvent onValidInteraction = new NetworkEvent();
           public NetworkEvent onInvalidInteraction = new NetworkEvent();
 
@@ -86,11 +86,7 @@ namespace Runtime.Misc
                onValidInteraction?.Invoke();
           }
 
-          public List<NetworkedInteractable> Interactables
-          {
-               get => interactables;
-          }
-
+          public List<NetworkedInteractable> Interactables => interactables;
           public NetworkedInteractable TargetInteractable => interactables[_currentTarget.Value];
      }
 }
