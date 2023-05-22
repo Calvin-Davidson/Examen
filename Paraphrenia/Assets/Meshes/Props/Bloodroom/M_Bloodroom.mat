@@ -249,7 +249,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _metallic: 0
+    - _metallic: 1
     - _normalStrength: 1
     - _roughness: 1
     m_Colors:
