@@ -84,10 +84,9 @@ classDiagram
 title: Camera system
 ---
 classDiagram
-    CameraData <|-- CameraShake
     CameraData <|-- CameraShakeImpulse
-    CameraShakeImpulse <|-- CameraShake
-    CameraShake <|-- CameraData
+    CameraShake <|-- CameraShakeImpulse
+    CameraData <|-- CameraShake
     class CameraShake{
         +String beakColor
         +Awake()
