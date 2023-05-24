@@ -28,6 +28,7 @@ namespace Runtime.Misc
 
         private void Update()
         {
+            Debug.Log(renderText.color.a);
             if (_isAnimating) return;
             if (_queue.TryDequeue(out var result))
             {
@@ -41,8 +42,9 @@ namespace Runtime.Misc
             float progress = 0;
             _isAnimating = true;
             renderText.enabled = true;
-            renderText.rectTransform.position = textStartPos;
-            
+            renderText.color = new Color(renderText.color.r, renderText.color.g, renderText.color.b, 1);
+            renderText.rectTransform.localPosition = textStartPos;
+
             yield return new WaitForSeconds(moveDelay);
             
             while (progress < 1)
@@ -51,8 +53,9 @@ namespace Runtime.Misc
                 progress = Mathf.Clamp01(progress);
 
                 renderText.rectTransform.localPosition = Vector3.Lerp(textStartPos, textEndPos, progress);
-                
-                
+                renderText.color = new Color(renderText.color.r, renderText.color.g, renderText.color.b, 1 - progress);
+
+
                 yield return null;
             }
 
