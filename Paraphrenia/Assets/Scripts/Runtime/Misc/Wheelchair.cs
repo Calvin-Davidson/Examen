@@ -1,4 +1,5 @@
 using System;
+using Runtime.Player;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,10 @@ namespace Runtime.Misc
         private Collider _playerCollider;
         private bool _isGrabbed;
 
+        private Transform _grabberTransform;
+        private Vector3 _previousPosition;
+        private Vector3 _previousRotation;
+        
         public UnityEvent onGrab = new();
         public UnityEvent onRelease = new();
         
@@ -44,39 +49,50 @@ namespace Runtime.Misc
         private void Update()
         {
             if (!IsOwner) return;
+
+            if (!Input.GetKeyDown(KeyCode.Space)) return;
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (_isGrabbed)
             {
-                if (_isGrabbed)
-                {
-                    _isGrabbed = false;
-                    ReleaseServerRpc();
-                    return;
-                }
-                // if we are not holding it, we cannot release it.
-                if (_isGrabbed || playerParent == null || _playerCollider == null) return;
-                
-                if (Vector3.Dot(transform.forward, playerParent.transform.forward) < 1 - lookAtTolerance) return;
-
-                _isGrabbed = true;
-                GrabServerRpc();
+                DoRelease();
+                return;
             }
+            // if we are not holding it, we cannot release it.
+            if (_isGrabbed || playerParent == null || _playerCollider == null) return;
+                
+            if (Vector3.Dot(transform.forward, playerParent.transform.forward) < 1 - lookAtTolerance) return;
+
+            DoGrab();
         }
 
-        [ServerRpc]
-        private void GrabServerRpc()
+        private void LateUpdate()
         {
-            transform.parent = playerParent.transform;
+            if (_playerCollider == null) return;
+            
+            if (_isGrabbed)
+            {
+                transform.position += _grabberTransform.position - _previousPosition;
+                transform.RotateAround(_grabberTransform.position, Vector3.up, (_grabberTransform.eulerAngles - _previousRotation).y);
+            }
+            
+            _previousPosition = _grabberTransform.position;
+            _previousRotation = _grabberTransform.eulerAngles;
+
+        }
+
+        private void DoGrab()
+        {
+            _grabberTransform = _playerCollider.GetComponentInParent<PlayerController>().transform;
+            _previousPosition = _grabberTransform.position;
+            _previousRotation = _grabberTransform.eulerAngles;
+            
             _isGrabbed = true;
-            onGrab?.Invoke();
         }
 
-        [ServerRpc]
-        private void ReleaseServerRpc()
+        private void DoRelease()
         {
-            transform.parent = null;
+            _grabberTransform = null;
             _isGrabbed = false;
-            onRelease?.Invoke();
         }
     }
 }
