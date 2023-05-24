@@ -1257,6 +1257,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 819675591841133841}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &978921679210561435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549856188459812928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6d07c3ebdd85b42a361f947a719d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 6488146863500232832}
 --- !u!114 &1447229079493681663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,20 +1287,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &978921679210561435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549856188459812928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransitionStateInfoList: []
-  m_Animator: {fileID: 6488146863500232832}
 --- !u!114 &3498564280167765504
 MonoBehaviour:
   m_ObjectHideFlags: 0
