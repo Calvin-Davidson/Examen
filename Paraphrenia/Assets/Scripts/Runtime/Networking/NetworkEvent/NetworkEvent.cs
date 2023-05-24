@@ -51,6 +51,8 @@ namespace Runtime.Networking.NetworkEvent
 
         public void Dispose()
         {
+            if (NetworkManager.Singleton == null) return;
+            if (NetworkManager.Singleton.CustomMessagingManager == null) return;
             NetworkManager.Singleton.CustomMessagingManager.UnregisterNamedMessageHandler(_eventNameID);
         }
 

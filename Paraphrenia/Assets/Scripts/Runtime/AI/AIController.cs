@@ -198,10 +198,16 @@ public class AIController : MonoBehaviour
 
         // Must take into account the chance of selecting the same object over and over, so I itterate 10 attempts to try and select a different target
         int attempts = 0;
-        while(_currentIndex==oldIndex && attempts < 10)
+        bool success = false;
+        NavMeshPath navMeshPath = new NavMeshPath();
+        while (attempts < 25 && !success)
         {
             _currentIndex = Random.Range(0, targets.Length - 1);
             attempts++;
+            if (_currentIndex != oldIndex && _navMeshAgent.CalculatePath(targets[_currentIndex].transform.position, navMeshPath) && navMeshPath.status == NavMeshPathStatus.PathComplete)
+            {
+                success = true;
+            }
         }
     }
 }
