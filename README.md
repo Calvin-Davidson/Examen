@@ -35,7 +35,43 @@ Lead Developer, Networking Engineer
 #### Calvin
 
 [NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
+```mermaid
+---
+title: Camera system
+---
+classDiagram
+    note for UnityEvent "Default unity event"
+    UnityEvent <|-- NetworkEvent
+    NetworkEventPermission <|-- NetworkEvent
+    class NetworkEvent{
+        -NetworkEventPermission _invokePermission;
+        -NetworkObject _ownerObject;
+        -string _eventNameID;
 
+        _bool _isInitialized;
+
+        +UnityEvent called;
+        +UnityEvent calledClient;
+        +UnityEvent calledServer;
+
+        +NetworkEvent(NetworkEventPermission);
+        +Initialize();
+        +Dispose();
+        +Invoke();
+        -CanInvoke();
+        -ReceiveMessage();
+    }
+    class UnityEvent {
+
+    }
+
+    class NetworkEventPermission{
+    <<enumeration>>
+    Server
+    Owner
+    Everyone
+}
+```
 [All/Most Networking logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking)
 
 [Level designs](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking)
