@@ -454,6 +454,12 @@ MonoBehaviour:
   interactorCamera: {fileID: 1941312062267454406}
   interactionDistance: 10
   interactionKey: 101
+  onInteractableGain:
+    m_PersistentCalls:
+      m_Calls: []
+  onInteractableLose:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2834183984443156665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,9 +1251,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59773b1db3457084d9f502d2ed6d8bc0, type: 3}
+--- !u!1 &549856188459812928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59773b1db3457084d9f502d2ed6d8bc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 819675591841133841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1447229079493681663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549856188459812928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &978921679210561435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549856188459812928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 6488146863500232832}
 --- !u!4 &930745281027429114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 59773b1db3457084d9f502d2ed6d8bc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 819675591841133841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6488146863500232832 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 59773b1db3457084d9f502d2ed6d8bc0,
     type: 3}
   m_PrefabInstance: {fileID: 819675591841133841}
   m_PrefabAsset: {fileID: 0}
