@@ -24,7 +24,7 @@ namespace Runtime.AI
         {
             switch (state)
             {
-                case AIState.Roaming:
+                case AIState.Chasing:
                     _animator.Play("Enemy Chasing");
                     break;
                 case AIState.Searching:
