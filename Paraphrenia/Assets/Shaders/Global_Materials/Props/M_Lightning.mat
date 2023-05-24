@@ -286,7 +286,7 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
-    - _baseColor: {r: 0.20870416, g: 0.5675678, b: 0.6603774, a: 0}
-    - _emissionColor: {r: 729.3585, g: 948.10034, b: 1024, a: 0}
-    - _emissionGlowColor: {r: 61.315014, g: 98.80294, b: 194.0117, a: 0}
+    - _baseColor: {r: 0.34708786, g: 1, b: 0, a: 0}
+    - _emissionColor: {r: 773.8909, g: 1023.9999, b: 734.49207, a: 0}
+    - _emissionGlowColor: {r: 81.71553, g: 194.01176, b: 61.96187, a: 0}
   m_BuildTextureStacks: []
