@@ -26,7 +26,7 @@ public class AISoundController : MonoBehaviour
 
     private void Update()
     {
-        switch (_aiController.aiState)
+        switch (_aiController.AIState)
         {
             case AIState.Chasing:
                 _soundCuePlayer.UpdateSoundCue(_chasingSoundCue);
