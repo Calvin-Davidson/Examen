@@ -28,13 +28,11 @@ namespace Runtime.Misc
 
         private void Update()
         {
-            Debug.Log(renderText.color.a);
             if (_isAnimating) return;
-            if (_queue.TryDequeue(out var result))
-            {
-                renderText.text = result;
-                StartCoroutine(Animate());
-            }
+            if (!_queue.TryDequeue(out var result)) return;
+            
+            renderText.text = result;
+            StartCoroutine(Animate());
         }
 
         private IEnumerator Animate()
