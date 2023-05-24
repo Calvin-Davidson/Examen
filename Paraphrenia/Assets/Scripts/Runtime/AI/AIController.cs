@@ -53,6 +53,8 @@ public class AIController : MonoBehaviour
         get => _aiState;
         set
         {
+            // should not be set to itself.
+            if (_aiState == value) return;
             _aiState = value;
             onStateChange?.Invoke(value);
         }
