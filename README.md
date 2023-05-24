@@ -43,3 +43,32 @@ Lead Developer, Networking Engineer
 [Player movement / Camera logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Player)
 
 [CameraShake](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/CameraSystems)
+```mermaid
+---
+title: Camera system
+---
+classDiagram
+    CameraData <|-- CameraShake
+    CameraData <|-- CameraShakeImpulse
+    CameraShakeImpulse <|-- CameraShake
+    CameraShake <|-- CameraData
+    class CameraShake{
+        +String beakColor
+        +Awake()
+        +Shake()
+        +Update();
+    }
+    class CameraData{
+        -float _positionStrength
+        -float _positionStrength
+        -float _positionStrength
+        -float _positionStrength
+        +UpdateShake();
+    }
+    class CameraShakeImpulse{
+        +float positionStrength
+        +float duration;
+        +float falloffExponent;
+        +Pulse()
+    }
+```
