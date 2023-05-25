@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 7568513615273587228}
   - component: {fileID: 7855225089345654078}
   - component: {fileID: 8072115335388381276}
+  - component: {fileID: 3914966491635140505}
   m_Layer: 8
   m_Name: NursePlayer
   m_TagString: Untagged
@@ -733,6 +734,20 @@ MonoBehaviour:
   positionStrength: 0.2
   duration: 0.06
   falloffExponent: 4
+--- !u!114 &3914966491635140505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941312061282533385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fe0455feb3b1946bf400b25237e3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6488146863500232832}
+  characterRigidbody: {fileID: 130157291}
 --- !u!1 &1941312062267454404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,20 +1272,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 819675591841133841}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &978921679210561435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549856188459812928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6d07c3ebdd85b42a361f947a719d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TransitionStateInfoList: []
-  m_Animator: {fileID: 6488146863500232832}
 --- !u!114 &1447229079493681663
 MonoBehaviour:
   m_ObjectHideFlags: 0

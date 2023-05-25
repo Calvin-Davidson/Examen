@@ -16,10 +16,6 @@ namespace Runtime.Player
         private Rigidbody _characterController;
         private Vector3 _moveDirection = Vector3.zero;
         private float _rotationX;
-        private Animator _animator;
-        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
-
-        private const float MinWalkMagnitude = 0.1f;
 
         /// <summary>
         /// Fetches to rigidbody and disables the cursor.
@@ -27,8 +23,7 @@ namespace Runtime.Player
         private void Start()
         {
             _characterController = GetComponent<Rigidbody>();
-            _animator = GetComponentInChildren<Animator>();
-
+            
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -49,9 +44,6 @@ namespace Runtime.Player
 
             _characterController.velocity =
                 new Vector3(_moveDirection.x, _characterController.velocity.y, _moveDirection.z);
-
-            _animator.SetBool(IsWalking, _characterController.velocity.magnitude > MinWalkMagnitude);
-
 
             _rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             _rotationX = Mathf.Clamp(_rotationX, -lookXLimit, lookXLimit);
