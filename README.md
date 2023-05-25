@@ -51,12 +51,29 @@ Scripts:
 title: Field of View
 ---
 classDiagram
+    FieldOfView <.. ViewCastInfo
+    FieldOfView <.. EdgeInfo
+    UVCalculator <.. FacingDirection
     ProceduralMesh <.. FieldOfView
     UVCalculator <.. FieldOfView
     ProceduralMesh <.. UVCalculator
+    class ViewCastInfo{
+        +bool hit
+		+Vector3 point
+		+float distance
+		+float angle
+    }
+    class EdgeInfo{
+        +Vector3 pointA
+		+Vector3 pointB
+    }
+    class FacingDirection{
+        <<enumeration>>
+        Up
+        Forward
+        Right
+    }
     class FieldOfView{
-        +struct ViewCastInfo
-        +struct EdgeInfo
         +float viewRadius
         +float viewAngle
         +LayerMask targetMask
@@ -82,11 +99,6 @@ classDiagram
         -ViewCast(float) ViewCastInfo
     }
     class UVCalculator{
-        <<enumeration>>
-        Up
-        Forward
-        Right
-
         +CalculateUVs(Vector3[], float, bool) Vector2[]
         -CalculateDirection(Vector3) FacingDirection
         -DotCalculator(Vector3, Vector3, FacingDirection, ref float, ref FacingDirection) bool
@@ -95,7 +107,7 @@ classDiagram
     }
     class ProceduralMesh {
 
-}
+    }
 ```
 
 [Editor script for field of view script](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor)
@@ -106,49 +118,39 @@ classDiagram
 [NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
 ```mermaid
 ---
-title: Field of View
+title: Camera system
 ---
 classDiagram
-    ProceduralMesh <.. FieldOfView
-    UVCalculator <.. FieldOfView
-    ProceduralMesh <.. UVCalculator
-    class FieldOfView{
-        +struct ViewCastInfo
-        +struct EdgeInfo
-        +float viewRadius
-        +float viewAngle
-        +LayerMask targetMask
-        +LayerMask obstacleMask
+    note for UnityEvent "Default unity event"
+    UnityEvent <|-- NetworkEvent
+    NetworkEventPermission <|-- NetworkEvent
+    class NetworkEvent{
+        -NetworkEventPermission _invokePermission;
+        -NetworkObject _ownerObject;
+        -string _eventNameID;
 
-        -bool drawFieldOfView
-        -bool clampUvToBounds
-        -float tickDelay
-        -float meshResolution
-        -float uvResolution
-        -float edgeDistanceThreshold
-        -int edgeResolveIterations
-        -MeshFilter viewMeshFilter
-        -Mesh _viewMesh
+        _bool _isInitialized;
 
-        +DirectionFromAngle(float, bool) Vector3
-        -Start()
-        -LateUpdate()
-        -FindTargetsWithDelay(float) IEnumerator
-        -FindVisibleTargets()
-        -DrawFieldOfView()
-        -FindEdge(ViewCastInfo, ViewCastInfo) EdgeInfo
-        -ViewCast(float) ViewCastInfo
+        +UnityEvent called;
+        +UnityEvent calledClient;
+        +UnityEvent calledServer;
+
+        +NetworkEvent(NetworkEventPermission);
+        +Initialize();
+        +Dispose();
+        +Invoke();
+        -CanInvoke();
+        -ReceiveMessage();
     }
-    class UVCalculator{
+    class UnityEvent {
 
-        +CalculateUVs(Vector3[], float, bool) Vector2[]
-        -CalculateDirection(Vector3) FacingDirection
-        -DotCalculator(Vector3, Vector3, FacingDirection, ref float, ref FacingDirection) bool
-        -ScaleUV(float, float, float, bool, float, float) Vector2
-        -RecalculateBounds(Vector3, ref Vector3, ref Vector3)
     }
-    class ProceduralMesh {
 
+    class NetworkEventPermission{
+    <<enumeration>>
+    Server
+    Owner
+    Everyone
 }
 ```
 [All/Most Networking logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking)
