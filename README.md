@@ -129,6 +129,8 @@ classDiagram
 
 I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders) to give a strong visual distinction between the Enemy's view and a player's view. You can compare it here:
 
+![PostProcessing](https://github.com/Calvin-Davidson/Paraphrenia/assets/34209869/30cbc739-0535-486c-b775-9d253ddc99bc)
+
 ### Level Design:
 
 All lighting work was done by me. Most of our project has been showcased using my initial lighting pass. This pass is mostly done in post processing, with Exposure, Color Correction, Fog, Ambient Occlusion, Bloom, Lift Gamma & Gain, Shadows Midtones & Highlights, Vignette, Panini Projection, Chromatic Abberation, Lens Distortion and Film Grain. Reflections were handled purely through Specular Highlights in our PBR shaders. This created high visual fidelity, but performance suffered, with average framerate on our test devices being around 20 FPS:
