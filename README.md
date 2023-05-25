@@ -136,17 +136,20 @@ I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson
 
 This shader has a broad amount of settings that can be used to change the final effect:
 
-[![Post Processing Shader](https://img.youtube.com/vi/rIlo-JIiEAM/maxresdefault.jpg)](https://youtu.be/rIlo-JIiEAM){target="_blank"}
+(Video, right click to open in new tab)
+[![Post Processing Shader](https://img.youtube.com/vi/rIlo-JIiEAM/maxresdefault.jpg)](https://youtu.be/rIlo-JIiEAM)
 
 ### Level Design:
 
 All lighting work was done by me. Most of our project has been showcased using my initial lighting pass. This pass is mostly done in post processing, with Exposure, Color Correction, Fog, Ambient Occlusion, Bloom, Lift Gamma & Gain, Shadows Midtones & Highlights, Vignette, Panini Projection, Chromatic Abberation, Lens Distortion and Film Grain. Reflections were handled purely through Specular Highlights in our PBR shaders. This created high visual fidelity, but performance suffered, with average framerate on our test devices being around 20 FPS:
 
-[![Initial Lighting Pass](https://img.youtube.com/vi/XRqzWXBp-5o/maxresdefault.jpg)](https://youtu.be/XRqzWXBp-5o){target="_blank"}
+(Video, right click to open in new tab)
+[![Initial Lighting Pass](https://img.youtube.com/vi/XRqzWXBp-5o/maxresdefault.jpg)](https://youtu.be/XRqzWXBp-5o)
 
 The final lighting pass was much more optimized. The first step was taking out the less important post processing effects and imitating their effects with the remaining post processing effects, with reflections being handled by accumulative Screen Space Reflections:
 
-[![Final Lighting Pass](https://img.youtube.com/vi/vlJJwHPW3DQ/maxresdefault.jpg)](https://youtu.be/vlJJwHPW3DQ){target="_blank"}
+(Video, right click to open in new tab)
+[![Final Lighting Pass](https://img.youtube.com/vi/vlJJwHPW3DQ/maxresdefault.jpg)](https://youtu.be/vlJJwHPW3DQ)
 
 After that, light sources were optimized, by limiting the influence radius of all light sources. Indirect lighting was baked. Shadow resolutions were optimized. Reflections were optimized. All in all this brought the performance back to a very respectable 90 FPS.
 
