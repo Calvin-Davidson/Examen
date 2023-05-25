@@ -243,6 +243,59 @@ classDiagram
 
 I worked on the majority of the [level design and construction](https://github.com/Calvin-Davidson/Paraphrenia/wiki/Functional-Design#level-design). This includes placing walls, rooms, doors, furniture, etc. Once I finished with the layout, the artists did an art pass to further fill up the rooms with decor.
 
+### Interactions
+
+```mermaid
+---
+title: Interaction system
+---
+classDiagram
+    Interactable --|> IInteractable : Inheritance
+    NetworkedInteractable --|> IInteractable : Inheritance
+    Interactor --> IInteractable
+    class IInteractable{
+        <<Interface>>
+        +IsActive : bool
+        
+        +InteractorEnter() void;
+        +InteractorExit() void;
+        +DoInteract() void;
+    }
+    class Interactor{
+        +Camera interactorCamera;
+        +float interactionDistance = 10;
+        +KeyCode interactionKey = KeyCode.E;
+
+        -IInteractable _interactable;
+
+        +UnityEvent onInteractableGain;
+        +UnityEvent onInteractableLose;
+
+        -Update();
+        -CheckInteract()
+        -DoInteractionHit(RaycastHit, IInteractable)
+        -DoInteractionMiss()
+
+    }
+    class Interactable{
+        +UnityEvent onInteract;
+        +UnityEvent onInteractorEnter;
+        +UnityEvent onInteractorExit;
+    }
+    class NetworkedInteractable{
+        +UnityEvent onInteract;
+        +UnityEvent onInteractorEnter;
+        +UnityEvent onInteractorExit;
+
+        -InteractorEnterServerRpc()
+        -InteractorEnterClientRpc()
+        -InteractorExitServerRpc()
+        -InteractorExitClientRpc()
+        -DoInteractServerRpc()
+        -DoInteractClientRpc()
+    }
+    
+```
 
 ### Animations:
 For all characters i was responsible for creating the animation controllers and implement them accordingly. each of the animators is setup slightly different depending on how to should be controlled and how the states are handled.
