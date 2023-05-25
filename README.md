@@ -51,6 +51,8 @@ Scripts:
 title: Field of View
 ---
 classDiagram
+    note for ViewCastInfo "Struct"
+    note for EdgeInfo "Struct"
     FieldOfView <.. ViewCastInfo
     FieldOfView <.. EdgeInfo
     UVCalculator <.. FacingDirection
