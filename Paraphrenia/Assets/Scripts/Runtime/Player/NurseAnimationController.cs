@@ -8,11 +8,14 @@ namespace Runtime.Player
     {
         [SerializeField] private Animator animator;
         [SerializeField] private Rigidbody characterRigidbody;
+        [SerializeField] private Wheelchair wheelchair;
+        
 
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+        private static readonly int IsGrabbing = Animator.StringToHash("IsGrabbing");
         private const float MinWalkMagnitude = 0.1f;
 
-        private NetworkVariable<bool> _isWalking = new();
+        private NetworkVariable<bool> _isWalking = new(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
         private void Update()
         {
@@ -23,7 +26,6 @@ namespace Runtime.Player
             bool isWalking = moveDirection.magnitude > MinWalkMagnitude;
             _isWalking.Value = isWalking;
             animator.SetBool(IsWalking, isWalking);
-
         }
 
         public override void OnNetworkSpawn()
@@ -32,6 +34,12 @@ namespace Runtime.Player
             {
                 animator.SetBool(IsWalking, newValue);
             };
+
+            wheelchair.IsGrabbed.OnValueChanged += (oldValue, newValue) =>
+            {
+                animator.SetBool(IsGrabbing, newValue);
+            };
+            
             base.OnNetworkSpawn();
         }
     }
