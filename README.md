@@ -146,7 +146,7 @@ All lighting work was done by me. Most of our project has been showcased using m
 
 The final lighting pass was much more optimized. The first step was taking out the less important post processing effects and imitating their effects with the remaining post processing effects, with reflections being handled by accumulative Screen Space Reflections:
 
-[![Final Lighting Pass](https://img.youtube.com/vi/vlJJwHPW3DQ/maxresdefault.jpg)]https://youtu.be/vlJJwHPW3DQ)
+[![Final Lighting Pass](https://img.youtube.com/vi/vlJJwHPW3DQ/maxresdefault.jpg)](https://youtu.be/vlJJwHPW3DQ)
 
 After that, light sources were optimized, by limiting the influence radius of all light sources. Indirect lighting was baked. Shadow resolutions were optimized. Reflections were optimized. All in all this brought the performance back to a very respectable 90 FPS.
 
