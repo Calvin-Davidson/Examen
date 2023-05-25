@@ -1,16 +1,16 @@
-### Paraphrenia
+# Paraphrenia
 
 Paraphrenia is a 2 player online co-op Horror Puzzle game with asymmetrical gameplay.
 
-### Gameplay
+# Gameplay
 
 Paraphrenia is played online, with two players. Both players play a different role in the game. The first player plays a Mental Health Patient, called Edith Hall. The patient is restrained in a wheelchair. The Patient has the ability to look trough the ghost's eyes and can see paranormal activity, which they must communicate to the second player in order to solve puzzles. The second player plays a Nurse. The nurse can move the wheelchair around and ask the patient questions through "in-game" chat, though they can also walk around alone. The player's need to communicate with eachother to solve the various puzzles found in the Psych ward.
 
-### Horror Story
+# Horror Story
 
 This game takes place in 1997 America, in an old Psych Ward. There is a ghost haunting the building that only the Patient can see, because of their personal connection to the ghost. The ghost tries to drive the patient insane, and will not shy away from violence and deceit to do so. During the game, the Patient needs to warn the Nurse to hide from the ghost's attacks. The ghost also moves objects, including the Patient's wheelchair.
 
-### Team
+# Team
 
 The team behind Paraphrenia is called Ribbit Games. This team is a team of 7:
 
@@ -40,17 +40,19 @@ Lead Developer, Networking Engineer
 
 [High Action Soundtrack](https://musescore.com/user/3171721/scores/10967170) made for chase moments in the game. It was composed in Musescore 4, and is implemented in-game as-is.
 
-[Sound effects](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Sound) made specifically for the game, by recording source audio in MA's radio studio, as well as sound effects sourced from the internet. All sounds are mixed and tuned by me.
+[Sound effects](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Sound) made specifically for the game, by recording source audio in MA's radio studio, as well as sound effects sourced from the internet. All sounds are mixed and tuned by me. These include but are not limited to: Footsteps, ambient sound effects and voice lines.
 
 ### Scripts:
 
-[High level event management](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/LevelEvents)
+[High level event management](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/LevelEvents). Scripts that can activate functionality based on random timers, or volume triggers.
 
-[High level gameplay functionality](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/GameplayScripts)
+[High level gameplay functionality](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/GameplayScripts). Controllers that affect functionality of lights, emissive materials, and can move objects through lerping.
 
-[Custom sound cue system](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Sound)
+[Lerp controller and easing dictionary](https://github.com/Calvin-Davidson/Paraphrenia/tree/feature/readme_cleanup/Paraphrenia/Assets/Scripts/Runtime/Misc). Lerping tools that can provide emergent behavior by changing how the object moves from A to B algorithmically.
 
-[AI systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/AI)
+[Custom sound cue system](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Sound). This allows an audio source to pick and play randomized sound effects, which greatly enhances immersion.
+
+[AI systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/AI). Complete AI controller with state machine, as well as a set of scripts that drive visualization of the AI's field of view and an [editor script for field of view settings](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor). Displaying the field of view in-game is handled through procedural mesh generation:
 
 ```mermaid
 ---
@@ -120,16 +122,21 @@ classDiagram
       +Vector2[] uvs
     }
 ```
+
+Design sheets for the state machine and targeting system:
+
 ![AI State Machine](https://user-images.githubusercontent.com/53999981/234538534-a6f342ed-db93-4ed9-a66f-6a10bdfddec8.png)
 ![AI Targeting](https://user-images.githubusercontent.com/53999981/234538559-6af92e44-fab0-4901-99e3-e12317d044fc.png)
-
-[Editor script for field of view script](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor)
 
 ### Shader work:
 
 I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders) to give a strong visual distinction between the Enemy's view and a player's view. You can compare it here:
 
 ![PostProcessing](https://github.com/Calvin-Davidson/Paraphrenia/assets/34209869/30cbc739-0535-486c-b775-9d253ddc99bc)
+
+This shader has a broad amount of settings that can be used to change the final effect:
+
+[![Post Processing Shader](https://img.youtube.com/vi/rIlo-JIiEAM/maxresdefault.jpg)](https://youtu.be/rIlo-JIiEAM)
 
 ### Level Design:
 
