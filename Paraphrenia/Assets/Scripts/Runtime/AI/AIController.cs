@@ -17,7 +17,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(FieldOfView))]
 public class AIController : MonoBehaviour
 {
-    public AIState aiState = AIState.Roaming;
+    private AIState _aiState = AIState.Roaming;
 
     [SerializeField] private GameObject[] targets;
     [Tooltip("How close the AI will try to get to a roam target, in meters.")]
@@ -46,6 +46,19 @@ public class AIController : MonoBehaviour
     private Vector3 _lastKnownTargetPosition;
     
     public UnityEvent onCaughtPlayer = new();
+    public UnityEvent<AIState> onStateChange = new();
+
+    public AIState AIState
+    {
+        get => _aiState;
+        set
+        {
+            // should not be set to itself.
+            if (_aiState == value) return;
+            _aiState = value;
+            onStateChange?.Invoke(value);
+        }
+    }
 
     private void Awake()
     {
@@ -66,26 +79,26 @@ public class AIController : MonoBehaviour
 
             if(_accumulatedAggro >= aggroTime)
             {
-                aiState = AIState.Chasing;
+                AIState = AIState.Chasing;
                 _timeSinceLastChase = 0;
             }
         }
-        else if(aiState == AIState.Chasing)
+        else if(AIState == AIState.Chasing)
         {
-            aiState = AIState.Searching;
+            AIState = AIState.Searching;
             _invertSearchPattern = RandomBool();
         }
-        else if(aiState == AIState.Searching && _timeSinceLastChase >= searchTime)
+        else if(AIState == AIState.Searching && _timeSinceLastChase >= searchTime)
         {
-            aiState = AIState.Roaming;
+            AIState = AIState.Roaming;
         }
-        else if (aiState == AIState.Roaming)
+        else if (AIState == AIState.Roaming)
         {
             _accumulatedAggro -= Time.deltaTime * aggroDecayRate;
             if (_accumulatedAggro < 0) _accumulatedAggro = 0;
         }
 
-        switch (aiState)
+        switch (AIState)
         {
             case AIState.Chasing:
                 OnChase();
@@ -162,7 +175,7 @@ public class AIController : MonoBehaviour
         if (Vector3.Distance(transform.position, _lastKnownTargetPosition) <= targetAccuracy)
         {
             _timeSinceLastChase = 0;
-            aiState = AIState.Searching;
+            AIState = AIState.Searching;
         }
     }
 
@@ -189,7 +202,7 @@ public class AIController : MonoBehaviour
     public void ForceNewTarget(Transform transform)
     {
         _lastKnownTargetPosition = transform.position;
-        aiState = AIState.ForcedHunt;
+        AIState = AIState.ForcedHunt;
     }
 
     private IEnumerator SelectNewTarget(int oldIndex)
