@@ -52,7 +52,12 @@ Lead Developer, Networking Engineer
 
 [Custom sound cue system](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Sound). This allows an audio source to pick and play randomized sound effects, which greatly enhances immersion.
 
-[AI systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/AI). Complete AI controller with state machine, as well as a set of scripts that drive visualization of the AI's field of view and an [editor script for field of view settings](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor). Displaying the field of view in-game is handled through procedural mesh generation:
+### AI Systems:
+
+![AI State Machine](https://user-images.githubusercontent.com/53999981/234538534-a6f342ed-db93-4ed9-a66f-6a10bdfddec8.png)
+![AI Targeting](https://user-images.githubusercontent.com/53999981/234538559-6af92e44-fab0-4901-99e3-e12317d044fc.png)
+
+[AI systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/AI). Complete AI controller with state machine, as well as a set of scripts that drive visualization of the AI's field of view and an [editor script for field of view settings](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor).
 
 ```mermaid
 ---
@@ -123,12 +128,12 @@ classDiagram
     }
 ```
 
-Design sheets for the state machine and targeting system:
+Displaying the field of view in-game is handled through procedural mesh generation:
 
-![AI State Machine](https://user-images.githubusercontent.com/53999981/234538534-a6f342ed-db93-4ed9-a66f-6a10bdfddec8.png)
-![AI Targeting](https://user-images.githubusercontent.com/53999981/234538559-6af92e44-fab0-4901-99e3-e12317d044fc.png)
+(Video, right click to open in new tab)
+[![Post Processing Shader](https://img.youtube.com/vi/7quQo6734I8/maxresdefault.jpg)](https://youtu.be/7quQo6734I8)
 
-### Shader work:
+### Shaders:
 
 I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders) to give a strong visual distinction between the Enemy's view and a player's view. You can compare it here:
 
@@ -136,8 +141,10 @@ I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson
 
 This shader has a broad amount of settings that can be used to change the final effect:
 
-(Video, right click to open in new tab)
+
 [![Post Processing Shader](https://img.youtube.com/vi/rIlo-JIiEAM/maxresdefault.jpg)](https://youtu.be/rIlo-JIiEAM)
+
+I was also responsible for setting up the full PBR workflow within our project, which ensures physically correct materials, increasing visual fidelity while staying realistic. The PBR shaders themselves were made partly by Sophie, partly by me.
 
 ### Level Design:
 
@@ -153,12 +160,19 @@ The final lighting pass was much more optimized. The first step was taking out t
 
 After that, light sources were optimized, by limiting the influence radius of all light sources. Indirect lighting was baked. Shadow resolutions were optimized. Reflections were optimized. All in all this brought the performance back to a very respectable 90 FPS.
 
+### Client communication:
+
+I was responsible for all [communication with the client](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/ClientCommunication). This was done through email.
+
 ## Calvin
 
-[NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
+### Scripts:
+
+I was responsible for [nearly all networking systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking), including the session hosting/joining systems, multiplayer replication, [networked events](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent), animation replication, as well as object (player) location replication.
+
 ```mermaid
 ---
-title: Camera system
+title: Networked Unity Event
 ---
 classDiagram
     note for UnityEvent "Default unity event"
@@ -193,16 +207,12 @@ classDiagram
     Everyone
 }
 ```
-[All/Most Networking logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking)
 
-[Level designs](https://github.com/Calvin-Davidson/Paraphrenia/wiki/Functional-Design#level-design)
+I was also responsible for the [player movement and camera logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Player). This also includes a [camera shake system](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/CameraSystems):
 
-[Player movement / Camera logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Player)
-
-[CameraShake](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/CameraSystems)
 ```mermaid
 ---
-title: Camera system
+title: Camera Shake System
 ---
 classDiagram
     CameraData <|-- CameraShakeImpulse
@@ -228,3 +238,7 @@ classDiagram
         +Pulse()
     }
 ```
+
+### Level Design:
+
+I worked on the majority of the [level design and construction](https://github.com/Calvin-Davidson/Paraphrenia/wiki/Functional-Design#level-design). This includes placing walls, rooms, doors, furniture, etc. Once I finished with the layout, the artists did an art pass to further fill up the rooms with decor.
