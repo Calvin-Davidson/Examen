@@ -51,8 +51,6 @@ Scripts:
 title: Field of View
 ---
 classDiagram
-    note for ViewCastInfo "Struct"
-    note for EdgeInfo "Struct"
     FieldOfView <.. ViewCastInfo
     FieldOfView <.. EdgeInfo
     UVCalculator <.. FacingDirection
@@ -60,14 +58,16 @@ classDiagram
     UVCalculator <.. FieldOfView
     ProceduralMesh <.. UVCalculator
     class ViewCastInfo{
+        <<struct>>
         +bool hit
-		+Vector3 point
-		+float distance
-		+float angle
+		    +Vector3 point
+		    +float distance
+		    +float angle
     }
     class EdgeInfo{
+        <<struct>>
         +Vector3 pointA
-		+Vector3 pointB
+		    +Vector3 pointB
     }
     class FacingDirection{
         <<enumeration>>
