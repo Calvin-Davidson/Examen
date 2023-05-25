@@ -32,7 +32,7 @@ Lead Developer, Networking Engineer
 
 # Geproduceerde Game Onderdelen
 
-## Ingmar
+# Ingmar
 
 ### Compositions and SFX:
 
@@ -164,7 +164,7 @@ After that, light sources were optimized, by limiting the influence radius of al
 
 I was responsible for all [communication with the client](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/ClientCommunication). This was done through email.
 
-## Calvin
+# Calvin
 
 ### Scripts:
 
