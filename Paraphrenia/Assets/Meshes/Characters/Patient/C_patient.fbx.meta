@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperArm' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -35,7 +36,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -79,8 +80,210 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thigh_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thigh_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shin_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shin_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Toes_L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Toes_R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest.001
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: C_patient(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Light
+      parentName: C_patient(Clone)
+      position: {x: -0.00040762452, y: 0.0005903862, z: -0.00010054539}
+      rotation: {x: 0.52327543, y: -0.34203392, z: 0.72694236, w: 0.28416622}
+      scale: {x: 100.00001, y: 100, z: 100}
+    - name: Armature
+      parentName: C_patient(Clone)
+      position: {x: -1.4215595e-23, y: 0.00000006402135, z: -0.00000019478799}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Hips
+      parentName: Armature
+      position: {x: 5.2237986e-10, y: 0.0000001651393, z: 0.0000009590358}
+      rotation: {x: 0.7154261, y: -0.00000008329011, z: -0.0000000852854, w: 0.6986885}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Thigh_R
+      parentName: Hips
+      position: {x: 0.000000106793664, y: -0.000000011271869, z: 0.000000054725902}
+      rotation: {x: -0.0005231426, y: 0.04752913, z: 0.9977079, w: -0.0481628}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000001}
+    - name: Shin_R
+      parentName: Thigh_R
+      position: {x: 3.7252903e-15, y: 0.00000039414218, z: 7.986091e-14}
+      rotation: {x: -0.03626703, y: 0.0009153043, z: 0.0043463665, w: 0.9993323}
+      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000004}
+    - name: Foot_R
+      parentName: Shin_R
+      position: {x: -1.8626451e-15, y: 0.0000004785425, z: -5.9098963e-15}
+      rotation: {x: 0.49583983, y: 0.21705988, z: 0.1403565, w: 0.82905245}
+      scale: {x: 1.0000002, y: 0.99999976, z: 0.9999999}
+    - name: Toes_R
+      parentName: Foot_R
+      position: {x: 3.7252902e-14, y: 0.00000011400046, z: 5.9604645e-14}
+      rotation: {x: 0.1266202, y: -0.01670171, z: 0.12411967, w: 0.98401356}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000004}
+    - name: Spine
+      parentName: Hips
+      position: {x: -1.4424017e-18, y: 0.00000014402873, z: -2.8064224e-14}
+      rotation: {x: 0.040683303, y: 1.0658142e-14, z: -0.000000009699623, w: 0.99917215}
+      scale: {x: 1, y: 0.9999998, z: 0.99999976}
+    - name: Chest
+      parentName: Spine
+      position: {x: 6.440182e-18, y: 0.0000001725246, z: -3.849835e-15}
+      rotation: {x: -0.045348868, y: -5.962625e-14, z: 0.000000010811997, w: 0.9989712}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Chest.001
+      parentName: Chest
+      position: {x: -3.4883983e-17, y: 0.00000025249443, z: -8.040786e-15}
+      rotation: {x: -0.007165569, y: 3.555865e-14, z: 0.0000000017084063, w: 0.99997437}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Neck
+      parentName: Chest.001
+      position: {x: 2.4424906e-18, y: 0.000000058428277, z: -1.2454506e-16}
+      rotation: {x: 0.047116872, y: -7.519669e-14, z: -0.000000011233542, w: 0.99888945}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Head
+      parentName: Neck
+      position: {x: -5.1628035e-17, y: 0.00000006451307, z: -4.4828026e-14}
+      rotation: {x: 0.008039418, y: 4.6062604e-14, z: -0.000000001916747, w: 0.99996775}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: Thigh_L
+      parentName: Hips
+      position: {x: -0.00000010679363, y: -0.000000011271921, z: 0.000000054725906}
+      rotation: {x: 0.00052362314, y: 0.04752914, z: 0.9977079, w: 0.048162792}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000001}
+    - name: Shin_L
+      parentName: Thigh_L
+      position: {x: 1.3038515e-14, y: 0.00000039414226, z: 8.958159e-14}
+      rotation: {x: -0.03626702, y: -0.0009155425, z: -0.004346361, w: 0.9993323}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000007}
+    - name: Foot_L
+      parentName: Shin_L
+      position: {x: -3.4458937e-14, y: 0.0000004785425, z: 1.11795085e-14}
+      rotation: {x: 0.49583966, y: -0.2170595, z: -0.14035676, w: 0.82905257}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: Toes_L
+      parentName: Foot_L
+      position: {x: 2.9802322e-14, y: 0.00000011400048, z: -5.215406e-14}
+      rotation: {x: 0.12662031, y: 0.016701205, z: -0.12411955, w: 0.98401356}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000004}
+    - name: C_Patient
+      parentName: C_patient(Clone)
+      position: {x: -1.4215595e-23, y: 0.00000006402135, z: -0.00000019478799}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -88,16 +291,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.0001
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
