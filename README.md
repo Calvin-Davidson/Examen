@@ -114,6 +114,8 @@ classDiagram
       +Vector2[] uvs
     }
 ```
+![AI State Machine](https://user-images.githubusercontent.com/53999981/234538534-a6f342ed-db93-4ed9-a66f-6a10bdfddec8.png)
+![AI Targeting](https://user-images.githubusercontent.com/53999981/234538559-6af92e44-fab0-4901-99e3-e12317d044fc.png)
 
 [Editor script for field of view script](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor)
 [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders)
