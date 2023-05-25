@@ -264,3 +264,5 @@ The wheelchair animator is a bit unique, the wheelchair animator is just one big
 The EnemyAnimator is the simpelest as it simply set's the animation based on the EnemyAI state. The animation managment is still done in it's own script to make it easy to change or add new states.
 
 <img width="720" alt="image" src="https://github.com/Calvin-Davidson/Paraphrenia/assets/53999981/afef7c52-bb5f-463d-87ee-c87f6fce8c0a.png">
+
+There are still other animators but these three are the most interesting and unique. 
