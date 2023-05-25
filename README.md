@@ -72,14 +72,14 @@ classDiagram
         -MeshFilter viewMeshFilter
         -Mesh _viewMesh
 
-        +DirectionFromAngle(float angleInDegrees, bool angleIsGlobal) Vector3
+        +DirectionFromAngle(float, bool) Vector3
         -Start()
         -LateUpdate()
-        -FindTargetsWithDelay(float delay) IEnumerator
+        -FindTargetsWithDelay(float) IEnumerator
         -FindVisibleTargets()
         -DrawFieldOfView()
-        -FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast) EdgeInfo
-        -ViewCast(float globalAngle) ViewCastInfo
+        -FindEdge(ViewCastInfo, ViewCastInfo) EdgeInfo
+        -ViewCast(float) ViewCastInfo
     }
     class UVCalculator{
         <<enumeration>>
@@ -87,11 +87,11 @@ classDiagram
         Forward
         Right
 
-        +CalculateUVs(Vector3[] vertices, float scale, bool clipToBounds = false) Vector2[]
-        -CalculateDirection(Vector3 v) FacingDirection
-        -DotCalculator(Vector3 v, Vector3 dir, FacingDirection p, ref float maxDot, ref FacingDirection normalDirection) bool
-        -ScaleUV(float uv1, float uv2, float scale, bool clipToBounds = false, float boundsX = 1, float boundsY = 1) Vector2
-        -RecalculateBounds(Vector3 vertex, ref Vector3 startLocation, ref Vector3 endLocation)
+        +CalculateUVs(Vector3[], float, bool) Vector2[]
+        -CalculateDirection(Vector3) FacingDirection
+        -DotCalculator(Vector3, Vector3, FacingDirection, ref float, ref FacingDirection) bool
+        -ScaleUV(float, float, float, bool, float, float) Vector2
+        -RecalculateBounds(Vector3, ref Vector3, ref Vector3)
     }
     class ProceduralMesh {
 
