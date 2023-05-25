@@ -35,15 +35,21 @@ Lead Developer, Networking Engineer
 #### Ingmar
 
 Compositions and SFX:
-[Soundtrack 1 Final Production](https://soundcloud.com/catequil/paraphrenia-soundtrack)
-[Soundtrack 1 Score](https://musescore.com/user/3171721/scores/10967167)
-[Soundtrack 2 Score](https://musescore.com/user/3171721/scores/10967170)
-[Sound effects](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Sound)
+
+[Main Soundtrack](https://soundcloud.com/catequil/paraphrenia-soundtrack) made for the game. Initial [Piano Score](https://musescore.com/user/3171721/scores/10967167) was composed in Musescore 4, then produced in Cakewalk. This song plays during the main menu, as well as in-game during certain moments.
+
+[High Action Soundtrack](https://musescore.com/user/3171721/scores/10967170) made for chase moments in the game. It was composed in Musescore 4, and is implemented in-game as-is.
+
+[Sound effects](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Sound) made specifically for the game, by recording source audio in MA's radio studio, as well as sound effects sourced from the internet. All sounds are mixed and tuned by me.
 
 Scripts:
+
 [High level event management](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/LevelEvents)
+
 [High level gameplay functionality](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/GameplayScripts)
+
 [Custom sound cue system](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Sound)
+
 [AI systems](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/AI)
 
 ```mermaid
@@ -118,6 +124,7 @@ classDiagram
 ![AI Targeting](https://user-images.githubusercontent.com/53999981/234538559-6af92e44-fab0-4901-99e3-e12317d044fc.png)
 
 [Editor script for field of view script](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor)
+
 [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders)
 
 #### Calvin
