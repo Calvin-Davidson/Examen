@@ -106,39 +106,49 @@ classDiagram
 [NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
 ```mermaid
 ---
-title: Camera system
+title: Field of View
 ---
 classDiagram
-    note for UnityEvent "Default unity event"
-    UnityEvent <|-- NetworkEvent
-    NetworkEventPermission <|-- NetworkEvent
-    class NetworkEvent{
-        -NetworkEventPermission _invokePermission;
-        -NetworkObject _ownerObject;
-        -string _eventNameID;
+    ProceduralMesh <.. FieldOfView
+    UVCalculator <.. FieldOfView
+    ProceduralMesh <.. UVCalculator
+    class FieldOfView{
+        +struct ViewCastInfo
+        +struct EdgeInfo
+        +float viewRadius
+        +float viewAngle
+        +LayerMask targetMask
+        +LayerMask obstacleMask
 
-        _bool _isInitialized;
+        -bool drawFieldOfView
+        -bool clampUvToBounds
+        -float tickDelay
+        -float meshResolution
+        -float uvResolution
+        -float edgeDistanceThreshold
+        -int edgeResolveIterations
+        -MeshFilter viewMeshFilter
+        -Mesh _viewMesh
 
-        +UnityEvent called;
-        +UnityEvent calledClient;
-        +UnityEvent calledServer;
-
-        +NetworkEvent(NetworkEventPermission);
-        +Initialize();
-        +Dispose();
-        +Invoke();
-        -CanInvoke();
-        -ReceiveMessage();
+        +DirectionFromAngle(float, bool) Vector3
+        -Start()
+        -LateUpdate()
+        -FindTargetsWithDelay(float) IEnumerator
+        -FindVisibleTargets()
+        -DrawFieldOfView()
+        -FindEdge(ViewCastInfo, ViewCastInfo) EdgeInfo
+        -ViewCast(float) ViewCastInfo
     }
-    class UnityEvent {
+    class UVCalculator{
 
+        +CalculateUVs(Vector3[], float, bool) Vector2[]
+        -CalculateDirection(Vector3) FacingDirection
+        -DotCalculator(Vector3, Vector3, FacingDirection, ref float, ref FacingDirection) bool
+        -ScaleUV(float, float, float, bool, float, float) Vector2
+        -RecalculateBounds(Vector3, ref Vector3, ref Vector3)
     }
+    class ProceduralMesh {
 
-    class NetworkEventPermission{
-    <<enumeration>>
-    Server
-    Owner
-    Everyone
 }
 ```
 [All/Most Networking logic](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking)
