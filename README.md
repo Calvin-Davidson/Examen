@@ -101,6 +101,7 @@ classDiagram
         -ViewCast(float) ViewCastInfo
     }
     class UVCalculator{
+        <<static class>>
         +CalculateUVs(Vector3[], float, bool) Vector2[]
         -CalculateDirection(Vector3) FacingDirection
         -DotCalculator(Vector3, Vector3, FacingDirection, ref float, ref FacingDirection) bool
