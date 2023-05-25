@@ -109,7 +109,9 @@ classDiagram
         -RecalculateBounds(Vector3, ref Vector3, ref Vector3)
     }
     class ProceduralMesh {
-
+      +Vector3[] vertices
+      +Vector3[] faces
+      +Vector2[] uvs
     }
 ```
 
