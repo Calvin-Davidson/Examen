@@ -127,6 +127,10 @@ classDiagram
 
 [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders)
 
+Level Design:
+
+![Lighting Pass](https://github.com/Calvin-Davidson/Paraphrenia/blob/feature/readme_cleanup/DemoReels/LightingPass.mov)
+
 #### Calvin
 
 [NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
