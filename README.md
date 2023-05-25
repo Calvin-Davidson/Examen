@@ -30,11 +30,11 @@ Lead Designer, Product owner, Developer, Sound Engineer
 Lead Developer, Networking Engineer
 
 
-### Geproduceerde Game Onderdelen
+# Geproduceerde Game Onderdelen
 
-#### Ingmar
+## Ingmar
 
-Compositions and SFX:
+### Compositions and SFX:
 
 [Main Soundtrack](https://soundcloud.com/catequil/paraphrenia-soundtrack) made for the game. Initial [Piano Score](https://musescore.com/user/3171721/scores/10967167) was composed in Musescore 4, then produced in Cakewalk. This song plays during the main menu, as well as in-game during certain moments.
 
@@ -42,7 +42,7 @@ Compositions and SFX:
 
 [Sound effects](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Sound) made specifically for the game, by recording source audio in MA's radio studio, as well as sound effects sourced from the internet. All sounds are mixed and tuned by me.
 
-Scripts:
+### Scripts:
 
 [High level event management](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/LevelEvents)
 
@@ -125,11 +125,11 @@ classDiagram
 
 [Editor script for field of view script](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Editor)
 
-Shader work:
+### Shader work:
 
 I made a custom [HLSL post processing shader](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Shaders/PostProcessing_Shaders) to give a strong visual distinction between the Enemy's view and a player's view. You can compare it here:
 
-Level Design:
+### Level Design:
 
 All lighting work was done by me. Most of our project has been showcased using my initial lighting pass. This pass is mostly done in post processing, with Exposure, Color Correction, Fog, Ambient Occlusion, Bloom, Lift Gamma & Gain, Shadows Midtones & Highlights, Vignette, Panini Projection, Chromatic Abberation, Lens Distortion and Film Grain. Reflections were handled purely through Specular Highlights in our PBR shaders. This created high visual fidelity, but performance suffered, with average framerate on our test devices being around 20 FPS:
 
@@ -141,7 +141,7 @@ The final lighting pass was much more optimized. The first step was taking out t
 
 After that, light sources were optimized, by limiting the influence radius of all light sources. Indirect lighting was baked. Shadow resolutions were optimized. Reflections were optimized. All in all this brought the performance back to a very respectable 90 FPS.
 
-#### Calvin
+## Calvin
 
 [NetworkEvent](https://github.com/Calvin-Davidson/Paraphrenia/tree/develop/Paraphrenia/Assets/Scripts/Runtime/Networking/NetworkEvent)
 ```mermaid
