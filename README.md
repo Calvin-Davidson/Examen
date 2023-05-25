@@ -95,7 +95,6 @@ classDiagram
     }
     class ProceduralMesh {
 
-    }
 }
 ```
 
