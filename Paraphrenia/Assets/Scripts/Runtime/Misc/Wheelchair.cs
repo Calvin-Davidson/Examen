@@ -82,7 +82,7 @@ namespace Runtime.Misc
 
         private void LateUpdate()
         {
-            if (_playerCollider == null) return;
+            if (_grabberTransform == null) return;
             
             if (_isGrabbed.Value)
             {
@@ -92,7 +92,6 @@ namespace Runtime.Misc
             
             _previousPosition = _grabberTransform.position;
             _previousRotation = _grabberTransform.eulerAngles;
-
         }
 
         private void DoGrab()
