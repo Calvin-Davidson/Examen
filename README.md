@@ -242,3 +242,80 @@ classDiagram
 ### Level Design:
 
 I worked on the majority of the [level design and construction](https://github.com/Calvin-Davidson/Paraphrenia/wiki/Functional-Design#level-design). This includes placing walls, rooms, doors, furniture, etc. Once I finished with the layout, the artists did an art pass to further fill up the rooms with decor.
+
+### Interactions
+
+```mermaid
+---
+title: Interaction system
+---
+classDiagram
+    Interactable --|> IInteractable : Inheritance
+    NetworkedInteractable --|> IInteractable : Inheritance
+    Interactor --> IInteractable
+    class IInteractable{
+        <<Interface>>
+        +IsActive : bool
+        
+        +InteractorEnter() void;
+        +InteractorExit() void;
+        +DoInteract() void;
+    }
+    class Interactor{
+        +Camera interactorCamera;
+        +float interactionDistance = 10;
+        +KeyCode interactionKey = KeyCode.E;
+
+        -IInteractable _interactable;
+
+        +UnityEvent onInteractableGain;
+        +UnityEvent onInteractableLose;
+
+        -Update();
+        -CheckInteract()
+        -DoInteractionHit(RaycastHit, IInteractable)
+        -DoInteractionMiss()
+
+    }
+    class Interactable{
+        +UnityEvent onInteract;
+        +UnityEvent onInteractorEnter;
+        +UnityEvent onInteractorExit;
+    }
+    class NetworkedInteractable{
+        +UnityEvent onInteract;
+        +UnityEvent onInteractorEnter;
+        +UnityEvent onInteractorExit;
+
+        -InteractorEnterServerRpc()
+        -InteractorEnterClientRpc()
+        -InteractorExitServerRpc()
+        -InteractorExitClientRpc()
+        -DoInteractServerRpc()
+        -DoInteractClientRpc()
+    }
+    
+```
+
+### Animations:
+For all characters i was responsible for creating the animation controllers and implement them accordingly. each of the animators is setup slightly different depending on how to should be controlled and how the states are handled.
+
+**NurseAnimator:**
+
+The nurse animator is the most complex as it has a lot of dependecies, is has to know wether or not it's holding something and wether or not it's walking. All the state managment is done in the animator itself, The NurseAnimationController is only used to set the animators parameters
+
+<img width="720" alt="image" src="https://github.com/Calvin-Davidson/Paraphrenia/assets/53999981/4c04d843-8fd8-4056-a246-3d0a0bcc7147.png">
+
+**WheelchairAnimator:**
+
+The wheelchair animator is a bit unique, the wheelchair animator is just one big blend tree that blends between the different positions it has based on the clients input presented in witdth and height.
+
+<img width="720" alt="image" src="https://github.com/Calvin-Davidson/Paraphrenia/assets/53999981/f252a5b3-a798-46d0-9b17-8bece18a0f10).png">
+
+**EnemyAnimator:**
+
+The EnemyAnimator is the simpelest as it simply set's the animation based on the EnemyAI state. The animation managment is still done in it's own script to make it easy to change or add new states.
+
+<img width="720" alt="image" src="https://github.com/Calvin-Davidson/Paraphrenia/assets/53999981/afef7c52-bb5f-463d-87ee-c87f6fce8c0a.png">
+
+There are still other animators but these three are the most interesting and unique. 
